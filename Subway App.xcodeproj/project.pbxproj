@@ -17,6 +17,7 @@
 		A0AF9B852950C03600536352 /* Subway_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B842950C03600536352 /* Subway_AppTests.swift */; };
 		A0AF9B8F2950C03600536352 /* Subway_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B8E2950C03600536352 /* Subway_AppUITests.swift */; };
 		A0AF9B912950C03600536352 /* Subway_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B902950C03600536352 /* Subway_AppUITestsLaunchTests.swift */; };
+		A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B9D2950CEE300536352 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A0AF9B8A2950C03600536352 /* Subway AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Subway AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AF9B8E2950C03600536352 /* Subway_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subway_AppUITests.swift; sourceTree = "<group>"; };
 		A0AF9B902950C03600536352 /* Subway_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subway_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A0AF9B9D2950CEE300536352 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				A0AF9B782950C03600536352 /* LaunchScreen.storyboard */,
 				A0AF9B7B2950C03600536352 /* Info.plist */,
 				A0AF9B732950C03500536352 /* Subway_App.xcdatamodeld */,
+				A0AF9B9D2950CEE300536352 /* Networking.swift */,
 			);
 			path = "Subway App";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
+				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
 				A0AF9B752950C03500536352 /* Subway_App.xcdatamodeld in Sources */,
 				A0AF9B6D2950C03500536352 /* SceneDelegate.swift in Sources */,
