@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="-1772.3076923076922" y="-756.39810426540282"/>
         </scene>
-        <!--View Controller-->
+        <!--Nearest Station View-->
         <scene sceneID="3PY-8E-4yn">
             <objects>
-                <viewController id="dwz-w8-roR" sceneMemberID="viewController">
+                <viewController id="dwz-w8-roR" customClass="NearestStationView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A9B-ue-4us">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,34 +89,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="NJk-k4-bNk"/>
-                    <connections>
-                        <segue destination="rZv-al-1Tz" kind="show" id="jQ5-MV-aCZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNh-wJ-gtN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-703.07692307692309" y="-1035.0710900473932"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="ya8-EV-OlI">
-            <objects>
-                <viewController id="rZv-al-1Tz" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Gd-bl-Zss">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="hgQ-ZI-O8S"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="fsy-uf-smg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G4y-bf-MVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="214" y="-1035"/>
-        </scene>
-        <!--View Controller-->
+        <!--Show Subway Map View-->
         <scene sceneID="92r-pP-mA2">
             <objects>
-                <viewController id="F9T-fk-X9k" sceneMemberID="viewController">
+                <viewController id="F9T-fk-X9k" customClass="ShowSubwayMapView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yge-L9-Ouo">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="-709" y="403"/>
         </scene>
-        <!--View Controller-->
+        <!--Display Data View-->
         <scene sceneID="sVQ-vz-1pb">
             <objects>
-                <viewController id="5dJ-94-g5q" sceneMemberID="viewController">
+                <viewController id="5dJ-94-g5q" customClass="DisplayDataView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ez-U7-N4r">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="-703" y="1108"/>
         </scene>
-        <!--View Controller-->
+        <!--Calculate Route View-->
         <scene sceneID="soD-ah-b2x">
             <objects>
-                <viewController id="MBJ-Tg-2dK" sceneMemberID="viewController">
+                <viewController id="MBJ-Tg-2dK" customClass="CalculateRouteView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="twN-7c-V4C">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,10 +164,29 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="e1c-Nx-Wq8"/>
+                    <connections>
+                        <segue destination="hqo-2o-jpq" kind="show" id="T4e-KP-Luj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzQ-tB-MeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-703.07692307692309" y="-323.45971563981038"/>
+        </scene>
+        <!--Route View-->
+        <scene sceneID="KKZ-lw-tRZ">
+            <objects>
+                <viewController id="hqo-2o-jpq" customClass="RouteView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FF3-5e-EXA">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uaC-Zt-E2C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="muh-qK-Wwl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPL-Ig-bft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="171" y="-323"/>
         </scene>
         <!--Item-->
         <scene sceneID="60n-P1-h32">

@@ -18,6 +18,11 @@
 		A0AF9B8F2950C03600536352 /* Subway_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B8E2950C03600536352 /* Subway_AppUITests.swift */; };
 		A0AF9B912950C03600536352 /* Subway_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B902950C03600536352 /* Subway_AppUITestsLaunchTests.swift */; };
 		A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B9D2950CEE300536352 /* Networking.swift */; };
+		A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA0295CAF6E00536352 /* NearestStationView.swift */; };
+		A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA2295CAFB900536352 /* CalculateRouteView.swift */; };
+		A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */; };
+		A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */; };
+		A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA8295CB08000536352 /* RouteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		A0AF9B8E2950C03600536352 /* Subway_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subway_AppUITests.swift; sourceTree = "<group>"; };
 		A0AF9B902950C03600536352 /* Subway_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subway_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A0AF9B9D2950CEE300536352 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		A0AF9BA0295CAF6E00536352 /* NearestStationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStationView.swift; sourceTree = "<group>"; };
+		A0AF9BA2295CAFB900536352 /* CalculateRouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateRouteView.swift; sourceTree = "<group>"; };
+		A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSubwayMapView.swift; sourceTree = "<group>"; };
+		A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDataView.swift; sourceTree = "<group>"; };
+		A0AF9BA8295CB08000536352 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,7 @@
 		A0AF9B692950C03500536352 /* Subway App */ = {
 			isa = PBXGroup;
 			children = (
+				A0AF9B9F295CAF4300536352 /* ViewControllers */,
 				A0AF9B6A2950C03500536352 /* AppDelegate.swift */,
 				A0AF9B6C2950C03500536352 /* SceneDelegate.swift */,
 				A0AF9B6E2950C03500536352 /* ViewController.swift */,
@@ -131,6 +142,18 @@
 				A0AF9B902950C03600536352 /* Subway_AppUITestsLaunchTests.swift */,
 			);
 			path = "Subway AppUITests";
+			sourceTree = "<group>";
+		};
+		A0AF9B9F295CAF4300536352 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0AF9BA0295CAF6E00536352 /* NearestStationView.swift */,
+				A0AF9BA2295CAFB900536352 /* CalculateRouteView.swift */,
+				A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */,
+				A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */,
+				A0AF9BA8295CB08000536352 /* RouteView.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,8 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
+				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
+				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
+				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
+				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
 				A0AF9B752950C03500536352 /* Subway_App.xcdatamodeld in Sources */,
 				A0AF9B6D2950C03500536352 /* SceneDelegate.swift in Sources */,
