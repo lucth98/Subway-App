@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+
 class DisplayDataView: UIViewController {
 
     override func viewDidLoad() {
@@ -15,7 +16,7 @@ class DisplayDataView: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        
+       
     }
 
 

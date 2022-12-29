@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class ShowSubwayMapView: UIViewController {
 
@@ -15,6 +16,7 @@ class ShowSubwayMapView: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //test
+        mapView.mapType = MKMapType.hybrid
         
         
     }

@@ -17,45 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
-                                <rect key="frame" x="102" y="200" width="142" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Nearest Station"/>
-                                <connections>
-                                    <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-aw-zij">
-                                <rect key="frame" x="104" y="243" width="144" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Claculate Route"/>
-                                <connections>
-                                    <segue destination="MBJ-Tg-2dK" kind="show" id="ZWx-ui-vTh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-xb-3GD">
-                                <rect key="frame" x="89" y="286" width="168" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Show Subway Map"/>
-                                <connections>
-                                    <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
-                                <rect key="frame" x="111" y="343" width="120" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Display Data"/>
-                                <connections>
-                                    <segue destination="5dJ-94-g5q" kind="show" id="BIi-g4-cUF"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subway App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
-                                <rect key="frame" x="125" y="107" width="95" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fS8-2J-WDN">
+                                <rect key="frame" x="10" y="141" width="370" height="173.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Nearest Station"/>
+                                        <connections>
+                                            <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-aw-zij">
+                                        <rect key="frame" x="0.0" y="46.333333333333343" width="370" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Claculate Route"/>
+                                        <connections>
+                                            <segue destination="MBJ-Tg-2dK" kind="show" id="ZWx-ui-vTh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-xb-3GD">
+                                        <rect key="frame" x="0.0" y="92.666666666666657" width="370" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Show Subway Map"/>
+                                        <connections>
+                                            <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
+                                        <rect key="frame" x="0.0" y="139" width="370" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Display Data"/>
+                                        <connections>
+                                            <segue destination="5dJ-94-g5q" kind="show" id="BIi-g4-cUF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subway App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
+                                <rect key="frame" x="148" y="96" width="95" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,6 +63,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fS8-2J-WDN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="IeM-mm-Fve"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fS8-2J-WDN" secondAttribute="trailing" constant="10" id="ZnD-0j-TtJ"/>
+                            <constraint firstItem="fS8-2J-WDN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="qcT-By-FkW"/>
+                            <constraint firstItem="QJg-ef-bd2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="wLB-Vu-bUW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OtZ-pG-pec"/>
                 </viewController>
@@ -162,12 +168,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Cyn-1R-DE5">
+                                <rect key="frame" x="0.0" y="101" width="390" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="30n-dN-F32">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="30n-dN-F32" id="u7Y-cm-tdO">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WNp-fo-jx1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bcn-fw-ngD" firstAttribute="top" secondItem="WNp-fo-jx1" secondAttribute="top" constant="5" id="5Ey-8t-xpQ"/>
+                            <constraint firstItem="Cyn-1R-DE5" firstAttribute="leading" secondItem="WNp-fo-jx1" secondAttribute="leading" id="HSm-Hh-5qB"/>
+                            <constraint firstItem="WNp-fo-jx1" firstAttribute="trailing" secondItem="Cyn-1R-DE5" secondAttribute="trailing" id="WZq-O8-ST6"/>
                             <constraint firstItem="bcn-fw-ngD" firstAttribute="leading" secondItem="WNp-fo-jx1" secondAttribute="leading" constant="10" id="njY-sp-QSA"/>
+                            <constraint firstItem="WNp-fo-jx1" firstAttribute="bottom" secondItem="Cyn-1R-DE5" secondAttribute="bottom" id="wwv-sJ-3lX"/>
+                            <constraint firstItem="Cyn-1R-DE5" firstAttribute="top" secondItem="WNp-fo-jx1" secondAttribute="top" constant="10" id="y7u-aA-bU7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5id-Kj-KdV"/>
@@ -185,17 +209,76 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculate Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93G-yx-kya">
-                                <rect key="frame" x="10" y="96" width="120" height="21"/>
+                                <rect key="frame" x="10.000000000000007" y="96" width="119.66666666666669" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-x7-YD5">
+                                <rect key="frame" x="0.0" y="126.33333333333331" width="390" height="238"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-Iq-tZ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="c3f-kr-jkV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-WT-7hb">
+                                        <rect key="frame" x="0.0" y="52.000000000000014" width="385" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fSK-O7-Dzd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
+                                        <rect key="frame" x="0.0" y="104.00000000000001" width="23" height="29.999999999999986"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="LQE-XN-kZw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMs-4c-yuq">
+                                        <rect key="frame" x="0.0" y="156" width="385" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="jr4-hS-9BD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-B5-bar">
+                                        <rect key="frame" x="0.0" y="208" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="WVB-hs-ugG"/>
+                                            <constraint firstAttribute="height" constant="30" id="uZI-ng-MGf"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Calculate Route"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qMs-4c-yuq" secondAttribute="trailing" constant="5" id="0un-vd-fRu"/>
+                                    <constraint firstItem="qMs-4c-yuq" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="Ame-F4-dsK"/>
+                                    <constraint firstAttribute="trailing" secondItem="4Lk-WT-7hb" secondAttribute="trailing" constant="5" id="DNO-DR-NUe"/>
+                                    <constraint firstItem="Uzw-Iq-tZ5" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="10" id="TYb-MO-5OJ"/>
+                                    <constraint firstItem="mCV-JR-TRP" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="aQT-4Y-shU"/>
+                                    <constraint firstItem="4Lk-WT-7hb" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="kuH-cg-lcJ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o2O-QR-H87"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Fo2-x7-YD5" firstAttribute="top" secondItem="93G-yx-kya" secondAttribute="bottom" constant="10" id="EVu-mg-Q3O"/>
+                            <constraint firstItem="o2O-QR-H87" firstAttribute="trailing" secondItem="Fo2-x7-YD5" secondAttribute="trailing" id="K99-LA-3u9"/>
                             <constraint firstItem="93G-yx-kya" firstAttribute="top" secondItem="o2O-QR-H87" secondAttribute="top" constant="5" id="XXC-Dv-g1m"/>
                             <constraint firstItem="93G-yx-kya" firstAttribute="leading" secondItem="o2O-QR-H87" secondAttribute="leading" constant="10" id="j3M-sN-aLT"/>
+                            <constraint firstItem="Fo2-x7-YD5" firstAttribute="leading" secondItem="o2O-QR-H87" secondAttribute="leading" id="yDB-ml-CD9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e1c-Nx-Wq8"/>
