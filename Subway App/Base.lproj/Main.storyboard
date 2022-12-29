@@ -3,6 +3,7 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -77,9 +78,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nearest Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-Ze-bEW">
-                                <rect key="frame" x="174" y="301" width="118" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEx-BS-CpV">
+                                <rect key="frame" x="0.0" y="124" width="390" height="686"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearest Station" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFn-Ze-bEW">
+                                <rect key="frame" x="10" y="93" width="118" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -87,8 +91,19 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2y4-Rs-GRJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fFn-Ze-bEW" firstAttribute="leading" secondItem="2y4-Rs-GRJ" secondAttribute="leading" constant="10" id="1t4-kT-kzl"/>
+                            <constraint firstItem="bEx-BS-CpV" firstAttribute="top" secondItem="fFn-Ze-bEW" secondAttribute="bottom" constant="10" id="7pO-vj-zTB"/>
+                            <constraint firstItem="2y4-Rs-GRJ" firstAttribute="trailing" secondItem="bEx-BS-CpV" secondAttribute="trailing" id="W1a-T7-pLt"/>
+                            <constraint firstItem="2y4-Rs-GRJ" firstAttribute="bottom" secondItem="bEx-BS-CpV" secondAttribute="bottom" id="WFw-by-vnB"/>
+                            <constraint firstItem="bEx-BS-CpV" firstAttribute="leading" secondItem="2y4-Rs-GRJ" secondAttribute="leading" id="Yh7-cb-lf5"/>
+                            <constraint firstItem="fFn-Ze-bEW" firstAttribute="top" secondItem="2y4-Rs-GRJ" secondAttribute="top" constant="2" id="f0F-36-6x6"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NJk-k4-bNk"/>
+                    <connections>
+                        <outlet property="mapView" destination="bEx-BS-CpV" id="Tdt-kn-fiM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNh-wJ-gtN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,18 +117,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subway map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwy-qj-rhb">
-                                <rect key="frame" x="174" y="490" width="98" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nwy-qj-rhb">
+                                <rect key="frame" x="10" y="96" width="98" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rq-Q9-y2Y">
+                                <rect key="frame" x="0.0" y="127" width="390" height="683"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zPh-dr-2HI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zPh-dr-2HI" firstAttribute="trailing" secondItem="3rq-Q9-y2Y" secondAttribute="trailing" id="Lgv-cz-7yg"/>
+                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="leading" secondItem="zPh-dr-2HI" secondAttribute="leading" id="QSR-Y0-wcl"/>
+                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="top" secondItem="Nwy-qj-rhb" secondAttribute="bottom" constant="10" id="keL-jz-py3"/>
+                            <constraint firstItem="zPh-dr-2HI" firstAttribute="bottom" secondItem="3rq-Q9-y2Y" secondAttribute="bottom" id="oAe-r5-Hwt"/>
+                            <constraint firstItem="Nwy-qj-rhb" firstAttribute="top" secondItem="zPh-dr-2HI" secondAttribute="top" constant="5" id="pCG-9g-WyD"/>
+                            <constraint firstItem="Nwy-qj-rhb" firstAttribute="leading" secondItem="zPh-dr-2HI" secondAttribute="leading" constant="10" id="wiL-Nk-rgy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ydd-6d-etx"/>
+                    <connections>
+                        <outlet property="mapView" destination="3rq-Q9-y2Y" id="vuu-re-rHc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQv-9b-LC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,9 +156,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcn-fw-ngD">
-                                <rect key="frame" x="174" y="310" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcn-fw-ngD">
+                                <rect key="frame" x="10" y="96" width="36" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -137,6 +165,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WNp-fo-jx1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bcn-fw-ngD" firstAttribute="top" secondItem="WNp-fo-jx1" secondAttribute="top" constant="5" id="5Ey-8t-xpQ"/>
+                            <constraint firstItem="bcn-fw-ngD" firstAttribute="leading" secondItem="WNp-fo-jx1" secondAttribute="leading" constant="10" id="njY-sp-QSA"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5id-Kj-KdV"/>
                 </viewController>
@@ -152,9 +184,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calculate Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93G-yx-kya">
-                                <rect key="frame" x="135" y="274" width="120" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculate Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93G-yx-kya">
+                                <rect key="frame" x="10" y="96" width="120" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -162,6 +193,10 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="o2O-QR-H87"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="93G-yx-kya" firstAttribute="top" secondItem="o2O-QR-H87" secondAttribute="top" constant="5" id="XXC-Dv-g1m"/>
+                            <constraint firstItem="93G-yx-kya" firstAttribute="leading" secondItem="o2O-QR-H87" secondAttribute="leading" constant="10" id="j3M-sN-aLT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="e1c-Nx-Wq8"/>
                     <connections>
@@ -179,14 +214,37 @@
                     <view key="view" contentMode="scaleToFill" id="FF3-5e-EXA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVv-1m-Gca">
+                                <rect key="frame" x="10" y="96" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-Y5-M4Y">
+                                <rect key="frame" x="0.0" y="127" width="390" height="683"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uaC-Zt-E2C"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uaC-Zt-E2C" firstAttribute="trailing" secondItem="pjI-Y5-M4Y" secondAttribute="trailing" id="5en-Zf-MMY"/>
+                            <constraint firstItem="pjI-Y5-M4Y" firstAttribute="leading" secondItem="uaC-Zt-E2C" secondAttribute="leading" id="Rvf-Qf-HW7"/>
+                            <constraint firstItem="GVv-1m-Gca" firstAttribute="leading" secondItem="uaC-Zt-E2C" secondAttribute="leading" constant="10" id="YqB-hJ-y2u"/>
+                            <constraint firstItem="uaC-Zt-E2C" firstAttribute="bottom" secondItem="pjI-Y5-M4Y" secondAttribute="bottom" id="kgx-FB-3Sc"/>
+                            <constraint firstItem="pjI-Y5-M4Y" firstAttribute="top" secondItem="GVv-1m-Gca" secondAttribute="bottom" constant="10" id="oyZ-4b-KNX"/>
+                            <constraint firstItem="GVv-1m-Gca" firstAttribute="top" secondItem="uaC-Zt-E2C" secondAttribute="top" constant="5" id="s3v-Sg-8oB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="muh-qK-Wwl"/>
+                    <connections>
+                        <outlet property="mapView" destination="pjI-Y5-M4Y" id="mOS-a8-2tr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPL-Ig-bft" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="171" y="-323"/>
+            <point key="canvasLocation" x="170.76923076923077" y="-323.45971563981038"/>
         </scene>
         <!--Item-->
         <scene sceneID="60n-P1-h32">
