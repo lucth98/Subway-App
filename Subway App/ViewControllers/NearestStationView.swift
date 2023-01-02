@@ -59,20 +59,18 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         
         let cordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
         
-        //MKPlacemark(coordinate: <#T##CLLocationCoordinate2D#>, addressDictionary: <#T##[String : Any]?#>)
-        let place: MKPlacemark = MKPlacemark(coordinate: cordinate,addressDictionary: ["String" : "Any"])
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = cordinate
+        annotation.title = "Position"
+        annotation.subtitle = "current GPS position"
         
         
-        
-        
-        mapView.addAnnotation(place)
+        mapView.addAnnotation(annotation)
         
         mapView.setCenter(cordinate, animated: false)
     }
     
-    
-    
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("")
     }
