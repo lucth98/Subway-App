@@ -25,6 +25,12 @@ class Networking{
     
     
     func getStations(){
+        var urlRequest: URLRequest = URLRequest(url: urlStationAPI)
+        urlRequest.httpMethod = "GET"
+        
+        let dataTask = URLSession.shared.dataTask(with: urlRequest){ data, response, error in
+            
+        }
         
     }
     
@@ -44,11 +50,17 @@ class Networking{
             print("error:")
             print(error ?? "no Error")
             
-            var dataString = String(bytes: data ?? Data(), encoding: .utf8)
-         
+            
             
             print("decoded Data:")
-            print(dataString)
+           
+            
+            let stringValue = String(decoding: data!, as: UTF8.self)
+            print(stringValue)
+            
+         
+            
+            
         }
         
         dataTask.resume()
