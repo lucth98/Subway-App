@@ -25,22 +25,51 @@ struct SubwayCRSProperties: Codable{
 
 struct SubwayLineData: Codable{
     var type: String
-    var id: Int
+    var id: String
     var geometry: SubwayLine
-}
-
-struct SubwayLine: Codable{
-    var type: String
-    var coordinates: [[Double]]//[coordinate]
     var geometry_name: String
-    var properties: SubwayLineProperties
+    var properties: SubwayLineProperties?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.type = try container.decode(String.self, forKey: .type)
-        self.coordinates = try container.decode([[Double]].self, forKey: .coordinates)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.geometry = try container.decode(SubwayLine.self, forKey: .geometry)
         self.geometry_name = try container.decode(String.self, forKey: .geometry_name)
-        self.properties = try container.decode(SubwayLineProperties.self, forKey: .properties)
+        self.properties = try container.decodeIfPresent(SubwayLineProperties.self, forKey: .properties)
+    }
+}
+
+struct SubwayLine: Codable{
+    var type: String
+    var coordinates: ArrayOrNotArray//[coordinate]
+  
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.type = try container.decode(String.self, forKey: .type)
+        self.coordinates = try container.decode(ArrayOrNotArray.self, forKey: .coordinates)
+    }
+    
+    
+}
+
+struct ArrayOrNotArray: Codable{
+   // var value: Any
+    var cordinate: [Double]?
+    var multiCordinate: [[Double]]?
+    
+    init(from decoder: Decoder) throws {
+        
+        if let mc = try? [[Double]](from: decoder) {
+            multiCordinate = mc
+            cordinate = nil
+        }
+        
+        if let cor = try? [Double](from: decoder) {
+            multiCordinate = nil
+            cordinate = cor
+        }
     }
     
     
@@ -55,7 +84,7 @@ struct SubwayLineProperties: Codable{
     
     var HSTNR: Int?
     var HTXT: String?
-    var HBEM: Int?
+    var HBEM: String?
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -66,25 +95,28 @@ struct SubwayLineProperties: Codable{
         self.SE_ANNO_CAD_DATA = try container.decodeIfPresent(Int.self, forKey: .SE_ANNO_CAD_DATA)
         self.HSTNR = try container.decodeIfPresent(Int.self, forKey: .HSTNR)
         self.HTXT = try container.decodeIfPresent(String.self, forKey: .HTXT)
-        self.HBEM = try container.decodeIfPresent(Int.self, forKey: .HBEM)
+        self.HBEM = try container.decodeIfPresent(String.self, forKey: .HBEM)
     }
 }
 
-struct coordinate: Codable{
-    var latitude: Double
-    var longitude: Double
-    
-    init(from decoder: Decoder) throws {
-       // let container = try decoder.container(keyedBy: CodingKeys.self)
-        //self.latitude = try container.decode(Double.self, forKey: .latitude)
-        //self.longitude = try container.decode(Double.self, forKey: .longitude)
-       
-        
-        var container = try decoder.unkeyedContainer()
-        latitude = try container.decode(Double.self)
-        longitude = try container.decode(Double.self)
-        
-    }
-    
-    
-}
+
+/*
+ struct coordinate: Codable{
+ var latitude: Double
+ var longitude: Double
+ 
+ init(from decoder: Decoder) throws {
+ // let container = try decoder.container(keyedBy: CodingKeys.self)
+ //self.latitude = try container.decode(Double.self, forKey: .latitude)
+ //self.longitude = try container.decode(Double.self, forKey: .longitude)
+ 
+ 
+ var container = try decoder.unkeyedContainer()
+ latitude = try container.decode(Double.self)
+ longitude = try container.decode(Double.self)
+ 
+ }
+ 
+ 
+ }
+ */

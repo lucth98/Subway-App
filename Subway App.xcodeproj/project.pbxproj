@@ -23,6 +23,10 @@
 		A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */; };
 		A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */; };
 		A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA8295CB08000536352 /* RouteView.swift */; };
+		A0AF9BAC2965E9B500536352 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A0AF9BAB2965E9B500536352 /* Realm */; };
+		A0AF9BAE2965E9B500536352 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A0AF9BAD2965E9B500536352 /* RealmSwift */; };
+		A0AF9BB22965F2AD00536352 /* SubwayLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB12965F2AD00536352 /* SubwayLine.swift */; };
+		A0AF9BB42965F2CA00536352 /* SubwayStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB32965F2CA00536352 /* SubwayStation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,8 @@
 		A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSubwayMapView.swift; sourceTree = "<group>"; };
 		A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDataView.swift; sourceTree = "<group>"; };
 		A0AF9BA8295CB08000536352 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
+		A0AF9BB12965F2AD00536352 /* SubwayLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayLine.swift; sourceTree = "<group>"; };
+		A0AF9BB32965F2CA00536352 /* SubwayStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0AF9BAE2965E9B500536352 /* RealmSwift in Frameworks */,
+				A0AF9BAC2965E9B500536352 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +121,8 @@
 		A0AF9B692950C03500536352 /* Subway App */ = {
 			isa = PBXGroup;
 			children = (
+				A0AF9BB02965F27400536352 /* Data Base */,
+				A0AF9BAF2965F24F00536352 /* Networking */,
 				A0AF9B9F295CAF4300536352 /* ViewControllers */,
 				A0AF9B6A2950C03500536352 /* AppDelegate.swift */,
 				A0AF9B6C2950C03500536352 /* SceneDelegate.swift */,
@@ -122,7 +132,6 @@
 				A0AF9B782950C03600536352 /* LaunchScreen.storyboard */,
 				A0AF9B7B2950C03600536352 /* Info.plist */,
 				A0AF9B732950C03500536352 /* Subway_App.xcdatamodeld */,
-				A0AF9B9D2950CEE300536352 /* Networking.swift */,
 			);
 			path = "Subway App";
 			sourceTree = "<group>";
@@ -156,6 +165,23 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		A0AF9BAF2965F24F00536352 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A0AF9B9D2950CEE300536352 /* Networking.swift */,
+				A0AF9BB12965F2AD00536352 /* SubwayLine.swift */,
+				A0AF9BB32965F2CA00536352 /* SubwayStation.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A0AF9BB02965F27400536352 /* Data Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data Base";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,6 +198,10 @@
 			dependencies = (
 			);
 			name = "Subway App";
+			packageProductDependencies = (
+				A0AF9BAB2965E9B500536352 /* Realm */,
+				A0AF9BAD2965E9B500536352 /* RealmSwift */,
+			);
 			productName = "Subway App";
 			productReference = A0AF9B672950C03500536352 /* Subway App.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +274,9 @@
 				Base,
 			);
 			mainGroup = A0AF9B5E2950C03500536352;
+			packageReferences = (
+				A0AF9BAA2965E9B500536352 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = A0AF9B682950C03500536352 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,12 +320,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0AF9BB22965F2AD00536352 /* SubwayLine.swift in Sources */,
 				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
 				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
 				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
 				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
+				A0AF9BB42965F2CA00536352 /* SubwayStation.swift in Sources */,
 				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
 				A0AF9B752950C03500536352 /* Subway_App.xcdatamodeld in Sources */,
@@ -632,6 +667,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A0AF9BAA2965E9B500536352 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.33.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A0AF9BAB2965E9B500536352 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0AF9BAA2965E9B500536352 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		A0AF9BAD2965E9B500536352 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A0AF9BAA2965E9B500536352 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A0AF9B732950C03500536352 /* Subway_App.xcdatamodeld */ = {

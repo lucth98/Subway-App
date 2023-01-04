@@ -51,12 +51,25 @@ class Networking{
             print(error ?? "no Error")
             
             
+            /*
             
             print("decoded Data:")
            
             
             let stringValue = String(decoding: data!, as: UTF8.self)
             print(stringValue)
+             
+             */
+            
+            let jsonDecoder = JSONDecoder()
+            do{
+                let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)
+                print("decoded Data:")
+                print(recivedInfo)
+            }catch{
+                print("decoding Error")
+                print("caught: \(error)")
+            }
             
          
             
