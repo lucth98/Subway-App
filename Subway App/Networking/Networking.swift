@@ -23,7 +23,7 @@ class Networking{
     }
     
     
-    
+    /*
     func getStations(){
         var urlRequest: URLRequest = URLRequest(url: urlStationAPI)
         urlRequest.httpMethod = "GET"
@@ -33,9 +33,10 @@ class Networking{
         }
         
     }
+     */
     
     
-    func getSubway(){
+    func getSubwaysAndStations(){  //ToDo: Error handling
         var urlRequest: URLRequest = URLRequest(url: urlSubwayApi)
         urlRequest.httpMethod = "GET"
         
@@ -77,6 +78,13 @@ class Networking{
         }
         
         dataTask.resume()
+        
+        
+        
+    }
+    
+    func saveDataInDB(_ data: SubwayInformation){
+        let dataBase = DataBaseControll.instance
         
         
         

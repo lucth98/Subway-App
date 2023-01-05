@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         var networking = Networking()
         
-        networking.getSubway()
+        networking.getSubwaysAndStations()
     }
 
 
