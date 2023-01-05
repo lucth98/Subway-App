@@ -60,7 +60,6 @@ struct ArrayOrNotArray: Codable{
     var multiCordinate: [[Double]]?
     
     init(from decoder: Decoder) throws {
-        
         if let mc = try? [[Double]](from: decoder) {
             multiCordinate = mc
             cordinate = nil
@@ -71,8 +70,6 @@ struct ArrayOrNotArray: Codable{
             cordinate = cor
         }
     }
-    
-    
 }
 
 struct SubwayLineProperties: Codable{

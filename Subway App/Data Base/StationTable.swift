@@ -18,7 +18,12 @@ class StationTabel: Object{
     
     @Persisted var cordinates: CordinatesTabel?
     
-    
+    convenience init(subwayLine: Int, name: String, cordinates: CordinatesTabel? = nil) {
+        self.init()
+        self.subwayLine = subwayLine
+        self.name = name
+        self.cordinates = cordinates
+    }
     
     
 }

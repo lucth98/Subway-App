@@ -16,4 +16,9 @@ class SubwayLineTable: Object{
     
     @Persisted var listOfcordinates: List<CordinatesTabel>
     
+    convenience init( subwayLine: Int, listOfcordinates: List<CordinatesTabel>) {
+        self.init()
+        self.subwayLine = subwayLine
+        self.listOfcordinates = listOfcordinates
+    }
 }

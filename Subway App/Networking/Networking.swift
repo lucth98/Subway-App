@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class Networking{
     
@@ -51,48 +52,77 @@ class Networking{
             print("error:")
             print(error ?? "no Error")
             
-            
-            /*
-            
-            print("decoded Data:")
-           
-            
-            let stringValue = String(decoding: data!, as: UTF8.self)
-            print(stringValue)
-             
-             */
-            
             let jsonDecoder = JSONDecoder()
             do{
                 let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)
                 print("decoded Data:")
                 print(recivedInfo)
+                
+                self.saveDataInDB(recivedInfo)
+                
             }catch{
                 print("decoding Error")
                 print("caught: \(error)")
             }
-            
-         
-            
-            
         }
         
         dataTask.resume()
-        
-        
-        
     }
     
     func saveDataInDB(_ data: SubwayInformation){
-        let dataBase = DataBaseControll.instance
-        
-        
-        
+        DispatchQueue.main.async {
+            
+            let dataBase = DataBaseControll.instance
+            
+            let subwayArray = data.features
+            
+            for subwayData in subwayArray{
+                if(subwayData.properties != nil){
+                    if(subwayData.properties?.HTXT != nil){ // data set is a Station
+                        var stationTableEntry: StationTabel
+                        
+                        var stationName = subwayData.properties?.HTXT
+                        var subwayLine = subwayData.properties?.LINFO
+                        
+                        var latitude: Double = subwayData.geometry.coordinates.cordinate?[1] ?? 0.0
+                        var longitude: Double = subwayData.geometry.coordinates.cordinate?[0] ?? 0.0
+                        
+                        var cordinates = CordinatesTabel(latitude: latitude, longitude: longitude)
+                        
+                        stationTableEntry = StationTabel(subwayLine: subwayLine ?? -1, name: stationName ?? "Error: no Name", cordinates: cordinates)
+                        
+                        dataBase.saveStation(stationTableEntry)
+                        
+                    }else{ // data set is a SubwayLine
+                        
+                        
+                        var subwayLine = subwayData.properties?.LINFO ?? -1
+                        
+                        var cordinatesList: List<CordinatesTabel> = List()
+                        
+                        var arrayOfCordinates = subwayData.geometry.coordinates.multiCordinate
+                        
+                        for i in stride(from: 0, to: arrayOfCordinates?.count ?? 0, by: 1){
+                            
+                            var longitude = arrayOfCordinates?[i][0]
+                            var latitude = arrayOfCordinates?[i][0]
+                            
+                            var cordinate = CordinatesTabel(latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
+                            
+                            cordinatesList.append(cordinate)
+                        }
+                        
+                        var subwayLineTabelEntry = SubwayLineTable(subwayLine: subwayLine, listOfcordinates: cordinatesList)
+                        
+                        dataBase.saveSubwayLine(subwayLineTabelEntry)
+                    }
+                }
+                
+            }
+            
+            
+            
+            
+        }
     }
-    
-    
-    
-    
-    
-    
 }

@@ -34,8 +34,9 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         
         locationManager?.requestLocation()
         
+        drawStations()
+        
     }
-    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -64,10 +65,32 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         annotation.title = "Position"
         annotation.subtitle = "current GPS position"
         
-        
         mapView.addAnnotation(annotation)
         
-        mapView.setCenter(cordinate, animated: false)
+        //mapView.setCenter(cordinate, animated: false)
+    }
+    
+    func drawStations(){
+        DispatchQueue.main.async {
+            let database = DataBaseControll.instance
+            
+            let stations = database.getAllStations()
+            
+            for station in stations{
+                
+                let cordinate = CLLocationCoordinate2DMake(station.cordinates?.latitude ?? 0.0, station.cordinates?.longitude ?? 0.0)
+                
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = cordinate
+                annotation.title = station.name
+                annotation.subtitle = String(station.subwayLine)
+                
+                
+                
+                self.mapView.addAnnotation(annotation)
+            }
+            
+        }
     }
     
 

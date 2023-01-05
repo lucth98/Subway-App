@@ -25,8 +25,7 @@
 		A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BA8295CB08000536352 /* RouteView.swift */; };
 		A0AF9BAC2965E9B500536352 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A0AF9BAB2965E9B500536352 /* Realm */; };
 		A0AF9BAE2965E9B500536352 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A0AF9BAD2965E9B500536352 /* RealmSwift */; };
-		A0AF9BB22965F2AD00536352 /* SubwayLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB12965F2AD00536352 /* SubwayLine.swift */; };
-		A0AF9BB42965F2CA00536352 /* SubwayStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB32965F2CA00536352 /* SubwayStation.swift */; };
+		A0AF9BB22965F2AD00536352 /* SubwayInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB12965F2AD00536352 /* SubwayInfo.swift */; };
 		A0AF9BB62967441700536352 /* StationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB52967441700536352 /* StationTable.swift */; };
 		A0AF9BB82967442D00536352 /* SubwayLineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB72967442D00536352 /* SubwayLineTable.swift */; };
 		A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB92967444600536352 /* CordinatesTabel.swift */; };
@@ -71,8 +70,7 @@
 		A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowSubwayMapView.swift; sourceTree = "<group>"; };
 		A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDataView.swift; sourceTree = "<group>"; };
 		A0AF9BA8295CB08000536352 /* RouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteView.swift; sourceTree = "<group>"; };
-		A0AF9BB12965F2AD00536352 /* SubwayLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayLine.swift; sourceTree = "<group>"; };
-		A0AF9BB32965F2CA00536352 /* SubwayStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayStation.swift; sourceTree = "<group>"; };
+		A0AF9BB12965F2AD00536352 /* SubwayInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayInfo.swift; sourceTree = "<group>"; };
 		A0AF9BB52967441700536352 /* StationTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTable.swift; sourceTree = "<group>"; };
 		A0AF9BB72967442D00536352 /* SubwayLineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayLineTable.swift; sourceTree = "<group>"; };
 		A0AF9BB92967444600536352 /* CordinatesTabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordinatesTabel.swift; sourceTree = "<group>"; };
@@ -177,8 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				A0AF9B9D2950CEE300536352 /* Networking.swift */,
-				A0AF9BB12965F2AD00536352 /* SubwayLine.swift */,
-				A0AF9BB32965F2CA00536352 /* SubwayStation.swift */,
+				A0AF9BB12965F2AD00536352 /* SubwayInfo.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -332,7 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0AF9BB22965F2AD00536352 /* SubwayLine.swift in Sources */,
+				A0AF9BB22965F2AD00536352 /* SubwayInfo.swift in Sources */,
 				A0AF9BB62967441700536352 /* StationTable.swift in Sources */,
 				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
 				A0F4BAE229674C7B006E4563 /* DataBaseControll.swift in Sources */,
@@ -342,7 +339,6 @@
 				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
-				A0AF9BB42965F2CA00536352 /* SubwayStation.swift in Sources */,
 				A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */,
 				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
