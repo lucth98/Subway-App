@@ -105,7 +105,7 @@ class Networking{
                         for i in stride(from: 0, to: arrayOfCordinates?.count ?? 0, by: 1){
                             
                             var longitude = arrayOfCordinates?[i][0]
-                            var latitude = arrayOfCordinates?[i][0]
+                            var latitude = arrayOfCordinates?[i][1]
                             
                             var cordinate = CordinatesTabel(latitude: latitude ?? 0.0, longitude: longitude ?? 0.0)
                             
