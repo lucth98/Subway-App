@@ -16,6 +16,8 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
     
     var locationManager: CLLocationManager?
     
+    var stationList: [StationTabel]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,7 +25,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         
         mapView.mapType = MKMapType.hybrid
         
-        
+  
         
         //location
         locationManager = CLLocationManager()
@@ -32,10 +34,19 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         locationManager?.requestAlwaysAuthorization()
         
         
-        locationManager?.requestLocation()
+        getStations()
         
-        drawStations()
+        //drawStations()
         
+       
+        
+       
+        /*
+        print("stations")
+        print(stationList)
+         */
+        
+       // locationManager?.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -51,6 +62,9 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         
         if(latitude != nil && longitude != nil){
             displayGPSPosition(latitude!, longitude!)
+            
+            getNearstStation(longitude: latitude!, latitude: longitude!)
+            
         }
         
         
@@ -70,6 +84,77 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
         //mapView.setCenter(cordinate, animated: false)
     }
     
+    
+    func getNearstStation(longitude: Double, latitude: Double){
+        var positionGPS = CLLocation(latitude: latitude, longitude: longitude)
+        
+        if(stationList != nil ){
+            if(stationList!.count > 0){
+                
+                var firstStation = CLLocation(latitude: stationList![0].cordinates?.latitude ?? 0.0, longitude: stationList![0].cordinates?.longitude ?? 0.0)
+                //var distance = positionGPS.distance(from: firstStation)
+                
+                var savedStation: StationTabel = stationList![0] ?? StationTabel()
+                var previosDistance: Double
+                
+                for station in stationList!{
+                    var previosLocation = CLLocation(latitude: savedStation.cordinates?.latitude ?? 0.0, longitude: savedStation.cordinates?.longitude ?? 0.0)
+                    var currenLocation = CLLocation(latitude: station.cordinates?.latitude ?? 0.0, longitude: station.cordinates?.longitude ?? 0.0)
+                    previosDistance = positionGPS.distance(from: previosLocation)
+                    
+                    var curentDistanze = positionGPS.distance(from: currenLocation)
+                    
+                    if(curentDistanze < previosDistance){
+                        savedStation = station
+                    }
+                }
+                
+                drawNearestStation(station: savedStation)
+            }else{
+                print("list empty")
+            }
+            
+        }else{
+            print("list is nil")
+        }
+        
+    }
+    
+    func drawNearestStation(station: StationTabel){
+        var cordinate = CLLocationCoordinate2D(latitude: station.cordinates?.latitude ?? 0.0, longitude: station.cordinates?.longitude ?? 0.0 )
+        
+        print("station")
+        print(station)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = cordinate
+        annotation.title = station.name
+        annotation.subtitle = String(station.subwayLine)
+        
+        
+        
+        self.mapView.addAnnotation(annotation)
+    }
+    
+    func getStations(){
+        DispatchQueue.main.async {
+            let database = DataBaseControll.instance
+            
+            let stations = database.getAllStations()
+            
+            self.stationList = [StationTabel]()
+            
+            for station in stations{
+                self.stationList?.append(station)
+              // print(station)
+            }
+            
+           // print(self.stationList)
+            self.locationManager?.requestLocation()
+        }
+    }
+    
+    /*
     func drawStations(){
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
@@ -92,7 +177,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate {
             
         }
     }
-    
+    */
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("")

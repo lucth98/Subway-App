@@ -52,7 +52,6 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 
                 self.mapView.addAnnotation(annotation)
             }
-            
         }
     }
     
@@ -82,13 +81,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 
                 self.mapView.addOverlay(polyline)
             }
-            
-            
-            
-            
         }
-        
-         
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
