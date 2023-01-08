@@ -10,20 +10,15 @@ import RealmSwift
 
 class Networking{
     
-    let urlAPI1String = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:HALTESTELLEWLOGD&srsName=EPSG:4326&outputFormat=json"
-    let urlAPI2String = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UBAHNOGD,ogdwien:UBAHNHALTOGD&srsName=EPSG:4326&outputFormat=json"
+    let urlAPIString = "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UBAHNOGD,ogdwien:UBAHNHALTOGD&srsName=EPSG:4326&outputFormat=json"
     
-    let urlStationAPI: URL
     let urlSubwayApi: URL
     
-    
-    
-    init() {
-        self.urlStationAPI = URL(string: urlAPI1String)!
-        self.urlSubwayApi = URL(string: urlAPI2String)!
+    init(){
+        self.urlSubwayApi = URL(string: urlAPIString)!
     }
     
-    func getSubwaysAndStations(_ completionHandler:@escaping (NetworkError?)->Void){
+    func getSubwaysAndStations(_ completionHandler:@escaping (NetworkError?, Networking)->Void){
         var urlRequest: URLRequest = URLRequest(url: urlSubwayApi)
         urlRequest.httpMethod = "GET"
         
@@ -46,10 +41,7 @@ class Networking{
                 
                 if(!(httpResponce.statusCode > 400 && httpResponce.statusCode < 600)){
                     
-                    
                     if(data != nil){
-                        
-                        
                         
                         let jsonDecoder = JSONDecoder()
                         do{
@@ -63,9 +55,7 @@ class Networking{
                                 print("caught: \(error)")
                                 
                                 errorResult = NetworkError.savingError(error.localizedDescription)
-                                
                             }
-                            
                         }catch{
                             print("decoding Error")
                             print("caught: \(error)")
@@ -92,14 +82,11 @@ class Networking{
                 default:
                     errorResult = NetworkError.unknownError(errorString)
                 }
-                
             }
-            
-            
             
             DispatchQueue.main.async {
                 
-                completionHandler(errorResult)
+                completionHandler(errorResult, self)
             }
         }
         
@@ -153,12 +140,8 @@ class Networking{
                         dataBase.saveSubwayLine(subwayLineTabelEntry)
                     }
                 }
-                
             }
-            
-            
-            
-            
         }
     }
+    
 }
