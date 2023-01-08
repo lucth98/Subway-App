@@ -24,7 +24,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         mapView.delegate = self
         mapView.mapType = MKMapType.hybrid
         
-        //test commit
+        //test commit dsd
         //location
         locationManager = CLLocationManager()
         locationManager?.delegate = self
