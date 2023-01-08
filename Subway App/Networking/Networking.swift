@@ -95,7 +95,6 @@ class Networking{
                         
                     }else{ // data set is a SubwayLine
                         
-                        
                         var subwayLine = subwayData.properties?.LINFO ?? -1
                         
                         var cordinatesList: List<CordinatesTabel> = List()
