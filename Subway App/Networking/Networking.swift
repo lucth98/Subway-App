@@ -52,6 +52,10 @@ class Networking{
             print("error:")
             print(error ?? "no Error")
             
+            
+            
+            
+            
             let jsonDecoder = JSONDecoder()
             do{
                 let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)

@@ -24,7 +24,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         mapView.delegate = self
         mapView.mapType = MKMapType.hybrid
         
-        
+        //test commit
         //location
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -171,14 +171,8 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             var routePolyLine: MKPolyline = (responce?.routes[0].polyline)!
             
             self.mapView.addOverlay(routePolyLine)
-            
-            
-            
         }
-         
-         
         
-       // mapView.addOverlay(directions)
     }
     
     func getStations(){
@@ -211,8 +205,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
-        print("render:")
-        print(overlay)
         var plRenderer: MKPolylineRenderer
         if(overlay is MKPolyline){
             plRenderer = MKPolylineRenderer(overlay: overlay)
