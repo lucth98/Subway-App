@@ -15,7 +15,7 @@ class Networking{
     
     let urlStationAPI: URL
     let urlSubwayApi: URL
-
+    
     
     
     init() {
@@ -72,23 +72,8 @@ class Networking{
                             
                             errorResult = NetworkError.responceDataFormatIsInFalseFormatError(error.localizedDescription)
                         }
-                    }else{
-                        //data is nil
-                        
-                        if let errorNs = error as NSError?{
-                            var errorString:String = errorNs.localizedDescription
-                            print("ERROR to String: ")
-                            print(errorString)
-                            
-                            switch errorString{
-                            case "The Internet connection appears to be offline.":
-                                errorResult = NetworkError.networkIsOfflineError(errorString)
-                            default:
-                                errorResult = NetworkError.unknownError(errorString)
-                            }
-                            
-                        }
                     }
+                    //data is nil
                 } else{
                     errorResult = NetworkError.noSuccesfulResponseCodeError("Responce Code = " + httpResponce.statusCode.description)
                 }
@@ -96,8 +81,24 @@ class Networking{
                 errorResult = NetworkError.unknownError("http Responce can not be readed")
             }
             
+            if let errorNs = error as NSError?{
+                var errorString:String = errorNs.localizedDescription
+                print("ERROR to String: ")
+                print(errorString)
+                
+                switch errorString{
+                case "The Internet connection appears to be offline.":
+                    errorResult = NetworkError.networkIsOfflineError(errorString)
+                default:
+                    errorResult = NetworkError.unknownError(errorString)
+                }
+                
+            }
+            
+            
+            
             DispatchQueue.main.async {
-              
+                
                 completionHandler(errorResult)
             }
         }
