@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A47799296B5CBD00375068 /* NetworkError.swift */; };
 		A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6A2950C03500536352 /* AppDelegate.swift */; };
 		A0AF9B6D2950C03500536352 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6C2950C03500536352 /* SceneDelegate.swift */; };
 		A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6E2950C03500536352 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A0A47799296B5CBD00375068 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A0AF9B672950C03500536352 /* Subway App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subway App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AF9B6A2950C03500536352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0AF9B6C2950C03500536352 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0A47798296B5CA900375068 /* errors */ = {
+			isa = PBXGroup;
+			children = (
+				A0A47799296B5CBD00375068 /* NetworkError.swift */,
+			);
+			path = errors;
+			sourceTree = "<group>";
+		};
 		A0AF9B5E2950C03500536352 = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +137,12 @@
 		A0AF9B692950C03500536352 /* Subway App */ = {
 			isa = PBXGroup;
 			children = (
+				A0A47798296B5CA900375068 /* errors */,
 				A0AF9BB02965F27400536352 /* Data Base */,
 				A0AF9BAF2965F24F00536352 /* Networking */,
 				A0AF9B9F295CAF4300536352 /* ViewControllers */,
 				A0AF9B6A2950C03500536352 /* AppDelegate.swift */,
 				A0AF9B6C2950C03500536352 /* SceneDelegate.swift */,
-				A0AF9B6E2950C03500536352 /* ViewController.swift */,
 				A0AF9B702950C03500536352 /* Main.storyboard */,
 				A0AF9B762950C03600536352 /* Assets.xcassets */,
 				A0AF9B782950C03600536352 /* LaunchScreen.storyboard */,
@@ -162,6 +172,7 @@
 		A0AF9B9F295CAF4300536352 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A0AF9B6E2950C03500536352 /* ViewController.swift */,
 				A0AF9BA0295CAF6E00536352 /* NearestStationView.swift */,
 				A0AF9BA2295CAFB900536352 /* CalculateRouteView.swift */,
 				A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */,
@@ -330,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0AF9BB22965F2AD00536352 /* SubwayInfo.swift in Sources */,
+				A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */,
 				A0AF9BB62967441700536352 /* StationTable.swift in Sources */,
 				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
 				A0F4BAE229674C7B006E4563 /* DataBaseControll.swift in Sources */,

@@ -54,5 +54,8 @@ class DataBaseControll{
         }
     }
     
+    func isRealmempty()->Bool{
+        return realm.isEmpty
+    }
     
 }

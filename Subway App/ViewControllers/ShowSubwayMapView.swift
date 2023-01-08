@@ -11,10 +11,13 @@ import MapKit
 
 
 class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var correntLine: Int = 0
+    
+    var latitudeVienna: Double = 48.2083
+    var longitudeVienna: Double = 16.3731
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +29,16 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
+        mapView.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: CLLocationDistance(50000))
+        
+        var corrdinatesOfVienna = CLLocationCoordinate2D(latitude: latitudeVienna, longitude: longitudeVienna)
+        mapView.setCenter(corrdinatesOfVienna, animated: false)
         
         drawStations()
         drawSubwayNet()
         
     }
-
+    
     
     func drawStations(){
         DispatchQueue.main.async {
@@ -69,7 +76,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 for i in stride(from: 0, to: subwayLine.listOfcordinates.count, by: 1){
                     locations.append(CLLocationCoordinate2D(latitude: subwayLine.listOfcordinates[i].latitude, longitude: subwayLine.listOfcordinates[i].longitude))
                     
-                   // print("add cordinates" + locations.description)
+                    // print("add cordinates" + locations.description)
                 }
                 
                 
@@ -107,7 +114,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 plRenderer.strokeColor = UIColor.blue
             }
             
-       
+            
             plRenderer.lineWidth = 3
             return plRenderer
         }else{
@@ -115,7 +122,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
         }
     }
     
-  
-   
-
+    
+    
+    
 }

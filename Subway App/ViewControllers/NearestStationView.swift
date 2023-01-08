@@ -22,6 +22,8 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         mapView.delegate = self
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled = true
         mapView.mapType = MKMapType.hybrid
         
         //test commit dsdhh
@@ -37,11 +39,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let lastLocation = locations.last
-        
-        print("")
-        print("cordinatene:")
-        print(lastLocation?.coordinate.latitude)
-        print(lastLocation?.coordinate.longitude)
         
         var latitude: Double? = lastLocation?.coordinate.latitude
         var longitude: Double? = lastLocation?.coordinate.longitude
@@ -69,10 +66,9 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         
         mapView.addAnnotation(annotation)
         mapView.setCenter(cordinate, animated: false)
-
-        return annotation
+        mapView.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: CLLocationDistance(50000))
         
-        //mapView.setCenter(cordinate, animated: false)
+        return annotation
     }
     
     
@@ -98,17 +94,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                     previosDistance = positionGPS.distance(from: previosLocation)
                     
                     var curentDistanze = positionGPS.distance(from: currenLocation)
-                    
-                    print("current distanze: " + curentDistanze.description)
-                    print("previus distanue: " + previosDistance.description)
-                    print("previus Location:" + previosLocation.description)
-                    print("currentLocation:" + currenLocation.description)
-                    print("gps location:" + positionGPS.description)
-                    print("")
-                    print("")
-                    print("")
-                    
-                    
+                      
                     if(curentDistanze < previosDistance){
                         savedStation = station
                     }
@@ -146,25 +132,32 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         var directions = MKDirections(request: request)
         
         directions.calculate(){responce, error in
-            print("")
-            print("responce:" + (responce?.description ?? "kein responce"))
-            print("responce:" + (responce?.debugDescription ?? "kein responce debug"))
-            print("responce:" + (responce?.routes.debugDescription ?? "keine debug description"))
-            print("responce:" + (responce?.routes.description ?? "keine routs devug"))
-            print("error " + error.debugDescription)
-            
-            print("routs count: " + (responce?.routes.count.description ?? "no routs"))
             
             guard(responce != nil) else{
-                print("responce is nil")
+                print(error?.localizedDescription)
+                if(error != nil){
+                    switch(error!.localizedDescription){
+                    case "Zeitüberschreitung bei der Anforderung.":
+                        self.drawAlert("Time Limit exceed for API call", "Internet is needet to draw the route")
+                    case "Es besteht anscheinend keine Verbindung zum Internet.":
+                        self.drawAlert("No Internet", "Internet is needet to draw the route")
+                    case "Keine Route verfügbar":
+                        self.drawAlert("No rout to nearest Station possible", "no possible route")
+                    default:
+                        self.drawAlert("Unknow route API error", error?.localizedDescription ?? "no Error returned")
+                    }
+                }else{
+                    self.drawAlert("Unknow route API error",  "no Error returned")
+                }
+          
                 return
             }
             guard(responce?.routes.count != 0) else{
-                print("no Routes")
+                self.drawAlert("Unknow route API error", error?.localizedDescription ?? "no Error returned")
                 return
             }
             guard(responce?.routes[0].polyline != nil)else{
-                print("no polyline")
+                self.drawAlert("Route API Error", "Data from the apple routing is in the wrong format")
                 return
             }
             
@@ -172,7 +165,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             
             self.mapView.addOverlay(routePolyLine)
         }
-        
     }
     
     func getStations(){
@@ -198,8 +190,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Error:")
-        print(error)
+        drawAlert("GPS Erorr", error.localizedDescription)
         
     }
     
@@ -219,4 +210,14 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     }
 
 
+    
+    func drawAlert(_ titleOfAlert:String,_ messageOfAlert:String){
+        let alert:UIAlertController=UIAlertController(title: titleOfAlert,
+                                                      message: messageOfAlert,
+                                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 }

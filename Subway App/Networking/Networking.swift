@@ -23,25 +23,13 @@ class Networking{
         self.urlSubwayApi = URL(string: urlAPI2String)!
     }
     
-    
-    /*
-    func getStations(){
-        var urlRequest: URLRequest = URLRequest(url: urlStationAPI)
-        urlRequest.httpMethod = "GET"
-        
-        let dataTask = URLSession.shared.dataTask(with: urlRequest){ data, response, error in
-            
-        }
-        
-    }
-     */
-    
-    
-    func getSubwaysAndStations(){  //ToDo: Error handling
+    func getSubwaysAndStations(_ completionHandler:@escaping (NetworkError?)->Void){
         var urlRequest: URLRequest = URLRequest(url: urlSubwayApi)
         urlRequest.httpMethod = "GET"
         
         let dataTask = URLSession.shared.dataTask(with: urlRequest){ data, response, error in
+            
+            var errorResult: NetworkError?
             
             print("data:")
             print(data ?? "no Data")
@@ -52,21 +40,65 @@ class Networking{
             print("error:")
             print(error ?? "no Error")
             
-            
-            
-            
-            
-            let jsonDecoder = JSONDecoder()
-            do{
-                let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)
-                print("decoded Data:")
-                print(recivedInfo)
+            if let httpResponce = response as? HTTPURLResponse{
+                print("code:")
+                print(httpResponce.statusCode)
                 
-                self.saveDataInDB(recivedInfo)
-                
-            }catch{
-                print("decoding Error")
-                print("caught: \(error)")
+                if(!(httpResponce.statusCode > 400 && httpResponce.statusCode < 600)){
+                    
+                    
+                    if(data != nil){
+                        
+                        
+                        
+                        let jsonDecoder = JSONDecoder()
+                        do{
+                            let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)
+                            print("decoded Data:")
+                            print(recivedInfo)
+                            do{
+                                try self.saveDataInDB(recivedInfo)
+                            }catch{
+                                print("dataBase Error")
+                                print("caught: \(error)")
+                                
+                                errorResult = NetworkError.savingError(error.localizedDescription)
+                                
+                            }
+                            
+                        }catch{
+                            print("decoding Error")
+                            print("caught: \(error)")
+                            
+                            errorResult = NetworkError.responceDataFormatIsInFalseFormatError(error.localizedDescription)
+                        }
+                    }else{
+                        //data is nil
+                        
+                        if let errorNs = error as NSError?{
+                            var errorString:String = errorNs.localizedDescription
+                            print("ERROR to String: ")
+                            print(errorString)
+                            
+                            switch errorString{
+                            case "The Internet connection appears to be offline.":
+                                errorResult = NetworkError.networkIsOfflineError(errorString)
+                            default:
+                                errorResult = NetworkError.unknownError(errorString)
+                            }
+                            
+                        }
+                    }
+                } else{
+                    errorResult = NetworkError.noSuccesfulResponseCodeError("Responce Code = " + httpResponce.statusCode.description)
+                }
+            } else{
+                errorResult = NetworkError.unknownError("http Responce can not be readed")
+            }
+            
+            DispatchQueue.main.async {
+              
+                completionHandler(errorResult)
             }
         }
         
