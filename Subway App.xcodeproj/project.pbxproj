@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A47799296B5CBD00375068 /* NetworkError.swift */; };
+		A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779B2971C25700375068 /* SationTableViewCell.swift */; };
 		A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6A2950C03500536352 /* AppDelegate.swift */; };
 		A0AF9B6D2950C03500536352 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6C2950C03500536352 /* SceneDelegate.swift */; };
 		A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6E2950C03500536352 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		A0A47799296B5CBD00375068 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A0A4779B2971C25700375068 /* SationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SationTableViewCell.swift; sourceTree = "<group>"; };
 		A0AF9B672950C03500536352 /* Subway App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subway App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AF9B6A2950C03500536352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0AF9B6C2950C03500536352 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				A0AF9BA4295CAFDE00536352 /* ShowSubwayMapView.swift */,
 				A0AF9BA6295CAFED00536352 /* DisplayDataView.swift */,
 				A0AF9BA8295CB08000536352 /* RouteView.swift */,
+				A0A4779B2971C25700375068 /* SationTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
 				A0F4BAE229674C7B006E4563 /* DataBaseControll.swift in Sources */,
 				A0AF9BB82967442D00536352 /* SubwayLineTable.swift in Sources */,
+				A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */,
 				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
 				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
 				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
