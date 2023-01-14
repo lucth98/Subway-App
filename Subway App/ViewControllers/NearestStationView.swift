@@ -220,4 +220,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
 }

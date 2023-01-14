@@ -48,10 +48,10 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         print("anz lines:" + (subwayLines?.count.description)!)
         
         if(!(index > stationNames!.count-1)){
-         
+            
             cell.setName(stationNames![index])
         }else{
-           
+            
             print(index)
             var line = subwayLines![index-stationNames!.count].subwayLine
             cell.setName("Line: " + String(line))
@@ -96,13 +96,10 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
                 self.subwayLines?.append(line)
             }
             
-            
-           // for station in St
-            
-            // print(self.stationList)
+            self.sort()
             self.tableView.reloadData()
         }
-       
+        
     }
     
     func addNameToList(_ name: String){
@@ -112,6 +109,13 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
             }
         }
         stationNames?.append(name)
+    }
+    
+    func sort(){
+        stationNames = stationNames?.sorted{$0 < $1}
+        
+        subwayLines = subwayLines?.sorted{$0.subwayLine < $1.subwayLine}
+        
     }
     
 }

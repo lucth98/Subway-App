@@ -6,6 +6,7 @@
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -243,14 +244,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Lk-WT-7hb">
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-7D-A5m">
                                         <rect key="frame" x="0.0" y="52.000000000000014" width="385" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="fSK-O7-Dzd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <menu key="menu" id="ADv-Q6-ii4">
+                                            <children>
+                                                <command title="Item 1" id="qqA-ct-Xtk"/>
+                                                <command title="Item 2" id="fnM-OI-p4B"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Select Start"/>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
                                         <rect key="frame" x="0.0" y="104.00000000000001" width="23" height="29.999999999999986"/>
                                         <constraints>
@@ -260,14 +263,16 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qMs-4c-yuq">
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-Ub-bLK">
                                         <rect key="frame" x="0.0" y="156" width="385" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="jr4-hS-9BD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <menu key="menu" id="2vz-kT-l1h">
+                                            <children>
+                                                <command title="Item 1" id="srf-Bo-5G2"/>
+                                                <command title="Item 2" id="kD6-aR-oT8"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Select End"/>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-B5-bar">
                                         <rect key="frame" x="0.0" y="208" width="150" height="30"/>
                                         <constraints>
@@ -279,12 +284,12 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="qMs-4c-yuq" secondAttribute="trailing" constant="5" id="0un-vd-fRu"/>
-                                    <constraint firstItem="qMs-4c-yuq" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="Ame-F4-dsK"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Lk-WT-7hb" secondAttribute="trailing" constant="5" id="DNO-DR-NUe"/>
+                                    <constraint firstItem="W3f-Ub-bLK" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="ACl-24-6Fg"/>
+                                    <constraint firstAttribute="trailing" secondItem="4bt-7D-A5m" secondAttribute="trailing" constant="5" id="APt-Lv-qyN"/>
                                     <constraint firstItem="Uzw-Iq-tZ5" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="10" id="TYb-MO-5OJ"/>
                                     <constraint firstItem="mCV-JR-TRP" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="aQT-4Y-shU"/>
-                                    <constraint firstItem="4Lk-WT-7hb" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="kuH-cg-lcJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="W3f-Ub-bLK" secondAttribute="trailing" constant="5" id="fbC-n7-r3i"/>
+                                    <constraint firstItem="4bt-7D-A5m" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="qkz-Oz-bJk"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -300,6 +305,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="e1c-Nx-Wq8"/>
                     <connections>
+                        <outlet property="dropDownEnd" destination="W3f-Ub-bLK" id="955-Hr-mWe"/>
+                        <outlet property="dropDownStart" destination="4bt-7D-A5m" id="VyN-1w-Hex"/>
                         <segue destination="hqo-2o-jpq" kind="show" id="T4e-KP-Luj"/>
                     </connections>
                 </viewController>
