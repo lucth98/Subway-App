@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A47799296B5CBD00375068 /* NetworkError.swift */; };
 		A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779B2971C25700375068 /* SationTableViewCell.swift */; };
+		A0A4779F29759D6100375068 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779E29759D6100375068 /* Route.swift */; };
+		A0A477A129759D7100375068 /* RouteCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A477A029759D7100375068 /* RouteCalculator.swift */; };
 		A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6A2950C03500536352 /* AppDelegate.swift */; };
 		A0AF9B6D2950C03500536352 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6C2950C03500536352 /* SceneDelegate.swift */; };
 		A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9B6E2950C03500536352 /* ViewController.swift */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		A0A47799296B5CBD00375068 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A0A4779B2971C25700375068 /* SationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SationTableViewCell.swift; sourceTree = "<group>"; };
+		A0A4779E29759D6100375068 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		A0A477A029759D7100375068 /* RouteCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteCalculator.swift; sourceTree = "<group>"; };
 		A0AF9B672950C03500536352 /* Subway App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Subway App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0AF9B6A2950C03500536352 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0AF9B6C2950C03500536352 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 			path = errors;
 			sourceTree = "<group>";
 		};
+		A0A4779D29759C5F00375068 /* logic */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4779E29759D6100375068 /* Route.swift */,
+				A0A477A029759D7100375068 /* RouteCalculator.swift */,
+			);
+			path = logic;
+			sourceTree = "<group>";
+		};
 		A0AF9B5E2950C03500536352 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +152,7 @@
 		A0AF9B692950C03500536352 /* Subway App */ = {
 			isa = PBXGroup;
 			children = (
+				A0A4779D29759C5F00375068 /* logic */,
 				A0A47798296B5CA900375068 /* errors */,
 				A0AF9BB02965F27400536352 /* Data Base */,
 				A0AF9BAF2965F24F00536352 /* Networking */,
@@ -352,8 +366,10 @@
 				A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */,
 				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
 				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
+				A0A4779F29759D6100375068 /* Route.swift in Sources */,
 				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
+				A0A477A129759D7100375068 /* RouteCalculator.swift in Sources */,
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
 				A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */,
 				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,

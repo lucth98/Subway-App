@@ -281,6 +281,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="Calculate Route"/>
+                                        <connections>
+                                            <action selector="calcButtonPressed" destination="MBJ-Tg-2dK" eventType="touchUpInside" id="Fon-4h-2PE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

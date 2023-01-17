@@ -15,10 +15,28 @@ class CalculateRouteView: UIViewController {
     var selecetStart: StationTabel?
     var selecetEnd: StationTabel?
     
+    var calculator: RouteCalculator?
+    
     
     @IBOutlet weak var dropDownStart: UIButton!
     @IBOutlet weak var dropDownEnd: UIButton!
     
+    @IBAction func calcButtonPressed(){
+        guard(calculator != nil) else{
+            return
+        }
+        
+        guard(selecetStart != nil) else{
+            return
+        }
+        
+        guard(selecetEnd != nil) else{
+            return
+        }
+        
+        var route = calculator?.calculate(start: selecetStart!, end: selecetEnd!)
+        print(route)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +45,8 @@ class CalculateRouteView: UIViewController {
         //testdrop()
         
         getStations()
+        
+       calculator = RouteCalculator()
         
     }
     
@@ -49,6 +69,17 @@ class CalculateRouteView: UIViewController {
         }
     }
     
+    func getStation(_ name: String)->StationTabel?{
+        guard(stations != nil)else{
+            return nil
+        }
+        for station in stations!{
+            if(station.name == name){
+                return station
+            }
+        }
+        return nil
+    }
     
     
     func fillDropDownMenues(){
@@ -85,10 +116,15 @@ class CalculateRouteView: UIViewController {
     
     func startStationSelecet(name: String){
         dropDownStart.setTitle(name, for: .normal)
+        selecetStart = getStation(name)
+        print(selecetStart)
+        
     }
     
     func endStationSelecet(name: String){
         dropDownEnd.setTitle(name, for: .normal)
+        selecetEnd = getStation(name)
+        print(selecetEnd)
     }
     
     func addStationToList(_ newStation: StationTabel){
