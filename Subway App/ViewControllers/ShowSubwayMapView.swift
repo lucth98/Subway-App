@@ -16,8 +16,8 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     
     var correntLine: Int = 0
     
-    var latitudeVienna: Double = 48.2083
-    var longitudeVienna: Double = 16.3731
+    static var latitudeVienna: Double = 48.2083
+    static var longitudeVienna: Double = 16.3731
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
         mapView.isScrollEnabled = true
         mapView.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: CLLocationDistance(50000))
         
-        var corrdinatesOfVienna = CLLocationCoordinate2D(latitude: latitudeVienna, longitude: longitudeVienna)
+        var corrdinatesOfVienna = CLLocationCoordinate2D(latitude:ShowSubwayMapView.latitudeVienna, longitude: ShowSubwayMapView.longitudeVienna)
         mapView.setCenter(corrdinatesOfVienna, animated: false)
         
         drawStations()

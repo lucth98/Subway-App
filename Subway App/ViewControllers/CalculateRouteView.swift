@@ -17,6 +17,8 @@ class CalculateRouteView: UIViewController {
     
     var calculator: RouteCalculator?
     
+    var route:Route?
+    
     
     @IBOutlet weak var dropDownStart: UIButton!
     @IBOutlet weak var dropDownEnd: UIButton!
@@ -34,15 +36,41 @@ class CalculateRouteView: UIViewController {
             return
         }
         
+        if(selecetStart == selecetEnd){
+            self.drawAlert("Start and End are the same", "please enter valide data")
+            return
+        }
+        
       //  let calculatorQueue = DispatchQueue(label: "calculatorQueue")
         DispatchQueue.main.async {
             var route = self.calculator?.calculate(start: self.selecetStart!, end: self.selecetEnd!)
             print(route)
+            
+            self.route = route
+            
+            
+            if(route != nil){
+                self.performSegue(withIdentifier: "drawRoute", sender: nil)
+            }else{
+                self.drawAlert("No Route", "No possible rout could be found in the data set")
+            }
         }
         
         
      
         
+    }
+    
+    
+    
+    func drawAlert(_ titleOfAlert:String,_ messageOfAlert:String){
+        let alert:UIAlertController=UIAlertController(title: titleOfAlert,
+                                                      message: messageOfAlert,
+                                                      preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.destructive))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -136,5 +164,19 @@ class CalculateRouteView: UIViewController {
             }
         }
         stations?.append(newStation)
+    }
+    
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        guard let routeViewController = segue.destination as? RouteView
+        else{
+            return
+        }
+        
+        if(route != nil){
+            routeViewController.route = self.route!
+           
+        }
+        
+        
     }
 }

@@ -89,7 +89,8 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
                 self.stationList?.append(station)
                 // print(station)
                 
-                self.addNameToList("Station: "+station.name)
+                //self.addNameToList("Station: "+station.name)
+                self.stationNames?.append("Station: "+station.name)
             }
             
             for line in lines{

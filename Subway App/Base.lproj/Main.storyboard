@@ -310,7 +310,7 @@
                     <connections>
                         <outlet property="dropDownEnd" destination="W3f-Ub-bLK" id="955-Hr-mWe"/>
                         <outlet property="dropDownStart" destination="4bt-7D-A5m" id="VyN-1w-Hex"/>
-                        <segue destination="hqo-2o-jpq" kind="show" id="T4e-KP-Luj"/>
+                        <segue destination="hqo-2o-jpq" kind="show" identifier="drawRoute" id="T4e-KP-Luj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzQ-tB-MeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

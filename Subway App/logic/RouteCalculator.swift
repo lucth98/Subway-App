@@ -68,6 +68,13 @@ class RouteCalculator{
                         // ziel ereicht return
                         
                         //todo station zwischen start und station hinzufügen
+                        
+                        /*
+                        var stationsBetween = getAllStationBetween(start: start, end: station, array: stationInLine)
+                        for between in stationsBetween {
+                            routeCopy.addStation(station: between)
+                        }*/
+                        
                         routeCopy.addLineNumber(line: lineNumber)
                         routeCopy.addStation(station: station)
                         
@@ -78,6 +85,13 @@ class RouteCalculator{
                     var routeNew = routeCopy
                     routeNew.addLineNumber(line: lineNumber)
                     //todo station zwischen start und station hinzufügen
+                    
+                    /*
+                    var stationsBetween = getAllStationBetween(start: start, end: station, array: stationInLine)
+                    for between in stationsBetween {
+                        routeCopy.addStation(station: between)
+                    }
+                    */
                     routeNew.addStation(station: station)
                     
                     var next = calculation2(start: station, end: end, route: routeNew)
@@ -97,9 +111,39 @@ class RouteCalculator{
         
     }
     
-    func getAllStationBetween(start:StationTabel, end: StationTabel, array:[StationTabel]){
+    func getAllStationBetween(start:StationTabel, end: StationTabel, array:[StationTabel])->[StationTabel]{
+        var result = [StationTabel]()
+        var currentStation = start
         
-        
+        guard(stationIncludetInArray(station: start, array: array)) else{
+            return result
+        }
+        guard(stationIncludetInArray(station: end, array: array)) else{
+            return result
+        }
+        while(currentStation.name != end.name){
+            var nearestStation = getNearstStation(longitude: currentStation.cordinates!.longitude, latitude: currentStation.cordinates!.longitude, stationArray: array)
+            
+            if(nearestStation != nil){
+                if(getDistanzbetweenToStations(start: nearestStation![0], end: end) < getDistanzbetweenToStations(start: nearestStation![1], end: end)){
+                    currentStation = nearestStation![0]
+                    result.append(nearestStation![1])
+                }else{
+                    currentStation = nearestStation![0]
+                    result.append(nearestStation![1])
+                }
+            }
+        }
+        return result
+    }
+    
+    func stationIncludetInArray(station: StationTabel, array: [StationTabel]) -> Bool{
+        for stat in array{
+            if(stat == station){
+                return true
+            }
+        }
+        return false
     }
     
     func getDistanzbetweenToStations(start:StationTabel, end: StationTabel) -> CLLocationDistance{
