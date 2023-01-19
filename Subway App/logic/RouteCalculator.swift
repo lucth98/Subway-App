@@ -44,16 +44,7 @@ class RouteCalculator{
             
             
             var stationInLine = getAllStationInThisLine(lineNumber: lineNumber)
-            /*
-            print("")
-            print("")
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            print("stations in line =" + lineNumber.description)
-            print(stationInLine)
-            print("")
-            print("anz of stations")
-            print(stationInLine.count)
-            print("???????????????????????????")*/
+       
             for station in stationInLine {
                 /*
                 print("")
@@ -73,7 +64,8 @@ class RouteCalculator{
                         var stationsBetween = getAllStationBetween(start: start, end: station, array: stationInLine)
                         for between in stationsBetween {
                             routeCopy.addStation(station: between)
-                        }*/
+                        }
+                        */
                         
                         routeCopy.addLineNumber(line: lineNumber)
                         routeCopy.addStation(station: station)
@@ -121,18 +113,27 @@ class RouteCalculator{
         guard(stationIncludetInArray(station: end, array: array)) else{
             return result
         }
+        print("start =" + start.name + " ende=" + end.name)
         while(currentStation.name != end.name){
-            var nearestStation = getNearstStation(longitude: currentStation.cordinates!.longitude, latitude: currentStation.cordinates!.longitude, stationArray: array)
+            var nearestStation = getNearstStation(longitude: currentStation.cordinates!.longitude, latitude: currentStation.cordinates!.longitude, stationArray: array,currentStation: currentStation)
             
             if(nearestStation != nil){
+                print("not null")
                 if(getDistanzbetweenToStations(start: nearestStation![0], end: end) < getDistanzbetweenToStations(start: nearestStation![1], end: end)){
+                    print("neast station= " + currentStation.name + " " + nearestStation![0].name + " " + nearestStation![1].name)
+
                     currentStation = nearestStation![0]
-                    result.append(nearestStation![1])
+                    result.append(nearestStation![0])
+                    print("nahe")
                 }else{
-                    currentStation = nearestStation![0]
+                    print("neast station= " + currentStation.name + " " + nearestStation![0].name + " " + nearestStation![1].name)
+
+                    currentStation = nearestStation![1]
                     result.append(nearestStation![1])
+                    print("fern")
                 }
             }
+          
         }
         return result
     }
@@ -153,7 +154,7 @@ class RouteCalculator{
         return position1.distance(from: position2)
     }
     
-    func getNearstStation(longitude: Double, latitude: Double, stationArray:[StationTabel]) -> [StationTabel]?{
+    func getNearstStation(longitude: Double, latitude: Double, stationArray:[StationTabel], currentStation: StationTabel) -> [StationTabel]?{
         
         var result = [StationTabel]()
         var positionLastStation = CLLocation(latitude: latitude, longitude: longitude)
@@ -171,7 +172,9 @@ class RouteCalculator{
                 result.append(savedStation)
                 
                 for station in stationArray{
-                    
+                    if(currentStation == station){
+                        continue
+                    }
                     var previosLocation = CLLocation(latitude: savedStation.cordinates!.latitude , longitude: savedStation.cordinates!.longitude )
                     var currenLocation = CLLocation(latitude: station.cordinates!.latitude , longitude: station.cordinates!.longitude )
                     
@@ -185,7 +188,7 @@ class RouteCalculator{
                         result[1] = savedStation
                         
                         savedStation = station
-                        savedStation
+                        
                     }
                 }
                 
@@ -268,6 +271,7 @@ class RouteCalculator{
         return shortest
     }
     
+    /*
     private func calculation(start:StationTabel ,end: StationTabel, route: Route)->[Route]?{
         var result = [Route]()
         
@@ -379,7 +383,7 @@ class RouteCalculator{
         }
         return result
     }
-    
+    */
     
     func getStations(){
         DispatchQueue.main.async {
@@ -399,7 +403,7 @@ class RouteCalculator{
             for line in lines{
                 self.lines?.append(line)
             }
-            self.check()
+            
         }
         
     }
@@ -413,6 +417,8 @@ class RouteCalculator{
         stations?.append(station)
     }
     
+    
+    /*
     func check(){
         guard(stations != nil) else{
             return
@@ -567,6 +573,6 @@ class RouteCalculator{
         return result
     }
     
-    
+    */
     
 }
