@@ -50,7 +50,7 @@ class CalculateRouteView: UIViewController {
             
             
             if(route != nil){
-                self.performSegue(withIdentifier: "drawRoute", sender: nil)
+                self.performSegue(withIdentifier: "drawRoutes", sender: nil)
             }else{
                 self.drawAlert("No Route", "No possible rout could be found in the data set")
             }
