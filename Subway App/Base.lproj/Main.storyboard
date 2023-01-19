@@ -231,21 +231,21 @@
                                 <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="corrCell" id="R3r-DV-tST" customClass="corrdinatesTableViewCell" customModule="Subway_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="corrCell" id="R3r-DV-tST" customClass="corrdinatesTableViewCell" customModule="Subway_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R3r-DV-tST" id="BTg-YE-TvX">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ema-I4-f0p">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ema-I4-f0p">
                                                     <rect key="frame" x="5" y="0.0" width="380" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-Te-lHt">
-                                                    <rect key="frame" x="5" y="22" width="380" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-Te-lHt">
+                                                    <rect key="frame" x="5" y="22.666666666666671" width="380" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -255,6 +255,8 @@
                                                 <constraint firstItem="XCR-Te-lHt" firstAttribute="leading" secondItem="Ema-I4-f0p" secondAttribute="trailing" constant="-380" id="3bA-jT-MAQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="XCR-Te-lHt" secondAttribute="trailing" constant="5" id="3cx-rj-mOf"/>
                                                 <constraint firstAttribute="trailing" secondItem="Ema-I4-f0p" secondAttribute="trailing" constant="5" id="GsR-e8-tO3"/>
+                                                <constraint firstItem="Ema-I4-f0p" firstAttribute="top" secondItem="BTg-YE-TvX" secondAttribute="top" id="UBe-gy-BNd"/>
+                                                <constraint firstAttribute="bottom" secondItem="XCR-Te-lHt" secondAttribute="bottom" id="beO-Hv-GRP"/>
                                                 <constraint firstItem="XCR-Te-lHt" firstAttribute="leading" secondItem="BTg-YE-TvX" secondAttribute="leading" constant="5" id="dQA-MC-005"/>
                                                 <constraint firstItem="Ema-I4-f0p" firstAttribute="leading" secondItem="BTg-YE-TvX" secondAttribute="leading" constant="5" id="pAQ-mZ-miS"/>
                                             </constraints>
