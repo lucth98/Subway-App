@@ -46,7 +46,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         if(latitude != nil && longitude != nil){
             var startPoint = displayGPSPosition(latitude!, longitude!)
             
-            var endPoint = getNearstStation(longitude: latitude!, latitude: longitude!)
+            var endPoint = getNearstStation(longitude: longitude!, latitude: latitude!)
             
             if(startPoint != nil && endPoint != nil){
                 drawRouteToNearestStation(start: startPoint!, end: endPoint!)
@@ -74,7 +74,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func getNearstStation(longitude: Double, latitude: Double) -> MKPointAnnotation?{
         
-        var positionGPS = CLLocation(latitude: longitude, longitude: latitude)
+        var positionGPS = CLLocation(latitude: latitude, longitude: longitude)
         
         
         if(stationList != nil ){

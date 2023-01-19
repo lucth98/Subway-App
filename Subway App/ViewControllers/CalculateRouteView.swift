@@ -34,8 +34,15 @@ class CalculateRouteView: UIViewController {
             return
         }
         
-        var route = calculator?.calculate(start: selecetStart!, end: selecetEnd!)
-        print(route)
+      //  let calculatorQueue = DispatchQueue(label: "calculatorQueue")
+        DispatchQueue.main.async {
+            var route = self.calculator?.calculate(start: self.selecetStart!, end: self.selecetEnd!)
+            print(route)
+        }
+        
+        
+     
+        
     }
     
     override func viewDidLoad() {
@@ -61,11 +68,8 @@ class CalculateRouteView: UIViewController {
             
             for station in stations{
                 self.addStationToList(station)
-              //  self.stations?.append(station)
-              // print(station)
             }
             self.fillDropDownMenues()
-           // print(self.stationList)
         }
     }
     
@@ -89,12 +93,10 @@ class CalculateRouteView: UIViewController {
         
         let clouseStartMenue = {(action: UIAction) in
             self.startStationSelecet(name: action.title)
-        //  self.update(number: action.title)
         }
         
         let clouseEndMenue = {(action: UIAction) in
             self.endStationSelecet(name: action.title)
-          //  self.update(number: action.title)
         }
         
         var startMenueElemts = [UIMenuElement]()

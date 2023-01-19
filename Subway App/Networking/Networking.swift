@@ -100,6 +100,8 @@ class Networking{
             
             let subwayArray = data.features
             
+            dataBase.resetDatabase()
+            
             for subwayData in subwayArray{
                 if(subwayData.properties != nil){
                     if(subwayData.properties?.HTXT != nil){ // data set is a Station

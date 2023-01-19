@@ -9,11 +9,12 @@ import Foundation
 
 struct Route{
     var lines: [SubwayLineTable]
-    var sations: [StationTabel]
+    var stations: [StationTabel]
     var newestLie: SubwayLineTable?
+    var lineNumbers:[Int]
   
     func getLength()->Int{
-        var result = 0
+       /* var result = 0
         
         for line in lines{
             for corr in line.listOfcordinates{
@@ -21,15 +22,18 @@ struct Route{
             }
         }
         return result
+        */
+        return stations.count
     }
     
     init(){
         self.lines = [SubwayLineTable]()
-        self.sations = [StationTabel]()
+        self.stations = [StationTabel]()
+        self.lineNumbers = [Int]()
     }
     
     mutating func addStation(station: StationTabel){
-        sations.append(station)
+        stations.append(station)
     }
   
     mutating func addline(line: SubwayLineTable){
@@ -40,8 +44,22 @@ struct Route{
         newestLie = line
     }
     
+    mutating func addLineNumber(line: Int){
+        lineNumbers.append(line)
+    }
+    
+    func hasThisLine(line:Int)->Bool{
+        for li in lineNumbers{
+            if(li == line){
+                return true
+            }
+        }
+    
+        return false
+    }
+    
     func hasLoops()->Bool{
-        for station in sations{
+        for station in stations{
             var count = 0
             for line in lines{
                 for corr in line.listOfcordinates{
@@ -58,7 +76,7 @@ struct Route{
     }
     
     func containStation(newStation:StationTabel)->Bool{
-        for sation in sations {
+        for sation in stations {
             if(sation == newStation){
                 return true
             }
@@ -67,6 +85,7 @@ struct Route{
     }
     
     func isEmpty()->Bool{
-        return lines.count == 0 && sations.count == 0 && newestLie == nil
+        return lineNumbers.count == 0 && stations.count == 0 //&& newestLie == nil
+        
     }
 }
