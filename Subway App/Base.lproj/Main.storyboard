@@ -193,6 +193,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="stationNameLabel" destination="kgJ-BZ-IKg" id="jm5-or-Umz"/>
+                                            <segue destination="80k-ya-mwU" kind="show" id="hfv-6f-8Le"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -217,6 +218,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygN-Fu-eVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-703.07692307692309" y="1107.5829383886255"/>
+        </scene>
+        <!--Display Corrdinates View-->
+        <scene sceneID="P88-bg-s4g">
+            <objects>
+                <viewController id="80k-ya-mwU" customClass="DisplayCorrdinatesView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HsI-5b-VpP">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="djc-OV-gzU">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="corrCell" id="R3r-DV-tST" customClass="corrdinatesTableViewCell" customModule="Subway_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R3r-DV-tST" id="BTg-YE-TvX">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ema-I4-f0p">
+                                                    <rect key="frame" x="5" y="0.0" width="380" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCR-Te-lHt">
+                                                    <rect key="frame" x="5" y="22" width="380" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XCR-Te-lHt" firstAttribute="leading" secondItem="Ema-I4-f0p" secondAttribute="trailing" constant="-380" id="3bA-jT-MAQ"/>
+                                                <constraint firstAttribute="trailing" secondItem="XCR-Te-lHt" secondAttribute="trailing" constant="5" id="3cx-rj-mOf"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ema-I4-f0p" secondAttribute="trailing" constant="5" id="GsR-e8-tO3"/>
+                                                <constraint firstItem="XCR-Te-lHt" firstAttribute="leading" secondItem="BTg-YE-TvX" secondAttribute="leading" constant="5" id="dQA-MC-005"/>
+                                                <constraint firstItem="Ema-I4-f0p" firstAttribute="leading" secondItem="BTg-YE-TvX" secondAttribute="leading" constant="5" id="pAQ-mZ-miS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="latitudeLabel" destination="Ema-I4-f0p" id="P2C-hb-1wh"/>
+                                            <outlet property="longitudeLabel" destination="XCR-Te-lHt" id="mBI-Zy-4pR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uxy-T1-TOD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="djc-OV-gzU" firstAttribute="leading" secondItem="Uxy-T1-TOD" secondAttribute="leading" id="IYL-uU-Hir"/>
+                            <constraint firstItem="Uxy-T1-TOD" firstAttribute="bottom" secondItem="djc-OV-gzU" secondAttribute="bottom" id="RJn-x4-VRs"/>
+                            <constraint firstItem="djc-OV-gzU" firstAttribute="top" secondItem="Uxy-T1-TOD" secondAttribute="top" id="r3K-6j-a2L"/>
+                            <constraint firstItem="Uxy-T1-TOD" firstAttribute="trailing" secondItem="djc-OV-gzU" secondAttribute="trailing" id="vVF-25-2b1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PKg-pp-C4u"/>
+                    <connections>
+                        <outlet property="tableView" destination="djc-OV-gzU" id="y0r-ZR-YVh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xdZ-ml-KE0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="1108"/>
         </scene>
         <!--Calculate Route View-->
         <scene sceneID="soD-ah-b2x">
@@ -310,7 +377,7 @@
                     <connections>
                         <outlet property="dropDownEnd" destination="W3f-Ub-bLK" id="955-Hr-mWe"/>
                         <outlet property="dropDownStart" destination="4bt-7D-A5m" id="VyN-1w-Hex"/>
-                        <segue destination="hqo-2o-jpq" kind="show" identifier="drawRoute" id="T4e-KP-Luj"/>
+                        <segue destination="hqo-2o-jpq" kind="show" id="T4e-KP-Luj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzQ-tB-MeI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

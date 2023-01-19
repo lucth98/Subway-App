@@ -13,6 +13,8 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     var stationList: [StationTabel]?
     var subwayLines: [SubwayLineTable]?
     var stationNames: [String]?
+    var corrArray: [CordinatesTabel]?
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -119,4 +121,49 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         
     }
     
+    /*
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var index = indexPath.row
+        
+        print("selected :")
+        print(selectedCountry)
+        
+      //  self.performSegue(withIdentifier: "showDetails", sender: nil)
+        
+        
+    }
+     */
+    
+    
+    override func prepare(for segue:UIStoryboardSegue, sender: Any?){
+        guard let displayCorrdinatesView = segue.destination as? DisplayCorrdinatesView, let index = tableView.indexPathForSelectedRow?.row
+        else{
+            return
+        }
+        guard(stationList != nil) else{
+            return
+        }
+        guard(subwayLines != nil) else{
+            return
+        }
+        guard(stationNames != nil) else{
+            return
+        }
+        
+        var corrArray:[CordinatesTabel] = [CordinatesTabel]()
+        
+        
+        if(!(index > stationNames!.count-1)){
+            
+            corrArray.append( stationList![index].cordinates!)
+        }else{
+            corrArray.append(contentsOf: subwayLines![index-stationNames!.count].listOfcordinates)
+            
+            
+        }
+        
+        displayCorrdinatesView.cordinates = corrArray
+        
+        
+    }
 }
