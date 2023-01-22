@@ -95,25 +95,3 @@ struct SubwayLineProperties: Codable{
         self.HBEM = try container.decodeIfPresent(String.self, forKey: .HBEM)
     }
 }
-
-
-/*
- struct coordinate: Codable{
- var latitude: Double
- var longitude: Double
- 
- init(from decoder: Decoder) throws {
- // let container = try decoder.container(keyedBy: CodingKeys.self)
- //self.latitude = try container.decode(Double.self, forKey: .latitude)
- //self.longitude = try container.decode(Double.self, forKey: .longitude)
- 
- 
- var container = try decoder.unkeyedContainer()
- latitude = try container.decode(Double.self)
- longitude = try container.decode(Double.self)
- 
- }
- 
- 
- }
- */

@@ -41,7 +41,6 @@ class CalculateRouteView: UIViewController {
             return
         }
         
-      //  let calculatorQueue = DispatchQueue(label: "calculatorQueue")
         DispatchQueue.main.async {
             var route = self.calculator?.calculate(start: self.selecetStart!, end: self.selecetEnd!)
             print(route)

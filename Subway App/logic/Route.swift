@@ -14,15 +14,7 @@ struct Route{
     var lineNumbers:[Int]
   
     func getLength()->Int{
-       /* var result = 0
-        
-        for line in lines{
-            for corr in line.listOfcordinates{
-                result+=1
-            }
-        }
-        return result
-        */
+       
         return stations.count
     }
     
