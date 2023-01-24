@@ -65,7 +65,7 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        title = "Display Data"
         
         getStationsAndLines()
         
@@ -120,20 +120,6 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         subwayLines = subwayLines?.sorted{$0.subwayLine < $1.subwayLine}
         
     }
-    
-    /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var index = indexPath.row
-        
-        print("selected :")
-        print(selectedCountry)
-        
-      //  self.performSegue(withIdentifier: "showDetails", sender: nil)
-        
-        
-    }
-     */
-    
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         guard let displayCorrdinatesView = segue.destination as? DisplayCorrdinatesView, let index = tableView.indexPathForSelectedRow?.row

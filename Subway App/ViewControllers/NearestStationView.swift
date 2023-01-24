@@ -19,7 +19,10 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     var stationList: [StationTabel]?
     
     override func viewDidLoad() {
+       
+        
         super.viewDidLoad()
+        title = "Nearst Station"
         // Do any additional setup after loading the view.
         mapView.delegate = self
         mapView.isZoomEnabled = true
@@ -34,6 +37,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         locationManager?.requestAlwaysAuthorization()
         
         getStations()
+       
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

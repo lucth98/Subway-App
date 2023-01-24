@@ -15,6 +15,9 @@ class DisplayCorrdinatesView: ViewController , UITableViewDelegate ,UITableViewD
     var cordinates: [CordinatesTabel]?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Cordinates"
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.reloadData()

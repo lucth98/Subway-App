@@ -21,6 +21,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Subway Net"
         // Do any additional setup after loading the view.
         //test
         mapView.mapType = MKMapType.hybrid
