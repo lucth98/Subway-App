@@ -75,9 +75,7 @@ class CalculateRouteView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Calculate Route"
-        // Do any additional setup after loading the view.
         
-        //testdrop()
         
         getStations()
         

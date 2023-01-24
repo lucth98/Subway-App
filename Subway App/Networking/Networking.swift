@@ -26,6 +26,7 @@ class Networking{
             
             var errorResult: NetworkError?
             
+            /*
             print("data:")
             print(data ?? "no Data")
             
@@ -34,6 +35,7 @@ class Networking{
             
             print("error:")
             print(error ?? "no Error")
+             */
             
             if let httpResponce = response as? HTTPURLResponse{
                 print("code:")
@@ -46,19 +48,19 @@ class Networking{
                         let jsonDecoder = JSONDecoder()
                         do{
                             let recivedInfo:SubwayInformation =  try jsonDecoder.decode(SubwayInformation.self, from: data!)
-                            print("decoded Data:")
-                            print(recivedInfo)
+                         //   print("decoded Data:")
+                         //   print(recivedInfo)
                             do{
                                 try self.saveDataInDB(recivedInfo)
                             }catch{
-                                print("dataBase Error")
-                                print("caught: \(error)")
+                          //      print("dataBase Error")
+                            //    print("caught: \(error)")
                                 
                                 errorResult = NetworkError.savingError(error.localizedDescription)
                             }
                         }catch{
-                            print("decoding Error")
-                            print("caught: \(error)")
+                      //      print("decoding Error")
+                        //    print("caught: \(error)")
                             
                             errorResult = NetworkError.responceDataFormatIsInFalseFormatError(error.localizedDescription)
                         }
@@ -73,8 +75,8 @@ class Networking{
             
             if let errorNs = error as NSError?{
                 var errorString:String = errorNs.localizedDescription
-                print("ERROR to String: ")
-                print(errorString)
+              //  print("ERROR to String: ")
+              //  print(errorString)
                 
                 switch errorString{
                 case "The Internet connection appears to be offline.":

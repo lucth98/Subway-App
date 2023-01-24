@@ -63,9 +63,21 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     }
     
     
+    func resetData(){
+        stationList = nil
+        subwayLines = nil
+        stationNames = nil
+        corrArray = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Display Data"
+        
+        resetData()
+        
+        
+       
         
         getStationsAndLines()
         
