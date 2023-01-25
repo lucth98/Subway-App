@@ -82,4 +82,18 @@ class DataBaseControll{
         
         return result
     }
+    
+    
+    
+    func sortStationArray(arrayOfStations: [StationTabel]) -> [StationTabel]{
+        return arrayOfStations.sorted{
+            $0.name < $1.name
+        }
+    }
+    
+    func sortSubwayLinesArray(arrayOfLines:[SubwayLineTable])->[SubwayLineTable]{
+        return arrayOfLines.sorted{
+            $0.subwayLine < $1.subwayLine
+        }
+    }
 }

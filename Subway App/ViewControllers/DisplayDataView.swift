@@ -10,16 +10,15 @@ import UIKit
 
 
 class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSource {
-    var stationList: [StationTabel]?
-    var subwayLines: [SubwayLineTable]?
-    var stationNames: [String]?
-    var corrArray: [CordinatesTabel]?
+    private var stationList: [StationTabel]?
+    private var subwayLines: [SubwayLineTable]?
+    private var corrArray: [CordinatesTabel]?
     
     
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard(stationNames != nil) else{
+        guard(stationList != nil) else{
             return 0
         }
         
@@ -27,11 +26,11 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
             return 0
         }
         
-        return stationNames!.count + subwayLines!.count
+        return stationList!.count + subwayLines!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard(stationNames != nil) else{
+        guard(stationList != nil) else{
             return UITableViewCell()
         }
         guard(subwayLines != nil) else{
@@ -42,42 +41,22 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell") as! SationTableViewCell
         
-        print()
-        print()
-        print("index:" + index.description)
-        print("anz station:" + (stationNames?.count.description)!)
-        print()
-        print("anz lines:" + (subwayLines?.count.description)!)
-        
-        if(!(index > stationNames!.count-1)){
+        if(!(index > stationList!.count-1)){
             
-            cell.setName(stationNames![index])
+            cell.setName("Station: " + stationList![index].name)
         }else{
             
             print(index)
-            var line = subwayLines![index-stationNames!.count].subwayLine
+            var line = subwayLines![index-stationList!.count].subwayLine
             cell.setName("Line: " + String(line))
         }
         
         return cell
     }
     
-    
-    func resetData(){
-        stationList = nil
-        subwayLines = nil
-        stationNames = nil
-        corrArray = nil
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Display Data"
-        
-        resetData()
-        
-        
-       
         
         getStationsAndLines()
         
@@ -85,7 +64,6 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         tableView.dataSource = self
         
         getStationsAndLines()
-        
     }
     
     func getStationsAndLines(){
@@ -94,34 +72,12 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
             
             self.stationList = database.getStationsAsArray()
             self.subwayLines = database.getLinesAsArray()
-            self.stationNames = [String]()
+          
+            self.stationList = database.sortStationArray(arrayOfStations: self.stationList!)
+            self.subwayLines = database.sortSubwayLinesArray(arrayOfLines: self.subwayLines!)
             
-            for station in self.stationList!{
-               
-                
-                self.stationNames?.append("Station: "+station.name)
-            }
-            
-            self.sort()
             self.tableView.reloadData()
         }
-        
-    }
-    
-    func addNameToList(_ name: String){
-        for stationName in stationNames! {
-            if(stationName == name){
-                return;
-            }
-        }
-        stationNames?.append(name)
-    }
-    
-    func sort(){
-        stationNames = stationNames?.sorted{$0 < $1}
-        
-        subwayLines = subwayLines?.sorted{$0.subwayLine < $1.subwayLine}
-        
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
@@ -135,24 +91,17 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         guard(subwayLines != nil) else{
             return
         }
-        guard(stationNames != nil) else{
-            return
-        }
-        
+       
         var corrArray:[CordinatesTabel] = [CordinatesTabel]()
         
-        
-        if(!(index > stationNames!.count-1)){
+        if(!(index > stationList!.count-1)){
             
             corrArray.append( stationList![index].cordinates!)
         }else{
-            corrArray.append(contentsOf: subwayLines![index-stationNames!.count].listOfcordinates)
-            
-            
+            corrArray.append(contentsOf: subwayLines![index-stationList!.count].listOfcordinates)
         }
         
         displayCorrdinatesView.cordinates = corrArray
-        
         
     }
 }
