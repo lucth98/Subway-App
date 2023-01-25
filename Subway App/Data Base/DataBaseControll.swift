@@ -70,4 +70,16 @@ class DataBaseControll{
         
         return result
     }
+    
+    func getLinesAsArray()->[SubwayLineTable]{
+        var result = [SubwayLineTable]()
+        
+        var lines = getAllSubwayLines()
+        
+        for line in lines{
+            result.append(line)
+        }
+        
+        return result
+    }
 }

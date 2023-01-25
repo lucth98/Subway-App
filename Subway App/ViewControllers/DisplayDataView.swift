@@ -92,23 +92,14 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
             
-            let stations = database.getAllStations()
-            let lines = database.getAllSubwayLines()
-            
-            self.stationList = [StationTabel]()
-            self.subwayLines = [SubwayLineTable]()
+            self.stationList = database.getStationsAsArray()
+            self.subwayLines = database.getLinesAsArray()
             self.stationNames = [String]()
             
-            for station in stations{
-                self.stationList?.append(station)
-                // print(station)
+            for station in self.stationList!{
+               
                 
-                //self.addNameToList("Station: "+station.name)
                 self.stationNames?.append("Station: "+station.name)
-            }
-            
-            for line in lines{
-                self.subwayLines?.append(line)
             }
             
             self.sort()
