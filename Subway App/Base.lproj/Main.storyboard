@@ -387,8 +387,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-Y5-M4Y">
-                                <rect key="frame" x="0.0" y="127" width="390" height="683"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjI-Y5-M4Y">
+                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
                         </subviews>
@@ -396,6 +396,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uaC-Zt-E2C" firstAttribute="trailing" secondItem="pjI-Y5-M4Y" secondAttribute="trailing" id="5en-Zf-MMY"/>
+                            <constraint firstItem="pjI-Y5-M4Y" firstAttribute="top" secondItem="uaC-Zt-E2C" secondAttribute="top" id="BM9-3g-RHH"/>
                             <constraint firstItem="pjI-Y5-M4Y" firstAttribute="leading" secondItem="uaC-Zt-E2C" secondAttribute="leading" id="Rvf-Qf-HW7"/>
                             <constraint firstItem="uaC-Zt-E2C" firstAttribute="bottom" secondItem="pjI-Y5-M4Y" secondAttribute="bottom" id="kgx-FB-3Sc"/>
                         </constraints>

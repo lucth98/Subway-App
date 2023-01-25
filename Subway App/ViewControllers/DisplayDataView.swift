@@ -18,11 +18,7 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard(stationList != nil) else{
-            return 0
-        }
-        
-        guard(subwayLines != nil)else{
+        guard(stationList != nil && subwayLines != nil) else{
             return 0
         }
         
@@ -30,12 +26,10 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard(stationList != nil) else{
+        guard(stationList != nil && subwayLines != nil) else{
             return UITableViewCell()
         }
-        guard(subwayLines != nil) else{
-            return UITableViewCell()
-        }
+       
         
         var index = indexPath.row
         
@@ -58,13 +52,15 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         super.viewDidLoad()
         title = "Display Data"
         
-        getStationsAndLines()
+       // getStationsAndLines()
         
         tableView.delegate = self
         tableView.dataSource = self
         
         getStationsAndLines()
     }
+    
+    
     
     func getStationsAndLines(){
         DispatchQueue.main.async {
@@ -104,4 +100,13 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         displayCorrdinatesView.cordinates = corrArray
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getStationsAndLines()
+       
+    }
+    
+
 }

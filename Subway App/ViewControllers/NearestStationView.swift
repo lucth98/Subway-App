@@ -190,7 +190,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         
     }
     
-    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
         var plRenderer: MKPolylineRenderer
         if(overlay is MKPolyline){
@@ -204,8 +203,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             return MKPolylineRenderer()
         }
     }
-
-
     
     func drawAlert(_ titleOfAlert:String,_ messageOfAlert:String){
         let alert:UIAlertController=UIAlertController(title: titleOfAlert,

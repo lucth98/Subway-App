@@ -158,7 +158,5 @@ class CalculateRouteView: UIViewController {
             routeViewController.route = self.route!
            
         }
-        
-        
     }
 }
