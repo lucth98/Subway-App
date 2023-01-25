@@ -58,4 +58,16 @@ class DataBaseControll{
         return realm.isEmpty
     }
     
+    
+    func getStationsAsArray()->[StationTabel]{
+        var result = [StationTabel]()
+        
+        var stations = getAllStations()
+        
+        for station in stations{
+            result.append(station)
+        }
+        
+        return result
+    }
 }

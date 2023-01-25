@@ -19,58 +19,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fS8-2J-WDN">
-                                <rect key="frame" x="10" y="101" width="370" height="198"/>
+                                <rect key="frame" x="10" y="101" width="370" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" highlighted="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
-                                        <rect key="frame" x="0.0" y="0.0" width="370" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="stA-R8-VRH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="33"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="370" height="48"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
-                                        <rect key="frame" x="0.0" y="42" width="370" height="30"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
+                                        <rect key="frame" x="0.0" y="60" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="yH9-Zq-BR7"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Nearest Station"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Nearest Station" titleAlignment="center"/>
                                         <connections>
                                             <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-aw-zij">
-                                        <rect key="frame" x="0.0" y="84" width="370" height="30"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-aw-zij">
+                                        <rect key="frame" x="0.0" y="102" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5jb-Ks-A1e"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Claculate Route"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Claculate Route"/>
                                         <connections>
                                             <segue destination="MBJ-Tg-2dK" kind="show" id="ZWx-ui-vTh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-xb-3GD">
-                                        <rect key="frame" x="0.0" y="126" width="370" height="30"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-xb-3GD">
+                                        <rect key="frame" x="0.0" y="144" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="gJq-7x-76p"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Show Subway Map"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Subway Map"/>
                                         <connections>
                                             <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
-                                        <rect key="frame" x="0.0" y="168" width="370" height="30"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
+                                        <rect key="frame" x="0.0" y="186" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="FJG-jy-Lui"/>
                                             <constraint firstAttribute="height" constant="30" id="W0O-tI-yeg"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Display Data"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Display Data"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Display Data"/>
                                         <connections>
                                             <segue destination="5dJ-94-g5q" kind="show" id="BIi-g4-cUF"/>
                                         </connections>
@@ -297,8 +295,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-x7-YD5">
                                 <rect key="frame" x="0.0" y="111" width="390" height="238"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-Iq-tZ5">
-                                        <rect key="frame" x="0.0" y="0.0" width="44" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-Iq-tZ5">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="c3f-kr-jkV"/>
                                         </constraints>
@@ -307,7 +305,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-7D-A5m">
-                                        <rect key="frame" x="0.0" y="52" width="385" height="30"/>
+                                        <rect key="frame" x="0.0" y="52" width="390" height="30"/>
                                         <menu key="menu" id="ADv-Q6-ii4">
                                             <children>
                                                 <command title="Item 1" id="qqA-ct-Xtk"/>
@@ -316,8 +314,8 @@
                                         </menu>
                                         <state key="normal" title="Select Start"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
-                                        <rect key="frame" x="0.0" y="104" width="23" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
+                                        <rect key="frame" x="0.0" y="104" width="390" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="LQE-XN-kZw"/>
                                         </constraints>
@@ -326,7 +324,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-Ub-bLK">
-                                        <rect key="frame" x="0.0" y="156" width="385" height="30"/>
+                                        <rect key="frame" x="0.0" y="156" width="390" height="30"/>
                                         <menu key="menu" id="2vz-kT-l1h">
                                             <children>
                                                 <command title="Item 1" id="srf-Bo-5G2"/>
@@ -335,26 +333,30 @@
                                         </menu>
                                         <state key="normal" title="Select End"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-B5-bar">
-                                        <rect key="frame" x="0.0" y="208" width="150" height="30"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-B5-bar">
+                                        <rect key="frame" x="0.0" y="208" width="390" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="WVB-hs-ugG"/>
+                                            <constraint firstAttribute="width" constant="40" id="XYi-Hp-CM4"/>
                                             <constraint firstAttribute="height" constant="30" id="uZI-ng-MGf"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Calculate Route"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Calculate Route" titleAlignment="center"/>
                                         <connections>
                                             <action selector="calcButtonPressed" destination="MBJ-Tg-2dK" eventType="touchUpInside" id="Fon-4h-2PE"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="W3f-Ub-bLK" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="ACl-24-6Fg"/>
-                                    <constraint firstAttribute="trailing" secondItem="4bt-7D-A5m" secondAttribute="trailing" constant="5" id="APt-Lv-qyN"/>
-                                    <constraint firstItem="Uzw-Iq-tZ5" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="10" id="TYb-MO-5OJ"/>
-                                    <constraint firstItem="mCV-JR-TRP" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="aQT-4Y-shU"/>
-                                    <constraint firstAttribute="trailing" secondItem="W3f-Ub-bLK" secondAttribute="trailing" constant="5" id="fbC-n7-r3i"/>
-                                    <constraint firstItem="4bt-7D-A5m" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" constant="5" id="qkz-Oz-bJk"/>
+                                    <constraint firstAttribute="trailing" secondItem="W3f-Ub-bLK" secondAttribute="trailing" id="3sI-rs-qcl"/>
+                                    <constraint firstAttribute="trailing" secondItem="mCV-JR-TRP" secondAttribute="trailing" id="4tA-Ar-WjG"/>
+                                    <constraint firstAttribute="trailing" secondItem="4bt-7D-A5m" secondAttribute="trailing" id="5sI-g8-5XY"/>
+                                    <constraint firstAttribute="trailing" secondItem="yZf-B5-bar" secondAttribute="trailing" id="CS3-J4-qcz"/>
+                                    <constraint firstItem="yZf-B5-bar" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="RLH-SW-yV1"/>
+                                    <constraint firstItem="Uzw-Iq-tZ5" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="TM2-f5-qJs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uzw-Iq-tZ5" secondAttribute="trailing" id="Wyt-dG-9FC"/>
+                                    <constraint firstItem="mCV-JR-TRP" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="uMS-ME-q2C"/>
+                                    <constraint firstItem="4bt-7D-A5m" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="wQS-8d-oQO"/>
+                                    <constraint firstItem="W3f-Ub-bLK" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="xFM-3H-kcr"/>
                                 </constraints>
                             </stackView>
                         </subviews>

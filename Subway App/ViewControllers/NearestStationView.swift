@@ -175,14 +175,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
             
-            let stations = database.getAllStations()
-            
-            self.stationList = [StationTabel]()
-            
-            for station in stations{
-                self.stationList?.append(station)
-              // print(station)
-            }
+            self.stationList = database.getStationsAsArray()
             
            // print(self.stationList)
             self.locationManager?.requestLocation()

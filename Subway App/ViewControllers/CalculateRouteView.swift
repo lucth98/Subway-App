@@ -88,13 +88,7 @@ class CalculateRouteView: UIViewController {
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
             
-            let stations = database.getAllStations()
-            
-            self.stations = [StationTabel]()
-            
-            for station in stations{
-                self.addStationToList(station)
-            }
+            self.stations = database.getStationsAsArray()
             self.fillDropDownMenues()
         }
     }
@@ -109,6 +103,16 @@ class CalculateRouteView: UIViewController {
             }
         }
         return nil
+    }
+    
+    func sortStations(){
+        guard (stations != nil) else{
+            return
+        }
+        
+        stations = stations!.sorted{
+            $0.name < $1.name
+        }
     }
     
     
@@ -127,6 +131,8 @@ class CalculateRouteView: UIViewController {
         
         var startMenueElemts = [UIMenuElement]()
         var endMenueElemts = [UIMenuElement]()
+        
+        sortStations()
         
         for station in stations!{
             var elementStart = UIAction(title: station.name, state: .off, handler:
