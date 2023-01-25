@@ -177,7 +177,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             
             self.stationList = database.getStationsAsArray()
             
-           // print(self.stationList)
             self.locationManager?.requestLocation()
         }
     }

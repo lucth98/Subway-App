@@ -11,28 +11,16 @@ import UIKit
 class CalculateRouteView: UIViewController {
 
     var stations: [StationTabel]?
-    
     var selecetStart: StationTabel?
     var selecetEnd: StationTabel?
-    
     var calculator: RouteCalculator?
-    
-    var route:Route?
-    
+    var route: Route?
     
     @IBOutlet weak var dropDownStart: UIButton!
     @IBOutlet weak var dropDownEnd: UIButton!
     
     @IBAction func calcButtonPressed(){
-        guard(calculator != nil) else{
-            return
-        }
-        
-        guard(selecetStart != nil) else{
-            return
-        }
-        
-        guard(selecetEnd != nil) else{
+        guard(calculator != nil && selecetStart != nil && selecetEnd != nil) else{
             return
         }
         
@@ -43,10 +31,8 @@ class CalculateRouteView: UIViewController {
         
         DispatchQueue.main.async {
             var route = self.calculator?.calculate(start: self.selecetStart!, end: self.selecetEnd!)
-            print(route)
             
             self.route = route
-            
             
             if(route != nil){
                 self.performSegue(withIdentifier: "drawRoutes", sender: nil)
@@ -54,13 +40,7 @@ class CalculateRouteView: UIViewController {
                 self.drawAlert("No Route", "No possible rout could be found in the data set")
             }
         }
-        
-        
-     
-        
     }
-    
-    
     
     func drawAlert(_ titleOfAlert:String,_ messageOfAlert:String){
         let alert:UIAlertController=UIAlertController(title: titleOfAlert,
@@ -109,10 +89,8 @@ class CalculateRouteView: UIViewController {
         guard (stations != nil) else{
             return
         }
-        
-        stations = stations!.sorted{
-            $0.name < $1.name
-        }
+        var database = DataBaseControll.instance
+        stations = database.sortStationArray(arrayOfStations: stations!)
     }
     
     
