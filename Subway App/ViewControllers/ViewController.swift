@@ -27,33 +27,33 @@ class ViewController: UIViewController {
     }
     
     func returnFunction(_ networkError: NetworkError?, _ networking: Networking ){
-      
-            if(networkError != nil){
+        
+        if(networkError != nil){
+            
+            DispatchQueue.main.async {
+                let dataBase = DataBaseControll.instance
                 
-                DispatchQueue.main.async {
-                    let dataBase = DataBaseControll.instance
+                if(dataBase.isRealmempty()){
                     
-                    if(dataBase.isRealmempty()){
-                        
-                        self.retryAlert(networking: networking)
-                    }
+                    self.retryAlert(networking: networking)
                 }
-                 
-                 
-                switch(networkError!){
-                case NetworkError.networkIsOfflineError:
-                    drawAlert("Network is Offline", "\(networkError!)")
-                case NetworkError.noSuccesfulResponseCodeError:
-                    drawAlert("Non Succesful Responce Code", "\(networkError!)")
-                case NetworkError.responceDataFormatIsInFalseFormatError:
-                    drawAlert("Recived Data is in false Format", "\(networkError!)")
-                case NetworkError.unknownError:
-                    drawAlert("Unknown Error", "\(networkError!)")
-                case NetworkError.savingError:
-                    drawAlert("Non Succesful Responce Code", "\(networkError!)")
-                }
-                
             }
+            
+            
+            switch(networkError!){
+            case NetworkError.networkIsOfflineError:
+                drawAlert("Network is Offline", "\(networkError!)")
+            case NetworkError.noSuccesfulResponseCodeError:
+                drawAlert("Non Succesful Responce Code", "\(networkError!)")
+            case NetworkError.responceDataFormatIsInFalseFormatError:
+                drawAlert("Recived Data is in false Format", "\(networkError!)")
+            case NetworkError.unknownError:
+                drawAlert("Unknown Error", "\(networkError!)")
+            case NetworkError.savingError:
+                drawAlert("Non Succesful Responce Code", "\(networkError!)")
+            }
+            
+        }
     }
     
     func retryAlert(networking: Networking){

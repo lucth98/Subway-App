@@ -14,7 +14,7 @@ class corrdinatesTableViewCell:UITableViewCell{
     @IBOutlet weak var latitudeLabel: UILabel!
     
     func setLeabelTex(longitude:Double,latidude: Double){
-        longitudeLabel.text = "Long: " + longitude.description
-        latitudeLabel.text = "Lat: " + latidude.description
+        longitudeLabel.text = "Longitude: " + longitude.description
+        latitudeLabel.text = "Latitude: " + latidude.description
     }
 }

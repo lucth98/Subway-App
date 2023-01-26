@@ -41,8 +41,6 @@ struct Route{
         return false
     }
     
-    
-    
     func containStation(newStation:StationTabel)->Bool{
         for sation in stations {
             if(sation == newStation){

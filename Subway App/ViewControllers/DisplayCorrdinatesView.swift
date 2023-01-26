@@ -27,7 +27,7 @@ class DisplayCorrdinatesView: ViewController , UITableViewDelegate ,UITableViewD
         guard(cordinates != nil) else{
             return 0
         }
-     
+        
         return cordinates!.count
     }
     
@@ -35,7 +35,7 @@ class DisplayCorrdinatesView: ViewController , UITableViewDelegate ,UITableViewD
         guard(cordinates != nil) else{
             return UITableViewCell()
         }
-       
+        
         
         var index = indexPath.row
         

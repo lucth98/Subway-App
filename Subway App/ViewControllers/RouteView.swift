@@ -12,9 +12,7 @@ import MapKit
 class RouteView: UIViewController, MKMapViewDelegate {
     
     var route: Route?
-    
     var correntLine: Int = 0
-    
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -24,8 +22,6 @@ class RouteView: UIViewController, MKMapViewDelegate {
         title = "Route"
         
         mapView.mapType = MKMapType.hybrid
-        
-        
         mapView.delegate = self
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
@@ -33,7 +29,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
         
         var corrdinatesOfVienna = CLLocationCoordinate2D(latitude:ShowSubwayMapView.latitudeVienna , longitude: ShowSubwayMapView.longitudeVienna)
         mapView.setCenter(corrdinatesOfVienna, animated: false)
-         
+        
         drawRoute()
     }
     
@@ -42,13 +38,11 @@ class RouteView: UIViewController, MKMapViewDelegate {
             return
         }
         
-    
-        
         for station in route!.stations{
-            
+            /*
             print("print Station")
             print(station)
-            
+            */
             let cordinate = CLLocationCoordinate2DMake(station.cordinates?.latitude ?? 0.0, station.cordinates?.longitude ?? 0.0)
             
             let annotation = MKPointAnnotation()
@@ -58,8 +52,6 @@ class RouteView: UIViewController, MKMapViewDelegate {
             
             mapView.addAnnotation(annotation)
         }
-        
-        
         
         for i in stride(from: 0, to: route!.stations.count - 1 , by: 1){
             
@@ -71,7 +63,6 @@ class RouteView: UIViewController, MKMapViewDelegate {
             
             var polyline = MKPolyline(coordinates: locations, count: locations.count
             )
-            
             
             self.correntLine = (route?.stations[i].subwayLine)!
             
@@ -103,14 +94,10 @@ class RouteView: UIViewController, MKMapViewDelegate {
                 plRenderer.strokeColor = UIColor.blue
             }
             
-            
             plRenderer.lineWidth = 3
             return plRenderer
         }else{
             return MKPolylineRenderer()
         }
     }
-    
-    
-    
 }

@@ -13,7 +13,6 @@ class SationTableViewCell: UITableViewCell{
     
     @IBOutlet weak var stationNameLabel: UILabel!
     
-    
     func setName(_ name:String){
         stationNameLabel.text = name
     }

@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var locationManager: CLLocationManager?
@@ -19,7 +19,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     var stationList: [StationTabel]?
     
     override func viewDidLoad() {
-       
+        
         
         super.viewDidLoad()
         title = "Nearst Station"
@@ -37,7 +37,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         locationManager?.requestAlwaysAuthorization()
         
         getStations()
-       
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -56,7 +56,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                 drawRouteToNearestStation(start: startPoint!, end: endPoint!)
             }
         }
-
+        
     }
     
     func  displayGPSPosition(_ latitude: Double, _ longitude: Double ) -> MKPointAnnotation?{
@@ -98,7 +98,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                     previosDistance = positionGPS.distance(from: previosLocation)
                     
                     var curentDistanze = positionGPS.distance(from: currenLocation)
-                      
+                    
                     if(curentDistanze < previosDistance){
                         savedStation = station
                     }
@@ -122,7 +122,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         annotation.coordinate = cordinate
         annotation.title = station.name
         annotation.subtitle = String(station.subwayLine)
-    
+        
         self.mapView.addAnnotation(annotation)
         return annotation
     }
@@ -153,7 +153,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                 }else{
                     self.drawAlert("Unknow route API error",  "no Error returned")
                 }
-          
+                
                 return
             }
             guard(responce?.routes.count != 0) else{
@@ -180,7 +180,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             self.locationManager?.requestLocation()
         }
     }
-
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         print("")
     }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CalculateRouteView: UIViewController {
-
+    
     var stations: [StationTabel]?
     var selecetStart: StationTabel?
     var selecetEnd: StationTabel?
@@ -59,7 +59,7 @@ class CalculateRouteView: UIViewController {
         
         getStations()
         
-       calculator = RouteCalculator()
+        calculator = RouteCalculator()
         
     }
     
@@ -156,7 +156,7 @@ class CalculateRouteView: UIViewController {
         
         if(route != nil){
             routeViewController.route = self.route!
-           
+            
         }
     }
 }
