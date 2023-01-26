@@ -19,8 +19,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     var stationList: [StationTabel]?
     
     override func viewDidLoad() {
-        
-        
         super.viewDidLoad()
         title = "Nearst Station"
         // Do any additional setup after loading the view.

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import MapKit
 
-
 class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -25,7 +24,6 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view.
         //test
         mapView.mapType = MKMapType.hybrid
-        
         
         mapView.delegate = self
         mapView.isZoomEnabled = true
@@ -55,9 +53,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 annotation.coordinate = cordinate
                 annotation.title = station.name
                 annotation.subtitle = String(station.subwayLine)
-                
-                
-                
+            
                 self.mapView.addAnnotation(annotation)
             }
         }
@@ -80,13 +76,10 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                     // print("add cordinates" + locations.description)
                 }
                 
-                
                 var polyline = MKPolyline(coordinates: locations, count: locations.count
                 )
                 
-                
                 self.correntLine = subwayLine.subwayLine
-                
                 self.mapView.addOverlay(polyline)
             }
         }
@@ -115,15 +108,10 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 plRenderer.strokeColor = UIColor.blue
             }
             
-            
             plRenderer.lineWidth = 3
             return plRenderer
         }else{
             return MKPolylineRenderer()
         }
     }
-    
-    
-    
-    
 }

@@ -304,4 +304,10 @@ class RouteCalculator{
         }
         stations?.append(station)
     }
+    
+    
+    
+    func getLinesForStation(station: StationTabel)->[Int]{
+        
+    }
 }
