@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A063C7FC2982FED3004A552D /* AdvancedStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063C7FB2982FED3004A552D /* AdvancedStation.swift */; };
 		A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A47799296B5CBD00375068 /* NetworkError.swift */; };
 		A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779B2971C25700375068 /* SationTableViewCell.swift */; };
 		A0A4779F29759D6100375068 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779E29759D6100375068 /* Route.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A063C7FB2982FED3004A552D /* AdvancedStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedStation.swift; sourceTree = "<group>"; };
 		A0A47799296B5CBD00375068 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A0A4779B2971C25700375068 /* SationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SationTableViewCell.swift; sourceTree = "<group>"; };
 		A0A4779E29759D6100375068 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			children = (
 				A0A4779E29759D6100375068 /* Route.swift */,
 				A0A477A029759D7100375068 /* RouteCalculator.swift */,
+				A063C7FB2982FED3004A552D /* AdvancedStation.swift */,
 			);
 			path = logic;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
 				A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */,
 				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,
+				A063C7FC2982FED3004A552D /* AdvancedStation.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
 				A0AF9B752950C03500536352 /* Subway_App.xcdatamodeld in Sources */,
 				A0A477A52979F13600375068 /* corrdinatesTableViewCell.swift in Sources */,

@@ -130,14 +130,14 @@ class CalculateRouteView: UIViewController {
     func startStationSelecet(name: String){
         dropDownStart.setTitle(name, for: .normal)
         selecetStart = getStation(name)
-        print(selecetStart)
+    //    print(selecetStart)
         
     }
     
     func endStationSelecet(name: String){
         dropDownEnd.setTitle(name, for: .normal)
         selecetEnd = getStation(name)
-        print(selecetEnd)
+     //   print(selecetEnd)
     }
     
     func addStationToList(_ newStation: StationTabel){

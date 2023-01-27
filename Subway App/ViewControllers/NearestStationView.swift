@@ -99,6 +99,8 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                     
                     if(curentDistanze < previosDistance){
                         savedStation = station
+                        print("current distanze=" + curentDistanze.description
+                        + " previus distanze=" + previosDistance.description)
                     }
                 }
                 

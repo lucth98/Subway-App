@@ -48,7 +48,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
             let annotation = MKPointAnnotation()
             annotation.coordinate = cordinate
             annotation.title = station.name
-            annotation.subtitle = String(station.subwayLine)
+            annotation.subtitle = String(station.subwayLines.description)
             
             mapView.addAnnotation(annotation)
         }
@@ -63,8 +63,10 @@ class RouteView: UIViewController, MKMapViewDelegate {
             
             var polyline = MKPolyline(coordinates: locations, count: locations.count
             )
-            
-            self.correntLine = (route?.stations[i].subwayLine)!
+          
+            print(route!.stations[i].name)
+            print("i =" + i.description)
+            self.correntLine =  route?.lineNumbers[i] ?? 0 //(route?.stations[i].subwayLines[0])!// richtige farbe
             
             self.mapView.addOverlay(polyline)
         }

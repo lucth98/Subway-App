@@ -53,6 +53,8 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 annotation.coordinate = cordinate
                 annotation.title = station.name
                 annotation.subtitle = String(station.subwayLine)
+                
+            
             
                 self.mapView.addAnnotation(annotation)
             }
