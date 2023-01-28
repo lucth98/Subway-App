@@ -15,12 +15,12 @@ class CalculateRouteView: UIViewController {
     var selecetEnd: StationTabel?
     var calculator: RouteCalculator?
     var route: Route?
-    
+   
     @IBOutlet weak var dropDownStart: UIButton!
     @IBOutlet weak var dropDownEnd: UIButton!
     
     @IBOutlet weak var calculationStackView: UIStackView!
-    @IBOutlet weak var configStackView: UIStackView!
+    /* @IBOutlet weak var configStackView: UIStackView!
     
     
     func enableConfigStackView(){
@@ -50,15 +50,15 @@ class CalculateRouteView: UIViewController {
     @IBAction func buyTicket(){
         
     }
-    
-    
+      */
+
     
     @IBAction func calcButtonPressed(){
         guard(calculator != nil && selecetStart != nil && selecetEnd != nil) else{
             return
         }
         
-        
+      
         
         if(selecetStart == selecetEnd){
             self.drawAlert("Start and End are the same", "please enter valide data")
@@ -71,8 +71,8 @@ class CalculateRouteView: UIViewController {
             self.route = route
             
             if(route != nil){
-                //self.performSegue(withIdentifier: "drawRoutes", sender: nil)
-                self.enableConfigStackView()
+                self.performSegue(withIdentifier: "routeControll", sender: nil)
+               // self.enableConfigStackView()
                 
             }else{
                 self.drawAlert("No Route", "No possible rout could be found in the data set")
@@ -99,7 +99,7 @@ class CalculateRouteView: UIViewController {
         
         calculator = RouteCalculator()
         
-        disableConfigStackView()
+      //  disableConfigStackView()
       
     }
     
@@ -190,13 +190,13 @@ class CalculateRouteView: UIViewController {
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
-        guard let routeViewController = segue.destination as? RouteView
+        guard let routeControllViewController = segue.destination as? RouteControllView
         else{
             return
         }
         
         if(route != nil){
-            routeViewController.route = self.route!
+            routeControllViewController.route = self.route!
             
         }
     }

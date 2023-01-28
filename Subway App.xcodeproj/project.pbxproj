@@ -36,6 +36,8 @@
 		A0AF9BB62967441700536352 /* StationTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB52967441700536352 /* StationTable.swift */; };
 		A0AF9BB82967442D00536352 /* SubwayLineTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB72967442D00536352 /* SubwayLineTable.swift */; };
 		A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AF9BB92967444600536352 /* CordinatesTabel.swift */; };
+		A0AFD4542985990C0006800D /* RouteControllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFD4532985990C0006800D /* RouteControllView.swift */; };
+		A0AFD45629859A9B0006800D /* InternetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AFD45529859A9B0006800D /* InternetView.swift */; };
 		A0F4BAE229674C7B006E4563 /* DataBaseControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4BAE129674C7B006E4563 /* DataBaseControll.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		A0AF9BB52967441700536352 /* StationTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationTable.swift; sourceTree = "<group>"; };
 		A0AF9BB72967442D00536352 /* SubwayLineTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubwayLineTable.swift; sourceTree = "<group>"; };
 		A0AF9BB92967444600536352 /* CordinatesTabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CordinatesTabel.swift; sourceTree = "<group>"; };
+		A0AFD4532985990C0006800D /* RouteControllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteControllView.swift; sourceTree = "<group>"; };
+		A0AFD45529859A9B0006800D /* InternetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetView.swift; sourceTree = "<group>"; };
 		A0F4BAE129674C7B006E4563 /* DataBaseControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseControll.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +208,8 @@
 				A0A4779B2971C25700375068 /* SationTableViewCell.swift */,
 				A0A477A22979F06F00375068 /* DisplayCorrdinatesView.swift */,
 				A0A477A42979F13600375068 /* corrdinatesTableViewCell.swift */,
+				A0AFD4532985990C0006800D /* RouteControllView.swift */,
+				A0AFD45529859A9B0006800D /* InternetView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -372,6 +378,7 @@
 				A0AF9BA5295CAFDE00536352 /* ShowSubwayMapView.swift in Sources */,
 				A0F4BAE229674C7B006E4563 /* DataBaseControll.swift in Sources */,
 				A0AF9BB82967442D00536352 /* SubwayLineTable.swift in Sources */,
+				A0AFD4542985990C0006800D /* RouteControllView.swift in Sources */,
 				A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */,
 				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
 				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
@@ -382,6 +389,7 @@
 				A0AF9B9E2950CEE300536352 /* Networking.swift in Sources */,
 				A0AF9BBA2967444600536352 /* CordinatesTabel.swift in Sources */,
 				A0AF9BA9295CB08000536352 /* RouteView.swift in Sources */,
+				A0AFD45629859A9B0006800D /* InternetView.swift in Sources */,
 				A063C7FC2982FED3004A552D /* AdvancedStation.swift in Sources */,
 				A0AF9B6B2950C03500536352 /* AppDelegate.swift in Sources */,
 				A0AF9B752950C03500536352 /* Subway_App.xcdatamodeld in Sources */,

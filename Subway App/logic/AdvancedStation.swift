@@ -13,14 +13,19 @@ struct AdvancedStation{
     
     var name: String = ""
     
-    var cordinates: CordinatesTabel?
+    var cordinates: SimpleCordinates?
     
     static func convert(station: StationTabel)-> AdvancedStation{
         var result = AdvancedStation()
         
         result.name = station.name
-        result.cordinates = station.cordinates
-    
+        if let cor = station.cordinates{
+            result.cordinates = SimpleCordinates.convertFromTabel(cordinatesTabel: cor)
+        }else{
+            result.cordinates = nil
+        }
+        
+        
         return result
     }
     
@@ -40,10 +45,26 @@ struct AdvancedStation{
     static func removeMultipleStaionsFromStationArray(stations:[AdvancedStation], array: [AdvancedStation] )->[AdvancedStation]{
         var result = array
         for station in stations {
-          result =  removeStaionFromStationArray(station: station, array: result)
+            result =  removeStaionFromStationArray(station: station, array: result)
         }
         return result
     }
     
+}
+
+
+struct SimpleCordinates {
+    
+    
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+    
+    static func convertFromTabel(cordinatesTabel:CordinatesTabel)->SimpleCordinates{
+        var result = SimpleCordinates()
+        result.latitude = cordinatesTabel.latitude
+        result.longitude = cordinatesTabel.longitude
+        
+        return result
+    }
 }
 
