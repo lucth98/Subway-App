@@ -60,7 +60,7 @@ class RouteCalculator{
                 if((station.name != start.name)){
                     
                     if(station.name == end.name){
-                        print("targed reaced")
+                       // print("targed reaced")
                         // ziel ereicht return
                         
                         //todo station zwischen start und station hinzufügen

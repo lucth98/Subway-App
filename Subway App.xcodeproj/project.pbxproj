@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A063C7FC2982FED3004A552D /* AdvancedStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A063C7FB2982FED3004A552D /* AdvancedStation.swift */; };
+		A0917FD92985A69600D5C68C /* LineInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0917FD82985A69600D5C68C /* LineInfoCell.swift */; };
 		A0A4779A296B5CBD00375068 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A47799296B5CBD00375068 /* NetworkError.swift */; };
 		A0A4779C2971C25700375068 /* SationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779B2971C25700375068 /* SationTableViewCell.swift */; };
 		A0A4779F29759D6100375068 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4779E29759D6100375068 /* Route.swift */; };
@@ -60,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		A063C7FB2982FED3004A552D /* AdvancedStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedStation.swift; sourceTree = "<group>"; };
+		A0917FD82985A69600D5C68C /* LineInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineInfoCell.swift; sourceTree = "<group>"; };
 		A0A47799296B5CBD00375068 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A0A4779B2971C25700375068 /* SationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SationTableViewCell.swift; sourceTree = "<group>"; };
 		A0A4779E29759D6100375068 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				A0A477A42979F13600375068 /* corrdinatesTableViewCell.swift */,
 				A0AFD4532985990C0006800D /* RouteControllView.swift */,
 				A0AFD45529859A9B0006800D /* InternetView.swift */,
+				A0917FD82985A69600D5C68C /* LineInfoCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				A0AF9BA7295CAFED00536352 /* DisplayDataView.swift in Sources */,
 				A0AF9BA1295CAF6E00536352 /* NearestStationView.swift in Sources */,
 				A0A4779F29759D6100375068 /* Route.swift in Sources */,
+				A0917FD92985A69600D5C68C /* LineInfoCell.swift in Sources */,
 				A0AF9BA3295CAFB900536352 /* CalculateRouteView.swift in Sources */,
 				A0AF9B6F2950C03500536352 /* ViewController.swift in Sources */,
 				A0A477A129759D7100375068 /* RouteCalculator.swift in Sources */,
