@@ -34,6 +34,25 @@ class CalculateRouteView: UIViewController {
         calculationStackView.isHidden = false
     }
     
+    @IBAction func newRoute(){
+        route = nil
+        disableConfigStackView()
+    }
+    
+    @IBAction func showInMap(){
+        guard (route != nil) else{
+            return
+        }
+        
+        self.performSegue(withIdentifier: "drawRoutes", sender: nil)
+    }
+    
+    @IBAction func buyTicket(){
+        
+    }
+    
+    
+    
     @IBAction func calcButtonPressed(){
         guard(calculator != nil && selecetStart != nil && selecetEnd != nil) else{
             return
@@ -52,7 +71,9 @@ class CalculateRouteView: UIViewController {
             self.route = route
             
             if(route != nil){
-                self.performSegue(withIdentifier: "drawRoutes", sender: nil)
+                //self.performSegue(withIdentifier: "drawRoutes", sender: nil)
+                self.enableConfigStackView()
+                
             }else{
                 self.drawAlert("No Route", "No possible rout could be found in the data set")
             }
@@ -79,8 +100,7 @@ class CalculateRouteView: UIViewController {
         calculator = RouteCalculator()
         
         disableConfigStackView()
-        enableConfigStackView()
-        
+      
     }
     
     
