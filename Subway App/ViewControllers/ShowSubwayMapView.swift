@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
+    @IBOutlet weak var infoLabel: NSLayoutConstraint!
     
     @IBOutlet weak var mapView: MKMapView!
     

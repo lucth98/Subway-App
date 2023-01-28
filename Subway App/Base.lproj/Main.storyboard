@@ -33,7 +33,9 @@
                                             <constraint firstAttribute="height" constant="30" id="yH9-Zq-BR7"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Nearest Station" titleAlignment="center"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Nearest Station" titleAlignment="center">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
                                         </connections>
@@ -44,7 +46,9 @@
                                             <constraint firstAttribute="height" constant="30" id="5jb-Ks-A1e"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Claculate Route"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Claculate Route">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="MBJ-Tg-2dK" kind="show" id="ZWx-ui-vTh"/>
                                         </connections>
@@ -55,7 +59,9 @@
                                             <constraint firstAttribute="height" constant="30" id="gJq-7x-76p"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Show Subway Map"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Show Subway Map">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
                                         </connections>
@@ -68,7 +74,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Display Data"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Display Data"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Display Data">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
                                         <connections>
                                             <segue destination="5dJ-94-g5q" kind="show" id="BIi-g4-cUF"/>
                                         </connections>
@@ -130,17 +138,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rq-Q9-y2Y">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="116" width="390" height="694"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qtI-rE-knI">
+                                <rect key="frame" x="5" y="91" width="380" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripton:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwj-hU-anu">
+                                        <rect key="frame" x="0.0" y="0.0" width="135.33333333333334" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2W2-b4-GZY">
+                                        <rect key="frame" x="145.33333333333334" y="0.0" width="30" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VG-pt-5uz">
+                                        <rect key="frame" x="185.33333333333334" y="0.0" width="34" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemPurpleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iEn-Cp-jLE">
+                                        <rect key="frame" x="229.33333333333334" y="0.0" width="34.333333333333343" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FT-2j-50C">
+                                        <rect key="frame" x="273.66666666666669" y="0.0" width="34.666666666666686" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemGreenColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="U6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhX-ZK-OjN">
+                                        <rect key="frame" x="318.33333333333331" y="0.0" width="61.666666666666686" height="20"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemBrownColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="C2a-zT-LZC"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zPh-dr-2HI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zPh-dr-2HI" firstAttribute="trailing" secondItem="3rq-Q9-y2Y" secondAttribute="trailing" id="Lgv-cz-7yg"/>
+                            <constraint firstItem="qtI-rE-knI" firstAttribute="leading" secondItem="zPh-dr-2HI" secondAttribute="leading" constant="5" id="5Yt-kj-LmN"/>
                             <constraint firstItem="3rq-Q9-y2Y" firstAttribute="leading" secondItem="zPh-dr-2HI" secondAttribute="leading" id="QSR-Y0-wcl"/>
+                            <constraint firstItem="qtI-rE-knI" firstAttribute="top" secondItem="zPh-dr-2HI" secondAttribute="top" id="YVc-aI-Hsu"/>
+                            <constraint firstItem="zPh-dr-2HI" firstAttribute="trailing" secondItem="qtI-rE-knI" secondAttribute="trailing" constant="5" id="kHK-hx-8uY"/>
                             <constraint firstItem="zPh-dr-2HI" firstAttribute="bottom" secondItem="3rq-Q9-y2Y" secondAttribute="bottom" id="oAe-r5-Hwt"/>
-                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="top" secondItem="zPh-dr-2HI" secondAttribute="top" id="qHp-uo-tMa"/>
+                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="bottom" secondItem="zPh-dr-2HI" secondAttribute="bottom" id="odv-jx-e9A"/>
+                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="trailing" secondItem="zPh-dr-2HI" secondAttribute="trailing" id="otJ-1u-TKm"/>
+                            <constraint firstItem="3rq-Q9-y2Y" firstAttribute="top" secondItem="zPh-dr-2HI" secondAttribute="top" constant="25" id="qHp-uo-tMa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ydd-6d-etx"/>
@@ -150,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQv-9b-LC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-709" y="403"/>
+            <point key="canvasLocation" x="-709.23076923076917" y="402.36966824644549"/>
         </scene>
         <!--Display Data View-->
         <scene sceneID="sVQ-vz-1pb">
@@ -438,6 +494,24 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
