@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fS8-2J-WDN">
-                                <rect key="frame" x="10" y="101" width="370" height="216"/>
+                                <rect key="frame" x="10" y="101" width="370" height="262.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" highlighted="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="48"/>
@@ -66,8 +66,18 @@
                                             <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7w-Ra-jfw">
+                                        <rect key="frame" x="0.0" y="186" width="370" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Buy Ticket">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="eTs-RP-83d" kind="show" id="ucR-Nt-cvb"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
-                                        <rect key="frame" x="0.0" y="186" width="370" height="30"/>
+                                        <rect key="frame" x="0.0" y="232.33333333333331" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="FJG-jy-Lui"/>
                                             <constraint firstAttribute="height" constant="30" id="W0O-tI-yeg"/>
@@ -555,33 +565,49 @@
             </objects>
             <point key="canvasLocation" x="301.53846153846155" y="-338.38862559241704"/>
         </scene>
-        <!--View Controller-->
+        <!--Internet View-->
         <scene sceneID="Hb4-wC-kbk">
             <objects>
-                <viewController id="eTs-RP-83d" sceneMemberID="viewController">
+                <viewController id="eTs-RP-83d" customClass="InternetView" customModule="Subway_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8BD-uw-1Fp">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsz-Eg-OnB">
-                                <rect key="frame" x="0.0" y="91" width="390" height="719"/>
+                                <rect key="frame" x="0.0" y="111" width="390" height="699"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avS-pH-eQT">
+                                <rect key="frame" x="0.0" y="91" width="390" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="8M6-h7-Cky"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W7Y-5g-WHf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="avS-pH-eQT" firstAttribute="leading" secondItem="W7Y-5g-WHf" secondAttribute="leading" id="ADj-jt-eJE"/>
+                            <constraint firstItem="avS-pH-eQT" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" id="DzY-BJ-R1l"/>
                             <constraint firstItem="W7Y-5g-WHf" firstAttribute="trailing" secondItem="jsz-Eg-OnB" secondAttribute="trailing" id="SSF-a7-QeS"/>
                             <constraint firstItem="jsz-Eg-OnB" firstAttribute="leading" secondItem="W7Y-5g-WHf" secondAttribute="leading" id="U3T-eU-QNX"/>
-                            <constraint firstItem="jsz-Eg-OnB" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" id="aGU-2Z-uSS"/>
+                            <constraint firstItem="jsz-Eg-OnB" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" constant="20" id="aGU-2Z-uSS"/>
+                            <constraint firstItem="W7Y-5g-WHf" firstAttribute="trailing" secondItem="avS-pH-eQT" secondAttribute="trailing" id="kBQ-Nq-0WV"/>
                             <constraint firstItem="W7Y-5g-WHf" firstAttribute="bottom" secondItem="jsz-Eg-OnB" secondAttribute="bottom" id="mIA-by-mij"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SbM-EP-rxO"/>
+                    <connections>
+                        <outlet property="urlLabel" destination="avS-pH-eQT" id="v7W-Jl-KVQ"/>
+                        <outlet property="webView" destination="jsz-Eg-OnB" id="jFj-H9-UNI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCO-sz-rkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -606,6 +632,9 @@
             <point key="canvasLocation" x="-2854" y="-756"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ucR-Nt-cvb"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

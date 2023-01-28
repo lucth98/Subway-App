@@ -19,7 +19,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "Route"
+        title = "Display Route"
         
         mapView.mapType = MKMapType.hybrid
         mapView.delegate = self

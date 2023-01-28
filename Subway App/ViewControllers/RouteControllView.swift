@@ -15,6 +15,7 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Route"
         
         
         tableView.delegate = self
