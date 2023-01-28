@@ -19,10 +19,27 @@ class CalculateRouteView: UIViewController {
     @IBOutlet weak var dropDownStart: UIButton!
     @IBOutlet weak var dropDownEnd: UIButton!
     
+    @IBOutlet weak var calculationStackView: UIStackView!
+    @IBOutlet weak var configStackView: UIStackView!
+    
+    
+    func enableConfigStackView(){
+        configStackView.isHidden = false
+        calculationStackView.isHidden = true
+        
+    }
+    
+    func disableConfigStackView(){
+        configStackView.isHidden = true
+        calculationStackView.isHidden = false
+    }
+    
     @IBAction func calcButtonPressed(){
         guard(calculator != nil && selecetStart != nil && selecetEnd != nil) else{
             return
         }
+        
+        
         
         if(selecetStart == selecetEnd){
             self.drawAlert("Start and End are the same", "please enter valide data")
@@ -60,6 +77,9 @@ class CalculateRouteView: UIViewController {
         getStations()
         
         calculator = RouteCalculator()
+        
+        disableConfigStackView()
+        enableConfigStackView()
         
     }
     
