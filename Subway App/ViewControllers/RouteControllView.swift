@@ -10,6 +10,7 @@ import UIKit
 
 class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     var route:Route?
+    var textOutPut: [String] = []
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,10 +18,10 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         super.viewDidLoad()
         title = "Route"
         
-        
         tableView.delegate = self
         tableView.dataSource = self
        
+        generateTextOutPut()
         
         tableView.reloadData()
         print(route)
@@ -48,68 +49,62 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         }
     }
     
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count")
         guard(route != nil) else{
-            
-            
             return 0
         }
-        print(route?.lineNumbers.count.description)
-        return (route?.lineNumbers.count)!
+        return ((route?.lineNumbers.count) ?? 0)*2
     }
     
+    private func generateTextOutPut(){
+        textOutPut = []
+        
+        for line in (route?.lineNumbers)!{
+            
+            let firstStation = getFirstStaionInLine(lineOfStation: line)
+            let lastStation = getLastStaionInLine(lineOfStation: line)
+            
+            var firstString = "U" + line.description + " From: " + (firstStation?.name ?? "Error: no name")
+            var secondString = "U" + line.description + " To: " + (lastStation?.name ?? "Error: no name")
+            textOutPut.append(firstString)
+            textOutPut.append(secondString)
+        }
+    }
     
-    private func getDescription(index:Int)->String{
-     
-        var result = "Line: U"
-        
-        result += route?.lineNumbers[index].description ?? " DATA ERROR"
-        result += " "
-        
-        var firstStation: AdvancedStation = AdvancedStation()
-        var lastStation: AdvancedStation = AdvancedStation()
-        
+    private func getFirstStaionInLine( lineOfStation:Int)->AdvancedStation?{
         for station in (route?.stations)!{
             for line in station.subwayLines{
-                if(line == route?.lineNumbers[index]){
-                    firstStation = station
-                    break
+                if(line == lineOfStation){
+                    return station
                 }
             }
         }
+        return nil
+    }
+    
+    private func getLastStaionInLine( lineOfStation:Int)->AdvancedStation?{
+        var result: AdvancedStation? = nil
         
         for station in (route?.stations)!{
             for line in station.subwayLines{
-                if(line == route?.lineNumbers[index]){
-                    lastStation = station
-                    
+                if(line == lineOfStation){
+                   result = station
                 }
             }
         }
-        
-        result += firstStation.name
-        result += " -> "
-        result += lastStation.name
-    
         return result
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("fill")
         guard(route != nil) else{
-            print("nil")
             return UITableViewCell()
         }
         
-        
-        var index = indexPath.row
+        let index = indexPath.row
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeInfoCell") as! LineInfoCell
-         var text = getDescription(index: index)
-        print(text)
+        var text = textOutPut[index]
+      
         cell.setText(text: text)
         
         return cell

@@ -10,9 +10,9 @@ import UIKit
 
 class CalculateRouteView: UIViewController {
     
-    var stations: [StationTabel]?
-    var selecetStart: StationTabel?
-    var selecetEnd: StationTabel?
+    var stations: [AdvancedStation] = []
+    var selecetStart: AdvancedStation?
+    var selecetEnd: AdvancedStation?
     var calculator: RouteCalculator?
     var route: Route?
    
@@ -20,47 +20,13 @@ class CalculateRouteView: UIViewController {
     @IBOutlet weak var dropDownEnd: UIButton!
     
     @IBOutlet weak var calculationStackView: UIStackView!
-    /* @IBOutlet weak var configStackView: UIStackView!
-    
-    
-    func enableConfigStackView(){
-        configStackView.isHidden = false
-        calculationStackView.isHidden = true
-        
-    }
-    
-    func disableConfigStackView(){
-        configStackView.isHidden = true
-        calculationStackView.isHidden = false
-    }
-    
-    @IBAction func newRoute(){
-        route = nil
-        disableConfigStackView()
-    }
-    
-    @IBAction func showInMap(){
-        guard (route != nil) else{
-            return
-        }
-        
-        self.performSegue(withIdentifier: "drawRoutes", sender: nil)
-    }
-    
-    @IBAction func buyTicket(){
-        
-    }
-      */
 
-    
     @IBAction func calcButtonPressed(){
         guard(calculator != nil && selecetStart != nil && selecetEnd != nil) else{
             return
         }
         
-      
-        
-        if(selecetStart == selecetEnd){
+        if(selecetStart?.name == selecetEnd?.name){
             self.drawAlert("Start and End are the same", "please enter valide data")
             return
         }
@@ -72,7 +38,6 @@ class CalculateRouteView: UIViewController {
             
             if(route != nil){
                 self.performSegue(withIdentifier: "routeControll", sender: nil)
-               // self.enableConfigStackView()
                 
             }else{
                 self.drawAlert("No Route", "No possible rout could be found in the data set")
@@ -98,8 +63,7 @@ class CalculateRouteView: UIViewController {
         getStations()
         
         calculator = RouteCalculator()
-        
-      //  disableConfigStackView()
+    
       
     }
     
@@ -108,17 +72,19 @@ class CalculateRouteView: UIViewController {
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
             
-            self.stations = database.getStationsAsArray()
+            var stationsDatabase = database.getStationsAsArray()
+            
+            for station in stationsDatabase{
+                self.stations.append(AdvancedStation.convert(station: station))
+            }
+            
             self.fillDropDownMenues()
         }
     }
     
     
-    func getStation(_ name: String)->StationTabel?{
-        guard(stations != nil)else{
-            return nil
-        }
-        for station in stations!{
+    func getStation(_ name: String)->AdvancedStation?{
+        for station in stations{
             if(station.name == name){
                 return station
             }
@@ -127,19 +93,11 @@ class CalculateRouteView: UIViewController {
     }
     
     func sortStations(){
-        guard (stations != nil) else{
-            return
-        }
-        var database = DataBaseControll.instance
-        stations = database.sortStationArray(arrayOfStations: stations!)
+        stations = AdvancedStation.sortStationArray(arrayOfStations: stations)//database.sortStationArray(arrayOfStations: stations)
     }
     
     
     func fillDropDownMenues(){
-        guard (stations != nil) else{
-            return
-        }
-        
         let clouseStartMenue = {(action: UIAction) in
             self.startStationSelecet(name: action.title)
         }
@@ -153,7 +111,7 @@ class CalculateRouteView: UIViewController {
         
         sortStations()
         
-        for station in stations!{
+        for station in stations{
             var elementStart = UIAction(title: station.name, state: .off, handler:
                                             clouseStartMenue)
             var elmentEnd = UIAction(title:station.name, state: .off, handler:
@@ -178,15 +136,6 @@ class CalculateRouteView: UIViewController {
         dropDownEnd.setTitle(name, for: .normal)
         selecetEnd = getStation(name)
      //   print(selecetEnd)
-    }
-    
-    func addStationToList(_ newStation: StationTabel){
-        for stationName in stations! {
-            if(stationName.name == newStation.name){
-                return;
-            }
-        }
-        stations?.append(newStation)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

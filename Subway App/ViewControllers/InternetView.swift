@@ -16,6 +16,13 @@ class InternetView: ViewController, WKNavigationDelegate{
     @IBOutlet weak var webView: WKWebView!
     
     @IBOutlet weak var urlLabel: UILabel!
+    
+    @IBAction func openInBrowser(){
+        if let url = URL(string: urlOfWebShop) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Buy Ticket"
@@ -30,5 +37,19 @@ class InternetView: ViewController, WKNavigationDelegate{
         
         
     }
+    
+    
+    /*
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
+        DispatchQueue.main.async {
+            
+            if let urlStr = navigationAction.request.url?.absoluteString{
+            
+                self.urlLabel.text = urlStr
+            }
+            
+        }
+        decisionHandler(.allow)
+    }*/
     
 }

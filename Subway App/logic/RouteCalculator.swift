@@ -270,7 +270,7 @@ class RouteCalculator{
         return result
     }
     
-    func calculate(start:StationTabel ,end: StationTabel)->Route?{
+    func calculate(start:AdvancedStation ,end: AdvancedStation)->Route?{
         var startStation = getStationByName(name: start.name)
         var endStation = getStationByName(name: end.name)
         

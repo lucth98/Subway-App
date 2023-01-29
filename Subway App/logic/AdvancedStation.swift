@@ -50,6 +50,12 @@ struct AdvancedStation{
         return result
     }
     
+    static func  sortStationArray(arrayOfStations: [AdvancedStation]) -> [AdvancedStation]{
+        return arrayOfStations.sorted{
+            $0.name < $1.name
+        }
+    }
+    
 }
 
 

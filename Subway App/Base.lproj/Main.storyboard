@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fS8-2J-WDN">
-                                <rect key="frame" x="10" y="101" width="370" height="262.33333333333331"/>
+                                <rect key="frame" x="10" y="101" width="370" height="216"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" highlighted="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="48"/>
@@ -66,18 +66,8 @@
                                             <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7w-Ra-jfw">
-                                        <rect key="frame" x="0.0" y="186" width="370" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Buy Ticket">
-                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="eTs-RP-83d" kind="show" id="ucR-Nt-cvb"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
-                                        <rect key="frame" x="0.0" y="232.33333333333331" width="370" height="30"/>
+                                        <rect key="frame" x="0.0" y="186" width="370" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="FJG-jy-Lui"/>
                                             <constraint firstAttribute="height" constant="30" id="W0O-tI-yeg"/>
@@ -493,7 +483,7 @@
                                 <rect key="frame" x="5" y="95.999999999999986" width="390" height="196.66666666666663"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnk-f2-Atp">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="34.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="34.666666666666664"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Show Route in Map"/>
                                         <connections>
@@ -502,7 +492,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJa-Lr-aez">
-                                        <rect key="frame" x="0.0" y="34.333333333333343" width="390" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="34.666666666666657" width="390" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Buy Ticket"/>
                                         <connections>
@@ -510,8 +500,17 @@
                                             <segue destination="eTs-RP-83d" kind="show" id="Hbs-TX-RvY"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FM0-bO-hBc">
+                                        <rect key="frame" x="0.0" y="69" width="390" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="sIv-zV-hcp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="UXQ-c7-Vw9">
-                                        <rect key="frame" x="0.0" y="68.666666666666657" width="390" height="128"/>
+                                        <rect key="frame" x="0.0" y="89" width="390" height="107.66666666666669"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="routeInfoCell" id="NHG-tw-syu" customClass="LineInfoCell" customModule="Subway_App" customModuleProvider="target">
@@ -522,7 +521,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlm-41-KuW">
-                                                            <rect key="frame" x="25" y="11" width="340" height="20"/>
+                                                            <rect key="frame" x="20" y="11" width="345" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="dNY-0r-ixE"/>
                                                             </constraints>
@@ -532,7 +531,7 @@
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="Mlm-41-KuW" firstAttribute="leading" secondItem="qhT-0u-rx7" secondAttribute="leadingMargin" constant="5" id="EM0-gf-YOC"/>
+                                                        <constraint firstItem="Mlm-41-KuW" firstAttribute="leading" secondItem="qhT-0u-rx7" secondAttribute="leadingMargin" id="EM0-gf-YOC"/>
                                                         <constraint firstItem="Mlm-41-KuW" firstAttribute="top" secondItem="qhT-0u-rx7" secondAttribute="topMargin" id="MKI-nN-kMr"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="Mlm-41-KuW" secondAttribute="trailing" constant="5" id="QuD-at-4HJ"/>
                                                     </constraints>
@@ -544,6 +543,9 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="FM0-bO-hBc" firstAttribute="top" secondItem="KJa-Lr-aez" secondAttribute="bottom" constant="10" id="TMv-Ex-zZH"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ruM-Pe-o5Z"/>
@@ -574,32 +576,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsz-Eg-OnB">
-                                <rect key="frame" x="0.0" y="111" width="390" height="699"/>
+                                <rect key="frame" x="0.0" y="141" width="390" height="669"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avS-pH-eQT">
-                                <rect key="frame" x="0.0" y="91" width="390" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="8M6-h7-Cky"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wwn-B4-FqP">
+                                <rect key="frame" x="0.0" y="91" width="390" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avS-pH-eQT">
+                                        <rect key="frame" x="174.33333333333334" y="0.0" width="41.333333333333343" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="8M6-h7-Cky"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qw9-1i-JUA">
+                                        <rect key="frame" x="121.66666666666667" y="28" width="146.66666666666663" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="6Rq-xg-Zlm"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="open in Browser"/>
+                                        <connections>
+                                            <action selector="openInBrowser" destination="eTs-RP-83d" eventType="touchUpInside" id="JE9-BE-Q2J"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W7Y-5g-WHf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="avS-pH-eQT" firstAttribute="leading" secondItem="W7Y-5g-WHf" secondAttribute="leading" id="ADj-jt-eJE"/>
-                            <constraint firstItem="avS-pH-eQT" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" id="DzY-BJ-R1l"/>
+                            <constraint firstItem="Wwn-B4-FqP" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" id="1HY-x1-1ra"/>
+                            <constraint firstItem="Wwn-B4-FqP" firstAttribute="leading" secondItem="W7Y-5g-WHf" secondAttribute="leading" id="4Xm-aH-XSR"/>
+                            <constraint firstItem="W7Y-5g-WHf" firstAttribute="trailing" secondItem="Wwn-B4-FqP" secondAttribute="trailing" id="Mlh-n3-IOC"/>
                             <constraint firstItem="W7Y-5g-WHf" firstAttribute="trailing" secondItem="jsz-Eg-OnB" secondAttribute="trailing" id="SSF-a7-QeS"/>
                             <constraint firstItem="jsz-Eg-OnB" firstAttribute="leading" secondItem="W7Y-5g-WHf" secondAttribute="leading" id="U3T-eU-QNX"/>
-                            <constraint firstItem="jsz-Eg-OnB" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" constant="20" id="aGU-2Z-uSS"/>
-                            <constraint firstItem="W7Y-5g-WHf" firstAttribute="trailing" secondItem="avS-pH-eQT" secondAttribute="trailing" id="kBQ-Nq-0WV"/>
+                            <constraint firstItem="jsz-Eg-OnB" firstAttribute="top" secondItem="W7Y-5g-WHf" secondAttribute="top" constant="50" id="aGU-2Z-uSS"/>
                             <constraint firstItem="W7Y-5g-WHf" firstAttribute="bottom" secondItem="jsz-Eg-OnB" secondAttribute="bottom" id="mIA-by-mij"/>
                         </constraints>
                     </view>
@@ -632,9 +650,6 @@
             <point key="canvasLocation" x="-2854" y="-756"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ucR-Nt-cvb"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
