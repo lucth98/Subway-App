@@ -24,7 +24,7 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         generateTextOutPut()
         
         tableView.reloadData()
-        print(route)
+     //   print(route)
     }
     
     @IBAction func showRoute(){
@@ -37,10 +37,55 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         
     }
     
+    private func getStation(name:String)->AdvancedStation?{
+        for station in (route?.stations)!{
+            if(station.name == name){
+                return station
+            }
+        }
+        return nil
+    }
+    
+    private func getStation(indexInTabelView: Int)-> AdvancedStation?{
+        
+        var text = textOutPut[indexInTabelView]
+        
+        var indexStart = text.firstIndex(of: ":")!
+        var index = text.index(indexStart, offsetBy: 2)
+  
+        var name = String(text[index...])
+      
+        print(name)
+     
+        return getStation(name: name)
+    }
+    
+    private func getLineFromText(indexInTabelView: Int)->Int{
+        
+        var text = textOutPut[indexInTabelView]
+        
+        var result =  Array(text)[1]
+        
+        
+      
+        print(result)
+     
+        return Int(String(result)) ?? 0
+    }
+    
+    
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){
         guard let routeViewController = segue.destination as? RouteView
         else{
-            return
+            if let trainView = segue.destination as? TrainView, let index = tableView.indexPathForSelectedRow?.row {
+                
+                trainView.station = getStation(indexInTabelView: index)
+                trainView.line = getLineFromText(indexInTabelView: index)
+                
+            } else{
+                return
+            }
+                return
         }
         
         if(route != nil){
@@ -109,4 +154,7 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         
         return cell
     }
+    
+    
+  
 }
