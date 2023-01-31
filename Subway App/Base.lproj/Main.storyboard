@@ -33,7 +33,7 @@
                                             <constraint firstAttribute="height" constant="30" id="5jb-Ks-A1e"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Claculate Route">
+                                        <buttonConfiguration key="configuration" style="plain" title="Calculate Route">
                                             <color key="baseForegroundColor" systemColor="systemMintColor"/>
                                         </buttonConfiguration>
                                         <connections>

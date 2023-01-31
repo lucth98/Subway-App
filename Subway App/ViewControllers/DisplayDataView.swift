@@ -36,7 +36,7 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         if(!(index > stationList!.count-1)){
             cell.setName("Station: " + stationList![index].name)
         }else{
-            print(index)
+      
             var line = subwayLines![index-stationList!.count].subwayLine
             cell.setName("Line: " + String(line))
         }
