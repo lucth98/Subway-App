@@ -50,14 +50,11 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 
                 if(data != nil){
                     
-                    //print(data)
-                    //print("data recived")
+                  
                     self.fillTrainName(trainData: data!)
-                    self.tabelView.reloadData()
-                } else{
-                   // print("error")
-                  //  print(data)
+                   
                 }
+                self.tabelView.reloadData()
             }
         }
     }

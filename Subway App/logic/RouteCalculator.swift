@@ -31,13 +31,7 @@ class RouteCalculator{
         }
         var linesOfStartStation = start.subwayLines // getallLinesForThisStation(station: start)
         
-        /*
-        print("lines of start:")
-        print(linesOfStartStation)
-        print("start Station")
-        print(start)
         
-         */
         var newRoutes = [Route]()
         
         for lineNumber in linesOfStartStation{
@@ -47,30 +41,16 @@ class RouteCalculator{
             
             var stationInLine = getAllStationInThisLine(lineNumber: lineNumber)
             
-           // stationInLine = AdvancedStation.removeMultipleStaionsFromStationArray(stations: routeCopy.stations, array: stationInLine)
+          
             
             for station in stationInLine {
                 
-                /*
-                print("")
-                print("name sttion = " + station.name + " ende name= " + end.name)
-                print(station.name == end.name)
-                */
+               
                 
                 if((station.name != start.name)){
                     
                     if(station.name == end.name){
-                       // print("targed reaced")
-                        // ziel ereicht return
-                        
-                        //todo station zwischen start und station hinzufügen
-                        
-                        /*
-                         var stationsBetween = getAllStationBetween(start: start, end: station, array: stationInLine)
-                         for between in stationsBetween {
-                         routeCopy.addStation(station: between)
-                         }
-                         */
+                    
                         
                         routeCopy.addLineNumber(line: lineNumber)
                         routeCopy.addStation(station: station)
@@ -81,13 +61,6 @@ class RouteCalculator{
                     
                     var routeNew = routeCopy
                     routeNew.addLineNumber(line: lineNumber)
-                    //todo station zwischen start und station hinzufügen
-                    
-                    /*
-                     var stationsBetween = getAllStationBetween(start: start, end: station, array: stationInLine)
-                     for between in stationsBetween {
-                     routeCopy.addStation(station: between)
-                     }*/
                     
                     routeNew.addStation(station: station)
                     
@@ -183,9 +156,7 @@ class RouteCalculator{
         var result = [AdvancedStation]()
         var positionLastStation = CLLocation(latitude:currentStation.cordinates!.latitude , longitude: currentStation.cordinates!.longitude)
         
-        //  print()
-        //  print()
-        //    print(stationArray)
+       
         
         if(stations.count != 0){
             var savedStation = stationArray[0]
@@ -211,15 +182,9 @@ class RouteCalculator{
                     
                     var previosSecondDistance = getDistanzbetweenToStations(start: currentStation, end: secondSavedStation)
                     
-                    /*   print("current distanze=" + curentDistanze.description
-                     + " previus distanze=" + previosDistance.description)*/
                     
                     if(curentDistanze < previosDistance){
-                        /*
-                         print("station = " + station.name + " saved ="+savedStation.name)
-                         print("current distanze=" + curentDistanze.description
-                         + " previus distanze=" + previosDistance.description)
-                         */
+                       
                         
                         result[0] = station
                         result[1] = savedStation
@@ -322,7 +287,7 @@ class RouteCalculator{
                 self.stations.append(newStation)
                 
             }
-            // self.printStations()
+            
             
         }
         
@@ -347,8 +312,6 @@ class RouteCalculator{
         longDiffernz = makePositive(input: longDiffernz)
         latDiffernz = makePositive(input: latDiffernz)
         
-        // print(doublelat)
-        //print(doublelong)
         if(longDiffernz <= RouteCalculator.allowedDistantceBetweenCorrdinates && latDiffernz  <= RouteCalculator.allowedDistantceBetweenCorrdinates){
             
             return true
@@ -370,13 +333,7 @@ class RouteCalculator{
         }
         return result
     }
-    /*
-     func printStations(){
-     for station in stations {
-     print("Station: "+station.name+" lines:"+station.subwayLines.description)
-     }
-     }
-     */
+    
     private func getStationByName(name: String)->AdvancedStation{
         for station in stations {
             if(name == station.name){

@@ -123,7 +123,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         subtitel += "\n latitude:" + cordinate.latitude.description
         subtitel += "\n longitude:" + cordinate.longitude.description
         
-        annotation.subtitle = subtitel//String(station.subwayLine)
+        annotation.subtitle = subtitel
         
         self.mapView.addAnnotation(annotation)
         return annotation
