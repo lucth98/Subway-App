@@ -30,6 +30,16 @@ class InternetView: ViewController, WKNavigationDelegate, WKUIDelegate{
         urlLabel.text = webView.url?.description
     }
     
+    func loadWebPage(){
+        DispatchQueue.main.async {
+            let url = URL(string: self.urlOfWebShop)!
+            let request = URLRequest(url:url)
+            
+            self.webView.load(request)
+            
+        }
+    }
+    
    
      
     
@@ -39,10 +49,7 @@ class InternetView: ViewController, WKNavigationDelegate, WKUIDelegate{
         
         webView.navigationDelegate = self
         
-        let url = URL(string: urlOfWebShop)!
-        let request = URLRequest(url:url)
-        
-        webView.load(request)
+        loadWebPage()
     }
     
 }

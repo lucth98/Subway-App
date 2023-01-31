@@ -25,6 +25,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
         mapView.delegate = self
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
+       
         mapView.cameraZoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: CLLocationDistance(50000))
         
         var corrdinatesOfVienna = CLLocationCoordinate2D(latitude:ShowSubwayMapView.latitudeVienna , longitude: ShowSubwayMapView.longitudeVienna)
