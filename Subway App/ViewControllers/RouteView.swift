@@ -71,9 +71,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
             
             var polyline = MKPolyline(coordinates: locations, count: locations.count
             )
-          
-            print(route!.stations[i].name)
-            print("i =" + i.description)
+        
             self.correntLine =  route?.lineNumbers[i] ?? 0
             
             self.mapView.addOverlay(polyline)
