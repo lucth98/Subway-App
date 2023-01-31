@@ -10,6 +10,7 @@ import UIKit
 
 class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     var station:AdvancedStation?
+    var netError:NetworkError? = nil
     var line = 0
     var trainAPI = TrainAPI()
     var diva = 0
@@ -40,6 +41,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 
                 if(error != nil){
                     print(error)
+                    self.netError = error
                 }
                 
                 if(data != nil){
@@ -118,6 +120,29 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         }
     }
     
+    private func getErrorMessage()->String{
+        if let error = netError{
+            switch (error){
+            case NetworkError.networkIsOfflineError:
+                return "Error: no Internet"
+                
+            case NetworkError.noSuccesfulResponseCodeError:
+                return "Error: no successful response code"
+                
+            case NetworkError.responceDataFormatIsInFalseFormatError:
+                return "Error: data from the Api is not decodeable"
+                
+            case NetworkError.unknownError:
+                return "Error: An unknown Error has occurred"
+                
+            case NetworkError.savingError:
+                return "Error"
+            }
+        }
+        
+        return "no Trains currently"
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard(trainName.count != 0) else{
             return 1
@@ -129,7 +154,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard(trainName.count != 0) else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "trainCell") as! TrainCell
-            cell.setText(text:"no Trains currently" )
+            cell.setText(text:getErrorMessage() )
             
             return cell
         }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import WebKit
 
-class InternetView: ViewController, WKNavigationDelegate{
+class InternetView: ViewController, WKNavigationDelegate, WKUIDelegate{
     
     var urlOfWebShop = "https://shop.wienmobil.at/products"
     
@@ -23,17 +23,26 @@ class InternetView: ViewController, WKNavigationDelegate{
         }
     }
     
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+       
+           
+        urlLabel.text = webView.url?.description
+    }
+    
+   
+     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Buy Ticket"
         
         webView.navigationDelegate = self
         
-        urlLabel.text = urlOfWebShop
-        
         let url = URL(string: urlOfWebShop)!
+        let request = URLRequest(url:url)
         
-        webView.load(URLRequest(url:url))
+        webView.load(request)
     }
     
 }
