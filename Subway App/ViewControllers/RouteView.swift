@@ -39,17 +39,14 @@ class RouteView: UIViewController, MKMapViewDelegate {
         }
         
         for station in route!.stations{
-            /*
-            print("print Station")
-            print(station)
-            */
+           
             let cordinate = CLLocationCoordinate2DMake(station.cordinates?.latitude ?? 0.0, station.cordinates?.longitude ?? 0.0)
             
             let annotation = MKPointAnnotation()
             annotation.coordinate = cordinate
             annotation.title = station.name
             
-            var subtitel = "Lines:" //+ String(station.subwayLines.description)
+            var subtitel = "Lines:"
             for line in station.subwayLines{
                 subtitel += "U" + line.description + " "
             }
@@ -76,7 +73,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
           
             print(route!.stations[i].name)
             print("i =" + i.description)
-            self.correntLine =  route?.lineNumbers[i] ?? 0 //(route?.stations[i].subwayLines[0])!// richtige farbe
+            self.correntLine =  route?.lineNumbers[i] ?? 0
             
             self.mapView.addOverlay(polyline)
         }
@@ -84,8 +81,7 @@ class RouteView: UIViewController, MKMapViewDelegate {
     
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
-        // print("render:")
-        // print(overlay)
+    
         var plRenderer: MKPolylineRenderer
         if(overlay is MKPolyline){
             plRenderer = MKPolylineRenderer(overlay: overlay)

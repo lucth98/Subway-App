@@ -17,6 +17,8 @@ class DisplayCorrdinatesView: ViewController , UITableViewDelegate ,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cordinates"
+        tableView.rowHeight = 60;
+
         
         tableView.delegate = self
         tableView.dataSource = self

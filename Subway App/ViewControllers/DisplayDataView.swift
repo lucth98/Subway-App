@@ -46,7 +46,8 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Display Data"
-        
+        tableView.rowHeight = 35;
+
         tableView.delegate = self
         tableView.dataSource = self
         

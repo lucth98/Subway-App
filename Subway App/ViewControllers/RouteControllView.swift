@@ -18,13 +18,14 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         super.viewDidLoad()
         title = "Route"
         
+        tableView.rowHeight = 44;
+
         tableView.delegate = self
         tableView.dataSource = self
        
         generateTextOutPut()
         
         tableView.reloadData()
-     //   print(route)
     }
     
     @IBAction func showRoute(){
@@ -34,7 +35,6 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
             }
             
             self.performSegue(withIdentifier: "drawRoute", sender: nil)
-        
     }
     
     private func getStation(name:String)->AdvancedStation?{
@@ -54,9 +54,7 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         var index = text.index(indexStart, offsetBy: 2)
   
         var name = String(text[index...])
-      
-        print(name)
-     
+    
         return getStation(name: name)
     }
     
@@ -66,10 +64,6 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         
         var result =  Array(text)[1]
         
-        
-      
-        print(result)
-     
         return Int(String(result)) ?? 0
     }
     
@@ -90,7 +84,6 @@ class RouteControllView: ViewController, UITableViewDelegate ,UITableViewDataSou
         
         if(route != nil){
             routeViewController.route = self.route!
-            
         }
     }
     

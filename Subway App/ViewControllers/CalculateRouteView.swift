@@ -93,7 +93,7 @@ class CalculateRouteView: UIViewController {
     }
     
     func sortStations(){
-        stations = AdvancedStation.sortStationArray(arrayOfStations: stations)//database.sortStationArray(arrayOfStations: stations)
+        stations = AdvancedStation.sortStationArray(arrayOfStations: stations)
     }
     
     
@@ -128,14 +128,13 @@ class CalculateRouteView: UIViewController {
     func startStationSelecet(name: String){
         dropDownStart.setTitle(name, for: .normal)
         selecetStart = getStation(name)
-    //    print(selecetStart)
+
         
     }
     
     func endStationSelecet(name: String){
         dropDownEnd.setTitle(name, for: .normal)
         selecetEnd = getStation(name)
-     //   print(selecetEnd)
     }
     
     override func prepare(for segue:UIStoryboardSegue, sender: Any?){

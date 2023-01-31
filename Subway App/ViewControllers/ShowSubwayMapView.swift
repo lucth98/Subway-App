@@ -22,8 +22,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Subway Net"
-        // Do any additional setup after loading the view.
-        //test
+        
         mapView.mapType = MKMapType.hybrid
         
         mapView.delegate = self
@@ -79,7 +78,6 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 for i in stride(from: 0, to: subwayLine.listOfcordinates.count, by: 1){
                     locations.append(CLLocationCoordinate2D(latitude: subwayLine.listOfcordinates[i].latitude, longitude: subwayLine.listOfcordinates[i].longitude))
                     
-                    // print("add cordinates" + locations.description)
                 }
                 
                 var polyline = MKPolyline(coordinates: locations, count: locations.count
@@ -92,8 +90,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
-        // print("render:")
-        // print(overlay)
+
         var plRenderer: MKPolylineRenderer
         if(overlay is MKPolyline){
             plRenderer = MKPolylineRenderer(overlay: overlay)

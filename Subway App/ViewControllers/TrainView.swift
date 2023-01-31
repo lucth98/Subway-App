@@ -22,13 +22,17 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         var titleText:String = "Trains " + "U" + line.description + " " + (station?.name ?? "no name")
         title = titleText
-        
+    
         tabelView.delegate = self
         tabelView.dataSource = self
 
-        
+        getData()
+    }
+    
+   private func getData(){
         var fileReader = FileReader()
         fileReader.read()
         
@@ -59,7 +63,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     }
     
     
-    func getName()->String{
+   private func getName()->String{
         guard(station != nil) else{
             return ""
         }
@@ -76,11 +80,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
             
         default:
             return station?.name ?? ""
-            
-            
         }
-        
-        
     }
     
     func fillTrainName(trainData: TrainData){
@@ -99,17 +99,14 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 for times in line.departures.departure{
                     var time = times.departureTime.timePlanned
                   
-                    
                     var newOutPutLine:String =  ""
                     if let formatetTime = dateFormatter.date(from: time){
-                        
                         
                         newOutPutLine = target + " " + ( outputFormater.string(from: formatetTime))
                     }else{
                        
                         newOutPutLine = target + " " + ( time.description)
                     }
-                    
                     
                     if(name == trainLine){
                         self.trainName.append(newOutPutLine)
