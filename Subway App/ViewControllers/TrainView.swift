@@ -32,7 +32,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         fileReader.read()
         
         //print("diva:")
-        diva = fileReader.getDiva(stationName: station!.name)
+        diva = fileReader.getDiva(stationName: getName())
         
         if(diva != -1){
             trainAPI.getTrains(diva: diva ){
@@ -54,6 +54,31 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 }
             }
         }
+    }
+    
+    
+    func getName()->String{
+        guard(station != nil) else{
+            return ""
+        }
+        
+        switch(station!.name){
+        case "Landstraße / Wien Mitte":
+            return "Landstraße"
+            
+        case "Philadelphiabrücke bzw. Meidling (ÖBB)":
+            return "Meidling"
+            
+        case "Praterstern bzw. Wien Nord (ÖBB)":
+            return "Praterstern"
+            
+        default:
+            return station?.name ?? ""
+            
+            
+        }
+        
+        
     }
     
     func fillTrainName(trainData: TrainData){
