@@ -64,7 +64,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         
         switch(station!.name){
         case "Landstraße / Wien Mitte":
-            return "Landstraße"
+            return "Mitte-Landstraße"
             
         case "Philadelphiabrücke bzw. Meidling (ÖBB)":
             return "Meidling"
