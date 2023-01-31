@@ -77,7 +77,7 @@ struct TrainVehicle:Codable{
     var trafficjam:Bool
     var type:String
     var attributes:empty?
-    var linienID:Int
+    var linienId:Int
 }
 
 struct empty:Codable{

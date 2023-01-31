@@ -18,21 +18,15 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     
     @IBOutlet weak var tabelView: UITableView!
     
-    @IBOutlet weak var stationLabel: UILabel!
-    @IBOutlet weak var lineLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "Trains"
+        var titleText:String = "Trains " + "U" + line.description + " " + (station?.name ?? "no name")
+        title = titleText
         
         tabelView.delegate = self
         tabelView.dataSource = self
-        
-        if let stat = station {
-            stationLabel.text = stat.name
-        }
-        lineLabel.text = "U" + line.description
+
         
         var fileReader = FileReader()
         fileReader.read()
@@ -71,7 +65,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 for times in line.departures.departure{
                     var time = times.departureTime.timePlanned
                     
-                    var newOutPutLine:String = name + " " + target + " " + time
+                    var newOutPutLine:String = target + " " + time
                     print("String: "+newOutPutLine)
                     
                     if(name == trainLine){
