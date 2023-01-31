@@ -100,18 +100,18 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
             
             switch (correntLine){
             case 1:
-                plRenderer.strokeColor = UIColor.red
+                plRenderer.strokeColor = UIColor.systemRed
             case 2:
-                plRenderer.strokeColor = UIColor.purple
+                plRenderer.strokeColor = UIColor.systemPurple
             case 3:
-                plRenderer.strokeColor = UIColor.orange
+                plRenderer.strokeColor = UIColor.systemOrange
             case 4:
-                plRenderer.strokeColor = UIColor.green
+                plRenderer.strokeColor = UIColor.systemGreen
             case 6:
-                plRenderer.strokeColor = UIColor.brown
+                plRenderer.strokeColor = UIColor.systemBrown
                 
             default:
-                plRenderer.strokeColor = UIColor.blue
+                plRenderer.strokeColor = UIColor.systemBlue
             }
             
             plRenderer.lineWidth = 3

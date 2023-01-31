@@ -10,19 +10,7 @@ import Foundation
 struct DivaStruct: Codable{
     
     var dataArray: [DivaData]
-    
-    
-   
-    /*
-    
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        if let data = try? [DivaData](from: decoder) {
-            dataArray = data
-        }
-    }*/
+
 }
 
 

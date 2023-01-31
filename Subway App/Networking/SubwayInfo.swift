@@ -42,7 +42,7 @@ struct SubwayLineData: Codable{
 
 struct SubwayLine: Codable{
     var type: String
-    var coordinates: ArrayOrNotArray//[coordinate]
+    var coordinates: ArrayOrNotArray
   
     
     init(from decoder: Decoder) throws {
@@ -55,7 +55,6 @@ struct SubwayLine: Codable{
 }
 
 struct ArrayOrNotArray: Codable{
-   // var value: Any
     var cordinate: [Double]?
     var multiCordinate: [[Double]]?
     

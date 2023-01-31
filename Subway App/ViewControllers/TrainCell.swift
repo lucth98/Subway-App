@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 
 class TrainCell: UITableViewCell{
-    
-    
 
     @IBOutlet weak var infoLabel: UILabel!
     
