@@ -7,13 +7,6 @@
 
 import Foundation
 
-
-/*
-struct TrainData{
-    var targed:String
-    var time:String
-}*/
-
 struct TrainData:Codable{
     var data:TrainDatainput
     var message:TrainMessage
@@ -25,15 +18,11 @@ struct TrainDatainput:Codable{
     var monitors:[TrainLine]
 }
 
-
-
 struct TrainLine:Codable{
     var locationStop: TrainLocationStop
     var lines: [TrainLineInf]
     var attributes:empty?
 }
-
-
 
 struct TrainLineInf:Codable{
     var name:String
@@ -104,7 +93,6 @@ struct TrainGeometry:Codable{
     var type: String
     var coordinates: [Double]
 }
-
 
 struct TrainAttributes:Codable{
     var rbl:Int?

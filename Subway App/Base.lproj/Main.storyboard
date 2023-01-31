@@ -417,48 +417,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Fo2-x7-YD5">
-                                <rect key="frame" x="5" y="111" width="380" height="238"/>
+                                <rect key="frame" x="5" y="111" width="380" height="134"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-Iq-tZ5">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="rVA-be-NFz">
                                         <rect key="frame" x="0.0" y="0.0" width="380" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="c3f-kr-jkV"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-7D-A5m">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uzw-Iq-tZ5">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="c3f-kr-jkV"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4bt-7D-A5m">
+                                                <rect key="frame" x="201" y="0.0" width="179" height="30"/>
+                                                <menu key="menu" id="ADv-Q6-ii4">
+                                                    <children>
+                                                        <command title="Item 1" id="qqA-ct-Xtk"/>
+                                                        <command title="Item 2" id="fnM-OI-p4B"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Select Start">
+                                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="ut8-Ck-iea">
                                         <rect key="frame" x="0.0" y="52" width="380" height="30"/>
-                                        <menu key="menu" id="ADv-Q6-ii4">
-                                            <children>
-                                                <command title="Item 1" id="qqA-ct-Xtk"/>
-                                                <command title="Item 2" id="fnM-OI-p4B"/>
-                                            </children>
-                                        </menu>
-                                        <state key="normal" title="Select Start"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
-                                        <rect key="frame" x="0.0" y="104" width="380" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="LQE-XN-kZw"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-Ub-bLK">
-                                        <rect key="frame" x="0.0" y="156" width="380" height="30"/>
-                                        <menu key="menu" id="2vz-kT-l1h">
-                                            <children>
-                                                <command title="Item 1" id="srf-Bo-5G2"/>
-                                                <command title="Item 2" id="kD6-aR-oT8"/>
-                                            </children>
-                                        </menu>
-                                        <state key="normal" title="Select End"/>
-                                    </button>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mCV-JR-TRP">
+                                                <rect key="frame" x="0.0" y="0.0" width="179" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="LQE-XN-kZw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3f-Ub-bLK">
+                                                <rect key="frame" x="201" y="0.0" width="179" height="30"/>
+                                                <menu key="menu" id="2vz-kT-l1h">
+                                                    <children>
+                                                        <command title="Item 1" id="srf-Bo-5G2"/>
+                                                        <command title="Item 2" id="kD6-aR-oT8"/>
+                                                    </children>
+                                                </menu>
+                                                <state key="normal" title="Select End">
+                                                    <color key="titleColor" systemColor="systemOrangeColor"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZf-B5-bar">
-                                        <rect key="frame" x="0.0" y="208" width="380" height="30"/>
+                                        <rect key="frame" x="0.0" y="104" width="380" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uZI-ng-MGf"/>
                                         </constraints>
@@ -470,14 +484,11 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="4bt-7D-A5m" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="3jN-Wp-YE1"/>
-                                    <constraint firstItem="mCV-JR-TRP" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="8EF-Qa-8BZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="Uzw-Iq-tZ5" secondAttribute="trailing" id="Zxi-qP-t4A"/>
-                                    <constraint firstAttribute="trailing" secondItem="mCV-JR-TRP" secondAttribute="trailing" id="cTS-vm-jZq"/>
-                                    <constraint firstItem="Uzw-Iq-tZ5" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="jr7-6Z-max"/>
+                                    <constraint firstAttribute="trailing" secondItem="rVA-be-NFz" secondAttribute="trailing" id="5m4-NA-Boq"/>
+                                    <constraint firstItem="rVA-be-NFz" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="SaG-F0-hML"/>
+                                    <constraint firstAttribute="trailing" secondItem="ut8-Ck-iea" secondAttribute="trailing" id="X67-la-fmy"/>
                                     <constraint firstAttribute="trailing" secondItem="yZf-B5-bar" secondAttribute="trailing" id="mMG-O6-8cB"/>
-                                    <constraint firstAttribute="trailing" secondItem="W3f-Ub-bLK" secondAttribute="trailing" id="rX0-f2-UU0"/>
-                                    <constraint firstAttribute="trailing" secondItem="4bt-7D-A5m" secondAttribute="trailing" id="sgG-dQ-CNX"/>
+                                    <constraint firstItem="ut8-Ck-iea" firstAttribute="leading" secondItem="Fo2-x7-YD5" secondAttribute="leading" id="wuf-WU-pYq"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -634,9 +645,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlm-41-KuW">
-                                                    <rect key="frame" x="20.000000000000004" y="11" width="41.333333333333343" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mlm-41-KuW">
+                                                    <rect key="frame" x="20" y="11" width="350" height="20"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="d7X-59-UGh"/>
                                                         <constraint firstAttribute="height" constant="20" id="dNY-0r-ixE"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -645,9 +657,9 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Mlm-41-KuW" secondAttribute="trailing" constant="20" symbolic="YES" id="87j-cK-cYE"/>
-                                                <constraint firstItem="Mlm-41-KuW" firstAttribute="leading" secondItem="qhT-0u-rx7" secondAttribute="leadingMargin" id="EM0-gf-YOC"/>
-                                                <constraint firstItem="Mlm-41-KuW" firstAttribute="top" secondItem="qhT-0u-rx7" secondAttribute="topMargin" id="MKI-nN-kMr"/>
+                                                <constraint firstItem="Mlm-41-KuW" firstAttribute="top" secondItem="qhT-0u-rx7" secondAttribute="topMargin" id="NUd-Nv-zZj"/>
+                                                <constraint firstItem="Mlm-41-KuW" firstAttribute="leading" secondItem="qhT-0u-rx7" secondAttribute="leadingMargin" id="Qm6-Lv-8Az"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Mlm-41-KuW" secondAttribute="trailing" id="vdm-NJ-v9N"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
