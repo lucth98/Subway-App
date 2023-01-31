@@ -43,13 +43,14 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 }
                 
                 if(data != nil){
-                    print(data)
-                    print("data recived")
+                    
+                    //print(data)
+                    //print("data recived")
                     self.fillTrainName(trainData: data!)
                     self.tabelView.reloadData()
                 } else{
-                    print("error")
-                    print(data)
+                   // print("error")
+                  //  print(data)
                 }
             }
         }
@@ -57,6 +58,12 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     
     func fillTrainName(trainData: TrainData){
         var trainLine = "U" + line.description
+        
+        let dateFormatter = DateFormatter.iso8601Full
+       
+        let outputFormater = DateFormatter()
+        outputFormater.dateFormat = "HH:mm"
+        
         for lines in trainData.data.monitors{
             for line in lines.lines{
                 var name = line.name
@@ -64,9 +71,18 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                 
                 for times in line.departures.departure{
                     var time = times.departureTime.timePlanned
+                  
                     
-                    var newOutPutLine:String = target + " " + time
-                    print("String: "+newOutPutLine)
+                    var newOutPutLine:String =  ""
+                    if let formatetTime = dateFormatter.date(from: time){
+                        
+                        
+                        newOutPutLine = target + " " + ( outputFormater.string(from: formatetTime))
+                    }else{
+                       
+                        newOutPutLine = target + " " + ( time.description)
+                    }
+                    
                     
                     if(name == trainLine){
                         self.trainName.append(newOutPutLine)
@@ -105,5 +121,14 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
 
 
 
-
+extension DateFormatter {
+    static let iso8601Full: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZ"
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        return formatter
+    }()
+}
 

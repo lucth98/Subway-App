@@ -38,8 +38,11 @@ class Networking{
              */
             
             if let httpResponce = response as? HTTPURLResponse{
+                /*
                 print("code:")
                 print(httpResponce.statusCode)
+                 
+                 */
                 
                 if(!(httpResponce.statusCode > 400 && httpResponce.statusCode < 600)){
                     
@@ -59,8 +62,8 @@ class Networking{
                                 errorResult = NetworkError.savingError(error.localizedDescription)
                             }
                         }catch{
-                      //      print("decoding Error")
-                        //    print("caught: \(error)")
+                          //  print("decoding Error")
+                          //  print("caught: \(error)")
                             
                             errorResult = NetworkError.responceDataFormatIsInFalseFormatError(error.localizedDescription)
                         }

@@ -21,14 +21,13 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nearst Station"
-        // Do any additional setup after loading the view.
+     
         mapView.delegate = self
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.mapType = MKMapType.hybrid
         
-        //test commit dsdhh
-        //location
+        
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         
@@ -99,18 +98,12 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                     
                     if(curentDistanze < previosDistance){
                         savedStation = station
-                        print("current distanze=" + curentDistanze.description
-                        + " previus distanze=" + previosDistance.description)
                     }
                 }
                 
                 return drawNearestStation(station: savedStation)
-            }else{
-                print("list empty")
             }
             
-        }else{
-            print("list is nil")
         }
         return nil
     }

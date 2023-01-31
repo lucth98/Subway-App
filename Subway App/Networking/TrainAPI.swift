@@ -11,7 +11,7 @@ import Foundation
 
 class TrainAPI{
     var baseUrl = "https://www.wienerlinien.at/ogd_realtime/monitor?diva="
-
+    
     func getTrains(diva:Int , _ completionHandler:@escaping (TrainData?,NetworkError?)->Void){
         
         var urlString = baseUrl + diva.description
@@ -24,23 +24,25 @@ class TrainAPI{
             
             var errorResult: NetworkError?
             var result:TrainData?
-            
-            print("data:")
-            print(data ?? "no Data")
-            
-            let stringValue = String(decoding: data ?? Data(), as: UTF8.self)
-            print(stringValue)
-            
-            print("response:")
-            print(response ?? "no Response")
-            
-            print("error:")
-            print(error ?? "no Error")
-            
+            /*
+             print("data:")
+             print(data ?? "no Data")
+             
+             let stringValue = String(decoding: data ?? Data(), as: UTF8.self)
+             print(stringValue)
+             
+             print("response:")
+             print(response ?? "no Response")
+             
+             print("error:")
+             print(error ?? "no Error")
+             */
             
             if let httpResponce = response as? HTTPURLResponse{
-                print("code:")
-                print(httpResponce.statusCode)
+                /*
+                 print("code:")
+                 print(httpResponce.statusCode)
+                 */
                 
                 if(!(httpResponce.statusCode > 400 && httpResponce.statusCode < 600)){
                     
@@ -48,14 +50,16 @@ class TrainAPI{
                         
                         let jsonDecoder = JSONDecoder()
                         do{
-                           
+                            
                             let recivedInfo:TrainData =  try jsonDecoder.decode(TrainData.self, from: data!)
-                            print("decodet")
+                            // print("decodet")
                             result = recivedInfo
                             
                         }catch{
-                            print("decoding Error")
-                           print("caught: \(error)")
+                            
+                             print("decoding Error")
+                             print("caught: \(error)")
+                             
                             
                             errorResult = NetworkError.responceDataFormatIsInFalseFormatError(error.localizedDescription)
                         }
@@ -70,8 +74,10 @@ class TrainAPI{
             
             if let errorNs = error as NSError?{
                 var errorString:String = errorNs.localizedDescription
-               print("ERROR to String: ")
+                /*
+                print("ERROR to String: ")
                 print(errorString)
+                */
                 
                 switch errorString{
                 case "The Internet connection appears to be offline.":

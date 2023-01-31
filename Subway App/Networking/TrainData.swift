@@ -10,8 +10,6 @@ import Foundation
 struct TrainData:Codable{
     var data:TrainDatainput
     var message:TrainMessage
-    
-    
 }
 
 struct TrainDatainput:Codable{
