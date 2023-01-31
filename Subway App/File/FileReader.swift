@@ -8,7 +8,7 @@
 import Foundation
 
 class FileReader{
-    
+    //realise
     private var diva: DivaStruct?
     
     
