@@ -9,7 +9,7 @@ import Foundation
 
 struct Route{
   
-    var stations: [StationTabel]
+    var stations: [AdvancedStation]
    
     var lineNumbers:[Int]
   
@@ -20,11 +20,11 @@ struct Route{
     
     init(){
         
-        self.stations = [StationTabel]()
+        self.stations = [AdvancedStation]()
         self.lineNumbers = [Int]()
     }
     
-    mutating func addStation(station: StationTabel){
+    mutating func addStation(station: AdvancedStation){
         stations.append(station)
     }
     
@@ -41,9 +41,9 @@ struct Route{
         return false
     }
     
-    func containStation(newStation:StationTabel)->Bool{
+    func containStation(newStation:AdvancedStation)->Bool{
         for sation in stations {
-            if(sation == newStation){
+            if(sation.name == newStation.name){
                 return true
             }
         }

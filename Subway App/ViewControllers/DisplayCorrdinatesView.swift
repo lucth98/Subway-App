@@ -12,11 +12,13 @@ class DisplayCorrdinatesView: ViewController , UITableViewDelegate ,UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
-    var cordinates: [CordinatesTabel]?
+    var cordinates: [SimpleCordinates]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cordinates"
+        tableView.rowHeight = 60;
+
         
         tableView.delegate = self
         tableView.dataSource = self

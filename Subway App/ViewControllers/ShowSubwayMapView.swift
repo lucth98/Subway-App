@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 
 class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
+    @IBOutlet weak var infoLabel: NSLayoutConstraint!
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -21,8 +22,7 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Subway Net"
-        // Do any additional setup after loading the view.
-        //test
+        
         mapView.mapType = MKMapType.hybrid
         
         mapView.delegate = self
@@ -52,7 +52,12 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = cordinate
                 annotation.title = station.name
-                annotation.subtitle = String(station.subwayLine)
+                
+                var subtitel = "Lines: U" + String(station.subwayLine)
+                subtitel += "\n latitude:" + cordinate.latitude.description
+                subtitel += "\n longitude:" + cordinate.longitude.description
+                
+                annotation.subtitle = subtitel
             
                 self.mapView.addAnnotation(annotation)
             }
@@ -73,7 +78,6 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 for i in stride(from: 0, to: subwayLine.listOfcordinates.count, by: 1){
                     locations.append(CLLocationCoordinate2D(latitude: subwayLine.listOfcordinates[i].latitude, longitude: subwayLine.listOfcordinates[i].longitude))
                     
-                    // print("add cordinates" + locations.description)
                 }
                 
                 var polyline = MKPolyline(coordinates: locations, count: locations.count
@@ -86,26 +90,25 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay ) -> MKOverlayRenderer{
-        // print("render:")
-        // print(overlay)
+
         var plRenderer: MKPolylineRenderer
         if(overlay is MKPolyline){
             plRenderer = MKPolylineRenderer(overlay: overlay)
             
             switch (correntLine){
             case 1:
-                plRenderer.strokeColor = UIColor.red
+                plRenderer.strokeColor = UIColor.systemRed
             case 2:
-                plRenderer.strokeColor = UIColor.purple
+                plRenderer.strokeColor = UIColor.systemPurple
             case 3:
-                plRenderer.strokeColor = UIColor.orange
+                plRenderer.strokeColor = UIColor.systemOrange
             case 4:
-                plRenderer.strokeColor = UIColor.green
+                plRenderer.strokeColor = UIColor.systemGreen
             case 6:
-                plRenderer.strokeColor = UIColor.brown
+                plRenderer.strokeColor = UIColor.systemBrown
                 
             default:
-                plRenderer.strokeColor = UIColor.blue
+                plRenderer.strokeColor = UIColor.systemBlue
             }
             
             plRenderer.lineWidth = 3

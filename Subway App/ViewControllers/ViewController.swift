@@ -10,10 +10,9 @@ import UIKit
 class ViewController: UIViewController {
     var networking: Networking?
     
-    //test
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         networking = Networking()
         apiInit()
     }
@@ -42,7 +41,7 @@ class ViewController: UIViewController {
             
             switch(networkError!){
             case NetworkError.networkIsOfflineError:
-                drawAlert("Network is Offline", "\(networkError!)")
+                drawAlert("Network is Offline", "Please check the connection")
             case NetworkError.noSuccesfulResponseCodeError:
                 drawAlert("Non Succesful Responce Code", "\(networkError!)")
             case NetworkError.responceDataFormatIsInFalseFormatError:

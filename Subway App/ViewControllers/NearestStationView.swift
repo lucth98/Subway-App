@@ -21,14 +21,13 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Nearst Station"
-        // Do any additional setup after loading the view.
+     
         mapView.delegate = self
         mapView.isZoomEnabled = true
         mapView.isScrollEnabled = true
         mapView.mapType = MKMapType.hybrid
         
-        //test commit dsdhh
-        //location
+        
         locationManager = CLLocationManager()
         locationManager?.delegate = self
         
@@ -54,7 +53,6 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                 drawRouteToNearestStation(start: startPoint!, end: endPoint!)
             }
         }
-        
     }
     
     func  displayGPSPosition(_ latitude: Double, _ longitude: Double ) -> MKPointAnnotation?{
@@ -64,7 +62,12 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         let annotation = MKPointAnnotation()
         annotation.coordinate = cordinate
         annotation.title = "Position"
-        annotation.subtitle = "current GPS position"
+        
+        var subtitel = "current GPS position"
+        subtitel += "\n latitude:" + cordinate.latitude.description
+        subtitel += "\n longitude:" + cordinate.longitude.description
+        annotation.subtitle = subtitel
+        
         
         mapView.addAnnotation(annotation)
         mapView.setCenter(cordinate, animated: false)
@@ -83,7 +86,7 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
             if(stationList!.count > 0){
                 
                 var firstStation = CLLocation(latitude: stationList![0].cordinates?.latitude ?? 0.0, longitude: stationList![0].cordinates?.longitude ?? 0.0)
-                //var distance = positionGPS.distance(from: firstStation)
+                
                 
                 var savedStation: StationTabel = stationList![0] ?? StationTabel()
                 var previosDistance: Double
@@ -103,12 +106,8 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
                 }
                 
                 return drawNearestStation(station: savedStation)
-            }else{
-                print("list empty")
             }
             
-        }else{
-            print("list is nil")
         }
         return nil
     }
@@ -119,7 +118,12 @@ class NearestStationView: UIViewController, CLLocationManagerDelegate, MKMapView
         let annotation = MKPointAnnotation()
         annotation.coordinate = cordinate
         annotation.title = station.name
-        annotation.subtitle = String(station.subwayLine)
+        
+        var subtitel = "Lines: U" + String(station.subwayLine)
+        subtitel += "\n latitude:" + cordinate.latitude.description
+        subtitel += "\n longitude:" + cordinate.longitude.description
+        
+        annotation.subtitle = subtitel
         
         self.mapView.addAnnotation(annotation)
         return annotation
