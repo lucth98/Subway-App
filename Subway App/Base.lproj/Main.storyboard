@@ -18,30 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" highlighted="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
+                                <rect key="frame" x="0.0" y="60" width="390" height="48"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fS8-2J-WDN">
-                                <rect key="frame" x="10" y="101" width="370" height="216"/>
+                                <rect key="frame" x="0.0" y="151" width="390" height="156"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subway App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" highlighted="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJg-ef-bd2">
-                                        <rect key="frame" x="0.0" y="0.0" width="370" height="48"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="40"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
-                                        <rect key="frame" x="0.0" y="60" width="370" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="yH9-Zq-BR7"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Nearest Station" titleAlignment="center">
-                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9k-aw-zij">
-                                        <rect key="frame" x="0.0" y="102" width="370" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="5jb-Ks-A1e"/>
                                         </constraints>
@@ -54,7 +41,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0Y-xb-3GD">
-                                        <rect key="frame" x="0.0" y="144" width="370" height="30"/>
+                                        <rect key="frame" x="0.0" y="42" width="390" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="gJq-7x-76p"/>
                                         </constraints>
@@ -66,8 +53,21 @@
                                             <segue destination="F9T-fk-X9k" kind="show" id="CbM-L9-qUt"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnZ-Dl-baA">
+                                        <rect key="frame" x="0.0" y="84" width="390" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="yH9-Zq-BR7"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Nearest Station" titleAlignment="center">
+                                            <color key="baseForegroundColor" systemColor="systemMintColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="dwz-w8-roR" kind="show" id="jcm-aS-4xU"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-3b-11d">
-                                        <rect key="frame" x="0.0" y="186" width="370" height="30"/>
+                                        <rect key="frame" x="0.0" y="126" width="390" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="FJG-jy-Lui"/>
                                             <constraint firstAttribute="height" constant="30" id="W0O-tI-yeg"/>
@@ -87,9 +87,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fS8-2J-WDN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="IeM-mm-Fve"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fS8-2J-WDN" secondAttribute="trailing" constant="10" id="ZnD-0j-TtJ"/>
-                            <constraint firstItem="fS8-2J-WDN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="qcT-By-FkW"/>
+                            <constraint firstItem="fS8-2J-WDN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="1o1-pd-AnD"/>
+                            <constraint firstItem="QJg-ef-bd2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="Jpp-xS-UUM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fS8-2J-WDN" secondAttribute="trailing" id="WDO-5t-vQe"/>
+                            <constraint firstItem="QJg-ef-bd2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="abr-Pv-bPU"/>
+                            <constraint firstAttribute="trailing" secondItem="QJg-ef-bd2" secondAttribute="trailing" id="bbp-FR-1O0"/>
+                            <constraint firstItem="fS8-2J-WDN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cew-kN-SNl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OtZ-pG-pec"/>

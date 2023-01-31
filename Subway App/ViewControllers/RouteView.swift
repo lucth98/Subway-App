@@ -48,7 +48,17 @@ class RouteView: UIViewController, MKMapViewDelegate {
             let annotation = MKPointAnnotation()
             annotation.coordinate = cordinate
             annotation.title = station.name
-            annotation.subtitle = String(station.subwayLines.description)
+            
+            var subtitel = "Lines:" //+ String(station.subwayLines.description)
+            for line in station.subwayLines{
+                subtitel += "U" + line.description + " "
+            }
+            
+            subtitel += "\n latitude:" + cordinate.latitude.description
+            subtitel += "\n longitude:" + cordinate.longitude.description
+            
+            
+            annotation.subtitle = subtitel
             
             mapView.addAnnotation(annotation)
         }

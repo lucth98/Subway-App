@@ -31,7 +31,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         var fileReader = FileReader()
         fileReader.read()
         
-        print("diva:")
+        //print("diva:")
         diva = fileReader.getDiva(stationName: station!.name)
         
         if(diva != -1){
@@ -97,9 +97,7 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         guard(trainName.count != 0) else{
             return 1
         }
-        print()
-        print("tabel rows")
-        print(trainName.count)
+       
         return trainName.count
     }
     

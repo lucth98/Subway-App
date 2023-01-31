@@ -53,9 +53,12 @@ class ShowSubwayMapView: UIViewController, MKMapViewDelegate {
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = cordinate
                 annotation.title = station.name
-                annotation.subtitle = String(station.subwayLine)
                 
-            
+                var subtitel = "Lines: U" + String(station.subwayLine)
+                subtitel += "\n latitude:" + cordinate.latitude.description
+                subtitel += "\n longitude:" + cordinate.longitude.description
+                
+                annotation.subtitle = subtitel
             
                 self.mapView.addAnnotation(annotation)
             }
