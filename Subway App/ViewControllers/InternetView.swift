@@ -34,22 +34,6 @@ class InternetView: ViewController, WKNavigationDelegate{
         let url = URL(string: urlOfWebShop)!
         
         webView.load(URLRequest(url:url))
-        
-        
     }
-    
-    
-    /*
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
-        DispatchQueue.main.async {
-            
-            if let urlStr = navigationAction.request.url?.absoluteString{
-            
-                self.urlLabel.text = urlStr
-            }
-            
-        }
-        decisionHandler(.allow)
-    }*/
     
 }

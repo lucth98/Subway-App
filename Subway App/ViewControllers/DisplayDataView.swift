@@ -10,22 +10,21 @@ import UIKit
 
 
 class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSource {
-    private var stationList: [StationTabel]?
-    private var subwayLines: [SubwayLineTable]?
-    private var corrArray: [CordinatesTabel]?
+    private var stationList: [AdvancedStation] = []
+    private var subwayLines: [AdvancedLine] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard(stationList != nil && subwayLines != nil) else{
+        guard(stationList.count != 0 && subwayLines.count != 0) else{
             return 0
         }
         
-        return stationList!.count + subwayLines!.count
+        return stationList.count + subwayLines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard(stationList != nil && subwayLines != nil) else{
+        guard(stationList.count != 0 && subwayLines.count != 0) else{
             return UITableViewCell()
         }
         
@@ -33,11 +32,11 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "stationCell") as! SationTableViewCell
         
-        if(!(index > stationList!.count-1)){
-            cell.setName("Station: " + stationList![index].name)
+        if(!(index > stationList.count-1)){
+            cell.setName("Station: " + stationList[index].name)
         }else{
       
-            var line = subwayLines![index-stationList!.count].subwayLine
+            var line = subwayLines[index-stationList.count].subwayLine
             cell.setName("Line: " + String(line))
         }
         
@@ -58,11 +57,19 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         DispatchQueue.main.async {
             let database = DataBaseControll.instance
             
-            self.stationList = database.getStationsAsArray()
-            self.subwayLines = database.getLinesAsArray()
+            var tableStations = database.getStationsAsArray()
+            tableStations =  database.sortStationArray(arrayOfStations: tableStations)
+            for station in tableStations {
+                self.stationList.append(AdvancedStation.convert(station: station))
+            }
+             var tableSubwayLines = database.getLinesAsArray()
             
-            self.stationList = database.sortStationArray(arrayOfStations: self.stationList!)
-            self.subwayLines = database.sortSubwayLinesArray(arrayOfLines: self.subwayLines!)
+            tableSubwayLines = database.sortSubwayLinesArray(arrayOfLines: tableSubwayLines)
+            
+            
+            for line in tableSubwayLines {
+                self.subwayLines.append(AdvancedLine.convert(line: line))
+            }
             
             self.tableView.reloadData()
         }
@@ -73,29 +80,26 @@ class DisplayDataView: UIViewController, UITableViewDelegate ,UITableViewDataSou
         else{
             return
         }
-        guard(stationList != nil) else{
+        guard(stationList.count != 0) else{
             return
         }
-        guard(subwayLines != nil) else{
+        guard(subwayLines.count != 0) else{
             return
         }
         
-        var corrArray:[CordinatesTabel] = [CordinatesTabel]()
+        var corrArray:[SimpleCordinates] = [SimpleCordinates]()
         
-        if(!(index > stationList!.count-1)){
+        if(!(index > stationList.count-1)){
             
-            corrArray.append( stationList![index].cordinates!)
+            corrArray.append( stationList[index].cordinates!)
         }else{
-            corrArray.append(contentsOf: subwayLines![index-stationList!.count].listOfcordinates)
+            corrArray.append(contentsOf: subwayLines[index-stationList.count].listOfcordinates)
         }
         
         displayCorrdinatesView.cordinates = corrArray
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getStationsAndLines()
-    }
+    
     
     
 }

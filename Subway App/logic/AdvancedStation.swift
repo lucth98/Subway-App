@@ -59,6 +59,28 @@ struct AdvancedStation{
 }
 
 
+class AdvancedLine{
+    
+    var subwayLine: Int = 0
+    
+    var listOfcordinates:[SimpleCordinates] = []
+    
+    static func convert(line: SubwayLineTable)->AdvancedLine{
+        var result = AdvancedLine()
+        result.subwayLine = line.subwayLine
+        
+        for corrdinate in line.listOfcordinates{
+            result.listOfcordinates.append(SimpleCordinates.convertFromTabel(cordinatesTabel: corrdinate))
+        }
+        
+        return result
+        
+    }
+    
+    
+}
+
+
 struct SimpleCordinates {
     
     
