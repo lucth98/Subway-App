@@ -41,13 +41,8 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
         diva = fileReader.getDiva(stationName: station!.name)
         
         if(diva != -1){
-            
-            
             trainAPI.getTrains(diva: diva ){
                 data, error in
-                
-                
-                
                 
                 if(error != nil){
                     print(error)
@@ -62,16 +57,12 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                     print("error")
                     print(data)
                 }
-                //    print(error)
-                
             }
-        }else{
-            
         }
-        
     }
     
     func fillTrainName(trainData: TrainData){
+        var trainLine = "U" + line.description
         for lines in trainData.data.monitors{
             for line in lines.lines{
                 var name = line.name
@@ -82,7 +73,10 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
                     
                     var newOutPutLine:String = name + " " + target + " " + time
                     print("String: "+newOutPutLine)
-                    self.trainName.append(newOutPutLine)
+                    
+                    if(name == trainLine){
+                        self.trainName.append(newOutPutLine)
+                    }
                 }
             }
                     
@@ -90,8 +84,8 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard(trainName != nil) else{
-            return 0
+        guard(trainName.count != 0) else{
+            return 1
         }
         print()
         print("tabel rows")
@@ -100,16 +94,16 @@ class TrainView: ViewController, UITableViewDelegate ,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard(trainName != nil) else{
-            return UITableViewCell()
+        guard(trainName.count != 0) else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "trainCell") as! TrainCell
+            cell.setText(text:"no Trains currently" )
+            
+            return cell
         }
-        
-        
         var index = indexPath.row
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "trainCell") as! TrainCell
-        var text:String = self.trainName[index]
-        cell.setText(text:text )
+        cell.setText(text:self.trainName[index] )
         
         return cell
     }

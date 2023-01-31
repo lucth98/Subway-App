@@ -11,113 +11,7 @@ import Foundation
 
 class TrainAPI{
     var baseUrl = "https://www.wienerlinien.at/ogd_realtime/monitor?diva="
-    
-    
- 
-    
-    private func convertAnyToData(var input: Any)->Data?{
-        if let jsonData = try? JSONSerialization.data(withJSONObject:input){
-          
-            return jsonData
-        }else{
-          
-            return nil
-        }
-    }
-    
-    
-    private func convertAnyToArray(input:Any)->[Any]?{
-        if var convertet = convertAnyToData(var: input){
-            do{
-                if    var dictionaryFromData = try JSONSerialization.jsonObject(with: convertet, options: []) as? [Any]{
-                    return dictionaryFromData 
-                }
-                 
-                }
-            catch{
-               print(" \(error)")
-            }
-        }
-            return nil
-    }
-    
-    
-    
-    private func convertAnyToDictonary(input:Any)->[String:Any]?{
-        if var convertet = convertAnyToData(var: input){
-            do{
-                if    var dictionaryFromData = try JSONSerialization.jsonObject(with: convertet, options: []) as? [String:Any]{
-                    return dictionaryFromData
-                }
-                 
-                }
-            catch{
-               print(" \(error)")
-            }
-        }
-            return nil
-    }
-    
-    
-    
-    func decode(data:Data){
-        do{
-            var dictionaryFromJSON = try JSONSerialization.jsonObject(with: data, options: []) //as! [String:Any]
-            print(type(of: dictionaryFromJSON))
-            if var object = dictionaryFromJSON as? [String:Any]{
-                print("is dic")
-                print(object.count)
-                
-                
-                var dataAny = object["data"]
-                print(type(of: dataAny))
-                
-                if var dataDecodet = convertAnyToDictonary(input: dataAny){
-                    print(type(of: dataDecodet))
-                    var monitorAny = dataDecodet["monitors"]
-                    print(type(of: monitorAny))
-                    print(monitorAny)
-                    
-                    if var monitorDecodet = convertAnyToDictonary(input: monitorAny){
-                       print("monitor")
-                        print(type(of: monitorDecodet))
-                    }else{
-                        print("monitor is nil")
-                    }
-                    
-                }
-                
-                /*
-                if var dataSection = convertAnyToData(var: dataAny){
-                    print(type(of: dataSection))
-                    var dictionaryFromData = try JSONSerialization.jsonObject(with: dataSection, options: []) as? [String:Any]
-                    print(type(of: dictionaryFromData))
-                    
-                    var monitors = dictionaryFromData?["monitors"]
-                    print(type(of: monitors))
-                    
-                    
-                    
-                    
-                    
-                }
-                 */
-                
-                
-                
-            } else if var object = dictionaryFromJSON as? [Any]{
-                print("is array")
-            }else{
-                print("error decode")
-            }
-            
-            
-        }catch{
-            print("caught: \(error)")
-        }
-    }
-    
-    
+
     func getTrains(diva:Int , _ completionHandler:@escaping (TrainData?,NetworkError?)->Void){
         
         var urlString = baseUrl + diva.description
@@ -131,13 +25,11 @@ class TrainAPI{
             var errorResult: NetworkError?
             var result:TrainData?
             
-            
             print("data:")
             print(data ?? "no Data")
             
             let stringValue = String(decoding: data ?? Data(), as: UTF8.self)
             print(stringValue)
-            
             
             print("response:")
             print(response ?? "no Response")
@@ -196,15 +88,5 @@ class TrainAPI{
         }
         
         dataTask.resume()
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
 }
